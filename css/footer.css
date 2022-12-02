@@ -1,0 +1,13 @@
+.footer {
+	background: transparent;
+	box-shadow: none;
+	padding: 0;
+	margin-bottom: 30px;
+}
+.footer label{
+	float: right;
+	background: transparent;
+	padding-right: 40px;
+	color: #C7CBD7;
+}
+

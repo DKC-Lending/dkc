@@ -1,0 +1,127 @@
+.user-card{
+	background-color: white;
+	margin-left: 90px;
+	margin-right:10px;
+	box-shadow: var(--shadow3);
+	border-radius: 5px;
+	margin-bottom: 40px;
+	padding-top: 20px;
+}
+
+
+.user-card div{
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.user-card div div{
+	padding: 10px;
+	width: 100%;
+	display: block;
+	
+}
+
+.user-card div div div{
+	position: relative;
+	width: 100%;
+}
+.user-card div div div button{
+	float: right;
+	margin-top: 20px;
+	margin: 10px;
+	border: 0;
+	padding:10px 20px;
+	color: white;
+	border-radius: 5px;
+}
+
+
+
+.user-card div div div button:nth-child(1){
+	background-color: var(--primary);
+}
+.user-card div div div button:nth-child(2){
+	background-color: var(--secondary);
+}
+.user-card div div div button:hover{
+	color: black;
+	background-color: rgb(179, 193, 199);
+	transition-duration: 0.2s;
+}
+
+
+.user-card div img{
+	height: 150px;
+	border-radius: 5px;
+	margin-right: 20px;
+	margin-left: 10px;
+}
+
+
+.message-panel{
+	position: fixed; /* or absolute */
+	top: 30%;
+	left: 50%;
+	height: auto;
+	z-index: 5;
+	width: auto;
+	margin-top: -100px;
+	margin-left: -200px;
+	background-color: white;
+	box-shadow: rgba(26, 9, 85, 0.123) 0px 0px 10px;
+}
+.message-panel section{
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+}
+
+.message-panel textarea{
+	width: 250px;
+	height: 50px;
+	max-height: 200px;
+	max-width: 400px;
+}
+
+.crossbutton{
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}
+
+.cellChecker{
+box-shadow: var(--shadow3);
+	margin: 10px;	margin-left: 90px;
+	max-width: 100%;
+	overflow-x: auto;
+	background-color: white;
+	padding: 10px;
+	padding-bottom: 30px;
+	border-radius: 5px;
+}
+
+.cellChecker div{
+	display: flex;
+	justify-content: space-between;
+	
+	
+}
+
+.cellChecker div div{
+
+text-align: center;
+display: block;
+min-width: 80px;
+}
+.cellChecker div div p{
+	font-size: 13px;
+}
+.cellChecker div div input{
+	height: 30px;
+	width: 30px;
+}
+.dashboard-holder{
+	padding: 0px 40px;
+}

@@ -1,0 +1,36 @@
+[11-Aug-2022 13:28:58 America/New_York] PHP Warning:  Undefined variable $data in /home/riazhwtz/dkcportal.riazorsolutions.com/webhook.php on line 12
+[11-Aug-2022 13:35:54 America/New_York] PHP Warning:  Undefined variable $data in /home/riazhwtz/dkcportal.riazorsolutions.com/webhook.php on line 12
+[11-Aug-2022 13:36:08 America/New_York] PHP Warning:  Undefined variable $data in /home/riazhwtz/dkcportal.riazorsolutions.com/webhook.php on line 12
+[11-Aug-2022 14:00:46 America/New_York] PHP Warning:  Undefined variable $data in /home/riazhwtz/dkcportal.riazorsolutions.com/webhook.php on line 12
+[11-Aug-2022 14:05:03 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:27 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:28 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:28 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:28 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:29 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:29 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:30 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:30 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:05:30 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:08:14 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:08:15 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:08:15 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:08:15 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:08:16 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[11-Aug-2022 14:08:16 America/New_York] PHP Warning:  file_get_contents(./people.txt): Failed to open stream: No such file or directory in /home/riazhwtz/dkcportal.riazorsolutions.com/getwebhook.php on line 2
+[12-Aug-2022 17:44:58 America/New_York] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1) : eval()'d code:1
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1) : eval()'d code(1): findSqlData()
+#1 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1): eval()
+#2 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29): eval()
+#3 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(32): click()
+#4 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1) : eval()'d code on line 1
+[29-Oct-2022 15:00:40 America/New_York] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1) : eval()'d code:203
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1) : eval()'d code(361): findDirs()
+#1 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1): eval()
+#2 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29): eval()
+#3 /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(32): click()
+#4 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/clients/include.php(29) : eval()'d code(1) : eval()'d code on line 203

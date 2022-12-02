@@ -1,0 +1,314 @@
+body::-webkit-scrollbar {
+    width: 0.1em;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    padding: 0px 0px;
+    margin-right: 40px;
+}
+
+#main-container .top-head-txt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: 80px;
+}
+
+#main-container .top-head-txt p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.sub-heading {
+    font-size: 12px;
+    color: #A6ACBE;
+    font-weight: normal;
+}
+
+.grid-container {
+    margin-left: 80px;
+    overflow-x: scroll;
+}
+
+.grid-container::-webkit-scrollbar {
+    width: 0.1em;
+}
+
+.grid-container::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+
+.grid-container::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+}
+
+.card {
+    grid-area: card;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+}
+
+.card1 {
+    grid-area: card1;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    max-width: 400px;
+}
+
+.card2 {
+    grid-area: card2;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    max-width: 400px;
+}
+
+.card3 {
+    grid-area: card3;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    max-width: 400px;
+}
+
+.borrower-card {
+    grid-area: borrower;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.borrower-card h4 {
+    text-align: left;
+}
+
+.borrower-card table tr th {
+    font-weight: bold;
+}
+
+.card4 {
+    max-height: 440px;
+    grid-area: card4;
+}
+
+.card4 section {
+    box-shadow: none;
+}
+
+.card5 {
+    grid-area: card5;
+    max-height: 440px;
+}
+
+.summary-wrapper {
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.summary-wrapper::-webkit-scrollbar {
+    width: 0.1em;
+}
+
+.summary-wrapper::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+
+.summary-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 'card card1 card2 card3' 'borrower borrower borrower borrower' 'card4 card4 card4 card5' 'card4 card4 card4 card5' 'footer footer footer footer';
+    padding: 10px;
+    grid-gap: 40px;
+}
+
+.grid-container>div {
+    background: white;
+    padding: 35px;
+    border-radius: 5px;
+    box-shadow: var(--shadow3);
+}
+
+.grid-container>div .icon {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cmonth {
+    background: #F8F2F8;
+}
+
+#tgain {
+    background: #F2F8F2;
+    color: #4FE594;
+}
+
+#tinvest {
+    background: #F8F6F2;
+}
+
+#rate {
+    background: #F2F7F8;
+}
+
+.total {
+    margin-left: 20px;
+}
+
+.total label {
+    color: #CACACA;
+    font-size: 13px;
+}
+
+#cmonth-money,
+#tgain-money,
+#tinvest-money,
+#rate-money {
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+
+.grid-container>.card4>section {
+    padding: 10px;
+    max-width: 2fr;
+    margin: 0;
+    height: 290px;
+}
+
+.grid-container>.card5 {
+    padding: 10px;
+    min-width: 250px;
+}
+
+.card5 .top-txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.card5 .top-txt label:nth-of-type(1) {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card5 canvas {
+    background: transparent url('../img/misc/pie.png') no-repeat center;
+    background-size: 60px;
+    width: 50px;
+}
+
+.acard {
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.acard div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acard div img {
+    height: 32px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.acard div label {
+    color: grey;
+    font-size: 14px;
+    color: #ABB2B9;
+    font-weight: normal;
+}
+
+.acard label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.chart-list ul {
+    list-style-type: none;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.chart-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.label-holder {
+    display: flex;
+    align-items: center;
+    min-width: 140px;
+    float: right;
+}
+
+.label-holder label {
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.chart-list li label {
+    color: #A6ACBE;
+}
+
+.chart-list div {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.total-chart {
+    background-color: #6F52ED;
+}
+
+.interest-chart {
+    background-color: #33D69F;
+}
+
+.invest-chart {
+    background-color: #FF7A00;
+}
+
+#dough-chart {
+    margin-top: 50px;
+}
+
+.bottom-body {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}

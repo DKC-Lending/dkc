@@ -1,0 +1,12 @@
+[07-Sep-2022 14:09:33 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/riazhwtz/dkcportal.riazorsolutions.com/__MACOSX/library/twilio-php-main/src/Twilio/Rest/Rest.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/__MACOSX/library/twilio-php-main/src/Twilio/Rest/Rest.php on line 2
+[07-Sep-2022 14:09:34 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/riazhwtz/dkcportal.riazorsolutions.com/__MACOSX/library/twilio-php-main/src/Twilio/Rest/Rest.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/__MACOSX/library/twilio-php-main/src/Twilio/Rest/Rest.php on line 2
+[07-Sep-2022 14:09:35 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/riazhwtz/dkcportal.riazorsolutions.com/__MACOSX/library/twilio-php-main/src/Twilio/Rest/Rest.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/__MACOSX/library/twilio-php-main/src/Twilio/Rest/Rest.php on line 2

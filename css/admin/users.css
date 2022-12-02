@@ -1,0 +1,152 @@
+.main-container{
+	padding: 0px;
+}
+.body-holder{
+	margin-left: 80px;
+	background: white;
+	padding: 10px;
+	max-width: 50%;
+	box-shadow: 0px 2px 2px #E2E9E9;
+}
+
+.userUpdate{
+	position: fixed; /* or absolute */
+	top: 30%;
+	left: 50%;
+	height: auto;
+	width: 900px;
+	width: 400px;
+	margin-top: -100px;
+	margin-left: -200px;
+	background-color: white;
+	box-shadow: rgba(26, 9, 85, 0.123) 0px 0px 10px;
+}
+
+.userUpdate section{
+	padding: 20px;
+}
+.userUpdate section div form{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+} 
+
+
+.crossbutton{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+.body-holder section .title{
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.body-holder section .usercard{
+	padding: 10px 60px;
+	align-items: center;
+	display: grid;
+	grid-column-gap: 20px;
+	grid-row-gap: 5px;
+	grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+	grid-template-rows: 1fr 1fr 1fr;	
+}
+
+.body-holder section .usercard p{
+	display: flex;
+	color: var(--primary);
+	max-width: 270px;
+	justify-content: space-between;
+	align-items: center;
+	text-align: left;
+}
+
+
+
+
+@media only screen and (min-width: 1150px) {
+	.body-holder{max-width: 60%;}
+}
+@media only screen and (min-width: 1350px) {
+	.body-holder{max-width: 50%;}
+}
+@media only screen and (min-width: 1600px) {
+	.body-holder{max-width: 60%;}
+}
+@media only screen and (min-width: 1620px) {
+	.body-holder{max-width: 55%;}
+}
+@media only screen and (min-width: 1865px) {
+	.body-holder{max-width: 50%;}
+}
+
+
+.body-holder section .usercard p .user-input{
+	height: 30px;
+	background: rgba(196, 196, 196, 0.14);
+	border: solid 1px var(--color2);
+	width: auto;
+	border-radius: 5px;
+}
+
+form{
+	padding-bottom: 10px;
+}
+
+form .solid-btn{
+	margin-top: 20px;
+	padding:10px 50px;
+}
+
+.user-table{	
+	background: white;
+	margin-left: 80px;
+	margin-top: 0px;
+	text-align: center;
+	width: 90%;
+	border-collapse: collapse;
+}
+
+.user-table th{
+	background: rgba(201, 206, 214, 0.64);
+	border:	solid 1px black;
+	padding: 8px;
+}
+
+.user-table td{
+	padding: 8px;
+	border:	solid 1px black;	
+	text-decoration: none;
+	text-align:left;
+	
+
+}
+.user-table td a{
+ color: rgb(53, 53, 233);
+ text-decoration: none;
+}
+
+.search-bar{
+	margin-top: 50px;
+}
+
+.search-box{
+	min-width: 250px;
+	max-width: 350px;
+	height: 40px;
+	border: 0;
+	background-color: var(--primary);
+	color: white;
+	outline: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	margin-left: 80px;
+}
+
+.search-btn{
+	height: 40px;
+	width: 90px;
+	border: none;
+	background-color: var(--secondary);
+	color: white;
+}

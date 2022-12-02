@@ -1,0 +1,337 @@
+[15-Dec-2021 10:23:34 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/intresteduser.php on line 3
+[15-Dec-2021 10:23:38 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/clearinterest.php on line 3
+[15-Dec-2021 10:23:38 America/New_York] PHP Warning:  Undefined array key "pid" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/clearinterest.php on line 4
+[15-Dec-2021 10:23:40 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/changeinterest.php on line 9
+[15-Dec-2021 10:23:40 America/New_York] PHP Warning:  Undefined array key "offer" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/changeinterest.php on line 10
+[15-Dec-2021 10:23:40 America/New_York] PHP Warning:  Undefined array key "pid" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/changeinterest.php on line 11
+[15-Dec-2021 10:23:40 America/New_York] PHP Warning:  Undefined array key "link" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/changeinterest.php on line 12
+[15-Dec-2021 10:23:40 America/New_York] PHP Warning:  Trying to access array offset on value of type null in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/changeinterest.php on line 19
+[15-Dec-2021 10:23:40 America/New_York] PHP Warning:  Trying to access array offset on value of type null in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/changeinterest.php on line 20
+[15-Dec-2021 10:23:45 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[15-Dec-2021 10:23:45 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_fetch_assoc()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[15-Dec-2021 10:23:49 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[15-Dec-2021 10:23:49 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_fetch_assoc()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[15-Dec-2021 10:24:02 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:04 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:05 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:05 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:07 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:07 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:11 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:12 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[15-Dec-2021 10:24:12 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[30-May-2022 13:24:49 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:24:49 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:24:51 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:24:51 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:25:17 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:25:17 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:26:24 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:26:24 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:26:32 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:26:32 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:27:00 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:27:00 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:27:03 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:27:03 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:27:05 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:27:05 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:27:05 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:27:05 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:27:06 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:27:06 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:28:44 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:28:44 America/New_York] PHP Warning:  Undefined array key "uname" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 3
+[30-May-2022 13:28:44 America/New_York] PHP Warning:  Undefined array key "pw" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 4
+[30-May-2022 13:28:44 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:28:48 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/i_conn.php on line 2
+[30-May-2022 13:28:48 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 3
+[30-May-2022 13:28:48 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php:8
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php(8): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 8
+[30-May-2022 13:28:49 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:30:17 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:30:17 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:30:22 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:30:22 America/New_York] PHP Warning:  Undefined array key "uname" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 3
+[30-May-2022 13:30:22 America/New_York] PHP Warning:  Undefined array key "pw" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 4
+[30-May-2022 13:30:22 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:30:28 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/u_conn.php on line 2
+[30-May-2022 13:30:28 America/New_York] PHP Warning:  Undefined array key "uname" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 3
+[30-May-2022 13:30:28 America/New_York] PHP Warning:  Undefined array key "pw" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 4
+[30-May-2022 13:30:28 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 7
+[30-May-2022 13:32:23 America/New_York] PHP Warning:  Undefined array key "uname" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 3
+[30-May-2022 13:32:23 America/New_York] PHP Warning:  Undefined array key "pw" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/login.php on line 4
+[30-May-2022 13:40:00 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/b_conn.php on line 2
+[30-May-2022 13:40:00 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:6
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(6): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 6
+[30-May-2022 13:40:10 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/i_conn.php on line 2
+[30-May-2022 13:40:10 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/investment.php:6
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/investment.php(6): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/investment.php on line 6
+[30-May-2022 13:40:10 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/i_conn.php on line 2
+[30-May-2022 13:40:10 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php:8
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php(8): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/piedata.php on line 8
+[30-May-2022 13:40:20 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'riazhwtz_trialdkc'@'localhost' (using password: YES) in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/b_conn.php on line 2
+[30-May-2022 13:40:20 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:6
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(6): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 6
+[30-May-2022 13:48:01 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:01 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:03 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:03 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:29 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:29 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:58 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:48:58 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:08 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:08 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:08 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:23 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:23 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:23 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:24 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:24 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:24 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:24 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:24 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:24 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:25 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:25 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:25 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 3
+[30-May-2022 13:49:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:49:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:23 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:23 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:25 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:26 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:26 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:26 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:26 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:28 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:28 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:37 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:37 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:38 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:38 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:38 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:38 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:38 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:50:38 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:51:12 America/New_York] PHP Warning:  Undefined variable $sum_conn in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:51:12 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 7
+[30-May-2022 13:52:01 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 8
+[30-May-2022 13:52:02 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 8
+[30-May-2022 13:52:25 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 5
+[30-May-2022 13:52:26 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 5
+[30-May-2022 13:52:26 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 5
+[30-May-2022 13:52:42 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 5
+[30-May-2022 13:52:53 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 5
+[30-May-2022 13:53:19 America/New_York] PHP Fatal error:  Uncaught Error: Object of class mysqli could not be converted to string in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/mobile/borrower.php on line 5

@@ -1,0 +1,29 @@
+[16-Dec-2021 04:19:19 America/New_York] PHP Warning:  Undefined array key "fname" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 3
+[16-Dec-2021 04:19:19 America/New_York] PHP Warning:  Undefined array key "phone" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 4
+[16-Dec-2021 04:19:19 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 5
+[16-Dec-2021 04:19:19 America/New_York] PHP Warning:  Undefined array key "password" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 6
+[16-Dec-2021 04:19:19 America/New_York] PHP Warning:  Undefined variable $conn in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 9
+[16-Dec-2021 04:19:19 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php:9
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php(9): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 9
+[16-Dec-2021 04:20:03 America/New_York] PHP Warning:  Undefined variable $conn in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 9
+[16-Dec-2021 04:20:03 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php:9
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php(9): mysqli_query()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 9
+[16-Dec-2021 05:10:39 America/New_York] PHP Warning:  Undefined array key "fname" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 4
+[16-Dec-2021 05:10:39 America/New_York] PHP Warning:  Undefined array key "phone" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 5
+[16-Dec-2021 05:10:39 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 6
+[16-Dec-2021 05:10:39 America/New_York] PHP Warning:  Undefined array key "password" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 7
+[16-Dec-2021 05:17:55 America/New_York] PHP Warning:  Undefined array key "fname" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 4
+[16-Dec-2021 05:17:55 America/New_York] PHP Warning:  Undefined array key "phone" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 5
+[16-Dec-2021 05:17:55 America/New_York] PHP Warning:  Undefined array key "user" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 6
+[16-Dec-2021 05:17:55 America/New_York] PHP Warning:  Undefined array key "password" in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/signup.php on line 7
+[21-Dec-2021 01:38:49 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/getdata.php:7
+Stack trace:
+#0 /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/getdata.php(7): mysqli_fetch_assoc()
+#1 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/gyankala/getdata.php on line 7

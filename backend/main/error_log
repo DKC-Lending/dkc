@@ -1,0 +1,2 @@
+[05-Feb-2022 06:37:13 America/New_York] PHP Warning:  Undefined array key "datas" in /home/riazhwtz/dkcportal.riazorsolutions.com/backend/main/update_cell.php on line 7
+[05-Feb-2022 06:37:13 America/New_York] PHP Warning:  foreach() argument must be of type array|object, null given in /home/riazhwtz/dkcportal.riazorsolutions.com/backend/main/update_cell.php on line 18

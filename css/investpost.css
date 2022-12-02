@@ -1,0 +1,134 @@
+.preview-holder{
+	background: white;
+	background-image: url("../img/logo/alphalogo1.PNG");	
+	background-position: center;
+	background-size:auto;
+	background-repeat:no-repeat;
+	padding: 80px 50px;	
+	overflow-y: hidden;
+	height: 500px;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: var(--shadow2) ;
+    transition-duration: 0.4s;
+}
+
+.preview-holder section{
+	overflow-y: hidden;
+	display: grid;
+	height: 480px;
+	grid-template-columns: 1fr 1.8fr;
+	grid-gap: 40px;
+    transition-duration: 0.4s;
+}
+
+
+.preview-holder section .img-holder{
+	display: grid;
+	max-height: 140px;
+	grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+}
+
+.preview-holder section .img-holder img{
+	width: 100%;
+	border-radius: 5px;
+}
+
+.solid-btn{
+    width: 100%;
+    text-decoration: none;
+    margin: 0;
+}
+
+.preview-holder section .txt-holder{
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.txt-holder p{
+	margin: 0;
+	font-family: poppins;
+	font-weight: bolder;
+	color: rgba(0, 0, 0, 0.8);
+	padding: 3px 0px;
+	font-size: 14px;
+}
+
+.txt-holder p label{
+	font-weight: normal;
+}
+
+.txt-holder .title{
+	font-family: Poppins;
+	font-weight: bold;
+	font-size: 18px;
+	margin:20px 0px;
+}
+
+.txt-holder .htitle{
+	font-family: Poppins;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.edit-btn{
+	background-color: transparent;
+	color: rgb(8, 112, 209);
+	border: none;
+	position: absolute;
+	font-size: 20px;
+	top: 23px;
+	right: 130px;
+}
+
+.sold-btn{
+	background-color: transparent;
+	color: rgb(24, 209, 8);
+	border: none;
+	position: absolute;
+	font-size: 20px;
+	top: 30px;
+	right: 80px;
+}
+
+
+.trash-btn{
+	background-color: transparent;
+	color: rgb(201, 47, 47);
+	border: none;
+	position: absolute;
+	font-size: 20px;
+	top: 30px;
+	right: 30px;
+}
+
+
+.togglebtn{
+	height: 30px;
+	width: 30px;
+	border: none;
+	background: var(--secondary);
+	color: white;
+	border-radius: 50%;
+	margin-top: 30px;
+    transition: 0.2s;
+}
+
+.togglebtn:active{
+	border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.sold-watermark{
+	height: 85%;
+	width: 80%;
+	position: absolute;
+	overflow:hidden;
+	background-image: url('../img/misc/sold.svg');
+	background-position: center;
+	background-size:contain;
+	background-repeat:no-repeat;
+	opacity: 0.5;
+}
+

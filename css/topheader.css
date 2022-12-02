@@ -1,0 +1,40 @@
+.top-head-txt{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px;
+		margin-left: 80px;
+	}
+
+.top-head-txt p{
+		font-size: 30px;
+		font-weight: bold;
+
+		}
+
+.sub-heading{
+			font-size: 12px;
+			color: #A6ACBE;
+			font-weight: normal;
+		}
+
+.top-head-txt-center{
+		display: flex;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		padding: 10px;
+		margin-left: 80px;
+	}
+
+.top-head-txt-center p{
+		font-size: 30px;
+		font-weight: bold;
+		}
+
+.sub-heading{
+			font-size: 12px;
+			color: #A6ACBE;
+			font-weight: normal;
+		}
+

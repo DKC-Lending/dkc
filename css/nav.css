@@ -1,0 +1,88 @@
+
+#navigation{
+	position: fixed;
+	max-width: 80px;
+	width: 80px;
+	height:100%;
+	background-color: var(--primary);
+	z-index:10;
+	
+}
+
+#navigation .web-logo{
+	width: 80px;
+	background: black;
+	margin-top: 5px;
+}
+
+#navigation ul{
+	list-style-type: none;
+	color: #D6D6D6;
+	margin-top: 50px;
+	padding: 0;
+}
+
+#navigation ul li{
+	margin: 30px 0px;
+	padding: 0px;
+	position: relative;
+ 	
+}
+
+li #noti-alert{
+	background-color: rgb(155, 39, 39);
+	color: white;
+	height: 13px;
+	width: 13px;
+	font-size: 10px;
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	border-radius: 50%;
+}
+
+a{
+	color: #D6D6D6;;
+}
+#navigation ul li :hover{
+	background: white;
+	padding: 8px;
+	border-radius: 5px;
+	font-weight: bold;
+	color: #A94EEF;
+	transition-duration: 0.2s;
+}
+
+#navigation ul li > span:hover{
+	background-color: rgb(155, 39, 39);
+	padding: 0;
+	
+}
+
+#navigation hr{
+	width: 50px;
+	border: none;
+	height: 490px;
+	display: hidden;
+}
+
+#navigation .setting{
+	color:  #D6D6D6;
+	position:fixed;
+	bottom: 50px;
+	padding: 0;
+	left: 30px;
+	overflow: hidden;
+    transition-duration: 2s;
+    transition-property: transform;
+}
+
+#navigation .setting :hover{
+	color: purple;
+	transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}

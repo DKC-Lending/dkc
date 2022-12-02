@@ -1,0 +1,125 @@
+body{
+		padding: 0;
+		margin: 0;
+		font-family: var(--font);
+		height: 100%;
+		width: 100%;
+		background: url("../img/login/loginsvg.png");
+		background-repeat: no-repeat;
+	  	background-attachment: fixed;
+	  	background-size: 110vh;
+	  	background-position: left bottom; 
+		display: grid;
+		grid-template-rows: 1fr 5fr 0.5fr;
+	}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+.header{
+	width: 100%;
+	max-height: 50px;
+}
+
+.header-content{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 40px;
+	background: var(--primary);
+}
+
+.header img{
+	height: 50px;
+}
+
+
+main{
+	height: 100%;
+	width: 100%;
+}
+
+.head{
+	font-size: 20px;
+	font-weight: bold;
+}
+.subhead{
+	margin-bottom: 30px;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+.image-holder{	
+	height: 100%;
+	width: 100%;
+}
+
+
+.login-box{
+	height: 100%;
+	max-width: 400px;
+	float: right;
+	margin: 50px 40px;
+	
+}
+
+.login-content{
+	background: #FFFFFF;
+	padding: 60px 30px;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 40px;
+}
+
+.input-holder{
+	padding: 10px;
+	align-items: center;
+	margin: 15px 0px;
+	outline: none;
+	border: none;
+	background: var(--txtbox);
+	border-radius: 43px;
+	width: auto;
+}
+
+
+.input{
+	outline: none;
+	height: 30px;
+	border: none;
+	background: transparent;
+	margin:0px 10px ;
+}
+
+.input::placeholder{
+	color: #9B9B9B;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#captcha{
+	 transform:scale(0.77);
+    transform-origin:0 0;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.btn-holder{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.solid-btn{
+	margin: 0;
+	width: auto;
+	padding: 10px 45px;
+	cursor: pointer;
+}
+
+.border-btn{
+	margin: 0;
+	width: auto;
+	padding: 10px 10px;
+	cursor: pointer;
+}

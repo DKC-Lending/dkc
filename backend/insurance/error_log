@@ -1,0 +1,8 @@
+[13-Jul-2022 13:17:56 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function print_f() in /home/riazhwtz/dkcportal.riazorsolutions.com/backend/insurance/addmonth.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/backend/insurance/addmonth.php on line 18
+[13-Jul-2022 13:17:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function print_f() in /home/riazhwtz/dkcportal.riazorsolutions.com/backend/insurance/addmonth.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/riazhwtz/dkcportal.riazorsolutions.com/backend/insurance/addmonth.php on line 18

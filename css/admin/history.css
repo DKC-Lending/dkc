@@ -1,0 +1,95 @@
+.history-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: rgb(48, 48, 48);
+}
+
+section {
+    background-color: var(--primary);
+    width: 40%;
+    margin-top: 50px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+}
+
+section div {
+    display: flex;
+}
+
+.history-frame section div a {
+    height: 50px;
+    width: 250px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background-color: var(--secondary);
+    border-radius: 10px 0px 0px 10px;
+    margin: 10px 0px;
+}
+
+section div button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    margin: 10px 0px;
+    background-color: rgb(196, 52, 52);
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+}
+
+section div a:hover {
+    box-shadow: -5px 0px 3px rgba(109, 108, 108, 0.329);
+}
+
+section div button:active {
+    background-color: rgb(168, 50, 50);
+    transition-duration: 0.2s;
+}
+
+section div button:hover {
+    box-shadow: 5px 0px 3px rgba(109, 108, 108, 0.329);
+    transition-duration: 0.2s;
+}
+
+.table-month {
+    max-width: 85vw;
+    overflow-x: auto;
+}
+
+#month {
+    border-collapse: collapse;
+}
+
+#month th {
+    background-color: var(--tablecolor);
+    height: 50px;
+    min-width: 80px;
+    text-align: center;
+    border: solid 1px black;
+}
+
+#month td {
+    height: 50px;
+    min-width: 80px;
+    text-align: center;
+    border: solid 1px black;
+    padding: 0px 15px;
+    font-size: 15px;
+}
+
+#month tr:nth-child(even) {
+    background-color: var(--tableborder);
+}

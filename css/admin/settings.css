@@ -1,0 +1,163 @@
+.content{
+	padding: 0px 40px;
+}
+
+.portal-title{
+	grid-area: card1;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0px 2px 2px #E2E9E9;
+}
+
+.portal-tagline{
+	grid-area: card2;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0px 2px 2px #E2E9E9;
+}
+
+.portal-logo{
+	grid-area: card3;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0px 2px 2px #E2E9E9;
+}
+
+.portal-adminlogo{
+	grid-area: card4;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0px 2px 2px #E2E9E9;
+}
+
+.help{
+	grid-area: card5;
+	background: white;
+	border-radius: 5px;
+	padding: 0px 0px 50px 0px;
+	box-shadow: 0px 2px 2px #E2E9E9;
+}
+
+.help div{
+	padding: 20px;
+
+}
+
+.body-holder{
+	margin-left: 80px;
+	padding: 10px;
+	display: grid;
+	grid-template-areas: 
+	 'card1 card1 card1 card5'
+     'card2 card2 card2 card5'
+     'card3 card3 card3 card5'
+     'card4 card4 card4 card5';
+     grid-row-gap: 20px;
+     grid-column-gap: 40px;
+}
+.help hr{
+	width: 50%;
+	float: left;
+}
+
+.help ol{
+	float: left;
+	color: rgba(0, 0, 0, 0.57);
+}
+
+.portal-card{
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 60px 1fr auto;
+	grid-column-gap: 25px;
+	align-items: center;
+}
+
+.icon-holder{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+	width: 60px;
+	background: greenyellow;
+	border-radius: 50px;
+	background: rgba(113, 59, 219,0.05);
+}
+
+.mid img{
+	max-height: 100px;
+}
+
+section{
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-column-gap: 20px;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+
+
+section input{
+  left: 0;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  font-size: 70px;
+  cursor: crosshair;
+}
+
+section .file-holder{
+  background: rgba(196, 196,196, 0.14);
+  border: 1px solid grey;
+  color: rgba(0, 0, 0, 0.3);
+  padding: 10px 0px;
+  border-radius: 5px;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
+.portal-card .icon-holder i{
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.portal-card div label{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.input-holder{
+	width: 100%;
+	height: 40px;
+	border: none;
+	margin-top: 10px;
+	background: rgba(196, 196,196, 0.14);
+	border: solid 1px grey ;
+	padding: 0px 10px 0px 10px;
+	border-radius: 5px;
+}
+
+.setting-input{
+	width: 100%;
+	height: 40px;
+	background: transparent;
+	outline: none;
+	border: none;
+}
+
+
+.help-title{
+	font-size:18px ;
+	font-weight: bold;
+	color: var(--color1);
+}
+
+.solid-btn{
+	padding: 0px 30px;
+}

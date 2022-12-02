@@ -1,0 +1,179 @@
+.content{
+	padding: 0px 40px;
+}
+
+.toggle{
+	margin: 0;
+	display: flex;
+	padding: 0;
+}
+
+.toggle a{
+	font-size: 20px;
+	margin: 0px;
+	padding: 3px 15px;
+	white-space: nowrap;
+}
+
+.toggle .edit{
+	background-color: var(--primary);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+}
+
+.toggle .preview{
+	background-color: white;
+	color: var(--primary);
+	box-shadow:var(--shadow1);
+	border: none;
+	padding: 10px 20px;
+}
+
+.body-holder{
+	margin-left: 80px;
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	grid-gap: 90px;
+	transition-duration: 0.2s;
+}
+
+.body-holder .input-holder{
+	background: white;
+	border-radius: 10px;
+	box-shadow:var(--shadow2) ;
+}
+
+
+.body-holder .input-holder section{
+	padding: 30px 40px;
+}
+
+.body-holder .input-holder section form div{
+	min-height: 40px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+	background: rgba(196, 196, 196, 0.14);
+	border-radius: 5px;
+	padding: 0px 20px;
+	border:solid 1px #c4c4c4 ;
+}
+
+textarea,.body-holder .input-holder section form div input{
+	height: 100%;
+	width: 100%;
+	background: transparent;
+	outline: none;
+	border: none;
+}
+
+.alert-section{
+	display: flex;
+	justify-content: space-around;
+	
+}
+.alert-section	.container {
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 12px;
+		cursor: pointer;
+		font-size: 17px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	  }
+	  
+	  /* Hide the browser's default checkbox */
+.alert-section	 .container input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	  }
+	  
+	  /* Create a custom checkbox */
+.alert-section	  .checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 25px;
+		width: 25px;
+		background-color: #eee;
+	  }
+	  
+	  /* On mouse-over, add a grey background color */
+.alert-section	  .container:hover input ~ .checkmark {
+		background-color: #ccc;
+	  }
+	  
+	  /* When the checkbox is checked, add a blue background */
+.alert-section	  .container input:checked ~ .checkmark {
+		background-color: #2196F3;
+	  }
+	  
+	  /* Create the checkmark/indicator (hidden when not checked) */
+.alert-section	  .checkmark:after {
+		content: "";
+		position: absolute;
+		display: none;
+	  }
+	  
+	  /* Show the checkmark when checked */
+.alert-section	  .container input:checked ~ .checkmark:after {
+		display: block;
+	  }
+	  
+	  /* Style the checkmark/indicator */
+.alert-section  .container .checkmark:after {
+		left: 9px;
+		top: 5px;
+		width: 5px;
+		height: 10px;
+		border: solid white;
+		border-width: 0 3px 3px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	  }
+
+
+input::placeholder, textarea::placeholder{
+	color: var(--primary);
+	opacity: 0.37;
+	font-weight: bold;
+}
+
+textarea{
+	min-height: 80px;
+}
+
+.body-holder .input-holder section form p{
+	font-weight: bold;
+}
+
+.body-preview{
+	margin-left: 80px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 30px;
+	grid-template-rows: auto;
+	grid-row-gap: 30px;
+	transition-duration: 0.2s;
+	display: none;
+}
+
+.edit-btn{
+	background-color: transparent;
+	color: rgb(8, 112, 209);
+	border: none;
+	position: absolute;
+	font-size: 20px;
+	top: 23px;
+	right: 130px;
+}
+
