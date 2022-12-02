@@ -168,7 +168,7 @@
                             <td id="latefee">0.00</td>
                         </tr>
                         <tr id="extra-wrapper">
-                            <td>Extra Fee</td>
+                            <td>Prepayment Penalty</td>
                             <td>$</td>
                             <td id="extrafee">0.00</td>
                         </tr>

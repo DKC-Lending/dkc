@@ -1403,7 +1403,7 @@ function get_diff($d1, $d2)
                             <input type="text" id="payoff-lxtension" name="lextension" placeholder="Loan Extension Fee" onchange="payoffprorated()" required />
                         </div>
                         <div>
-                            <label>Extra fee</label>
+                            <label>Prepayment penalty</label>
                             <input type="text" id="payoff-extra" name="extra" placeholder="Extra Fee" onchange="payoffprorated()" value="0.00" required />
                         </div>
                         

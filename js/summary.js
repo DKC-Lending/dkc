@@ -54,6 +54,8 @@ function cutloan(x) {
     tempp4 = paidoffinvestor(x.p4amt, x.p4rate);
     tempservice = paidoffinvestor(x.servicingamt, x.servicingrate);
     tempyield = paidoffinvestor(x.yieldamt, x.yieldrate)
+    penalty = countDays(x.odate.split("-"))
+    console.log(penalty)
     $("#dkcpaidoff").val(tempdkc)
     $("#p1paidoff").val(tempp1)
     $("#p2paidoff").val(tempp2)
@@ -68,9 +70,26 @@ function cutloan(x) {
     $("#p4paidoff_").text("$" + parseFloat(tempp4).toLocaleString(undefined, { minimumFractionDigits: 2 }))
     $("#servicingpaidoff_").text("$" + parseFloat(tempservice).toLocaleString(undefined, { minimumFractionDigits: 2 }))
     $("#yieldpaidoff_").text("$" + parseFloat(tempyield).toLocaleString(undefined, { minimumFractionDigits: 2 }))
-
+    $("#payoff-extra").val(penalty);
     payoffprorated()
 
+
+}
+function countDays([month, day, year]) {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const firstDate = new Date(year, month, day);
+    [tm, td, ty] = $("#payoff-exdate").val().split("-");
+    const secondDate = new Date(ty, tm, td);
+    const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    const tloan = parseFloat($("#payoff-pbalance").val())
+    console.log(diffDays, tloan)
+    if (diffDays < 90) {
+        return (2 / 100) * tloan;
+    } else if (diffDays > 90 && diffDays < 180) {
+        return (1 / 100) * tloan;
+    } else {
+        return 0;
+    }
 
 }
 
