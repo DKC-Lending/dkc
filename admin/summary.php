@@ -1409,16 +1409,15 @@ function get_diff($d1, $d2)
                         
                     </div>
                     <div>
-                        <div>
-                            <label>Sender Fund Details</label>
-                            <textarea type="text" id="payoff-senderdetail" name="senderdetail" placeholder="Sender Details" onchange="payoffprorated()" required ></textarea> 
-                        </div>
-                        
-                        <div>
-                            <label>Final Credit Details</label>
-                            <textarea type="text" id="payoff-final" name="receiverdetail" placeholder="Final Credit Details" onchange="payoffprorated()" required ></textarea>
-                        </div>
-                        
+                         <div>
+                            <label>Send/Receive Details</label>
+                            <select id="bankdetails">
+                                <option value="dkc">DKC LENDING LLC</option>
+                                <option value="dkcfl">DKC LENDING FL LLC</option>
+                                <option value="austamerica">AustAmerica LLC</option>
+                                <option value="fct">First Capital Trusts LLC</option>
+                            </select>
+                         </div>
                     </div>
                     <br>
                     <div class="investor-paidoff-table">

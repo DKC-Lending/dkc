@@ -635,7 +635,7 @@ input::placeholder {
     text-align: left;
 }
 
-.payoff-form div div input, .payoff-form div div textarea{
+.payoff-form div div input, .payoff-form div div select{
     background-color: #F7F7F7;
     border: solid 1px #e2e2e2ce;
     height: 40px;
@@ -767,6 +767,11 @@ strong{
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.investor-paidoff-table section div:nth-child(1) label{
+    width: auto;
+    padding-right: 75px;
 }
 
 .investor-paidoff-table section div label{

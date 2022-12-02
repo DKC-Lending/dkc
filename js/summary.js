@@ -536,26 +536,47 @@ $("#main-payoff-holder").ready(function () {
 })
 
 function fillPdf() {
-    let llc = $("#llcname").val()
-    let bcol = $("#payoff-coll").val()
-    let tloan = $("#payoff-pbalance").val()
-    let accrued = parseFloat($("#payoff-ainterest").val())
-    let penalty = parseFloat($("#payoff-lxtension").val())
-    let late = parseFloat($("#payoff-latefee").val())
-    let extra = parseFloat($("#payoff-extra").val())
-    let admin = parseFloat($("#payoff-adminfee").val())
-    let record = parseFloat($("#payoff-rfee").val())
-    let attorney = parseFloat($("#payoff-afee").val())
-    let ndate = $("#payoff-exdate").val()
-    let day = ndate.split("-")[1]
-    let date = new Date(ndate.split("-")[2], ndate.split("-")[0] - 1, ndate.split("-")[1])
-    let diem = parseFloat(accrued) / parseFloat(day)
-    let grand = parseFloat(accrued) + parseFloat(penalty) + parseFloat(admin) + parseFloat(record) + parseFloat(attorney)
-    let fdate = date.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' });
-    $("#sender-detail").text($("#payoff-senderdetail").val());
-    $("#receiver-detail").text($("#payoff-final").val());
-    $("#month1").text(ndate.split("-")[0]+"/01/"+ndate.split("-")[2]);
-    $("#month2").text(ndate.replaceAll("-","/"));
+    const llc = $("#llcname").val()
+    const bcol = $("#payoff-coll").val()
+    const tloan = $("#payoff-pbalance").val()
+    const accrued = parseFloat($("#payoff-ainterest").val())
+    const penalty = parseFloat($("#payoff-lxtension").val())
+    const late = parseFloat($("#payoff-latefee").val())
+    const extra = parseFloat($("#payoff-extra").val())
+    const admin = parseFloat($("#payoff-adminfee").val())
+    const record = parseFloat($("#payoff-rfee").val())
+    const attorney = parseFloat($("#payoff-afee").val())
+    const ndate = $("#payoff-exdate").val()
+    const day = ndate.split("-")[1]
+    const date = new Date(ndate.split("-")[2], ndate.split("-")[0] - 1, ndate.split("-")[1])
+    const diem = parseFloat(accrued) / parseFloat(day)
+    const grand = parseFloat(accrued) + parseFloat(penalty) + parseFloat(admin) + parseFloat(record) + parseFloat(attorney)
+    const fdate = date.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' });
+    const details = {
+        fct: {
+            send: "Fifth Third Bank\n4105 Gulf Boulevard\nSt.Pete Beach, FL 33706\nABA No. 042000314",
+            receive: "First Capital Trusts LLC\n4506 Gulf Boulevard\nSt. Pete Beach, FL 33706\nAccount No. 7924312866"
+        },
+        dkcfl: {
+            send: "PNC Bank, N.A.\n249 Fifth Avenue, Pittsburgh, PA, 15222\nABA No. 043000096",
+            receive: "DKC Lending FL LLC\n2110 Park St\nJacksonville, FL 32204\nAccount No. 124122XXXX (Call to Verify Last 4 #s)"
+        },
+        dkc: {
+            send: "Valley National Bank\n113 E Whiting St, Tampa , FL 33602\nABA No. 021201383",
+            receive: "DKC Lending LLC\n2541 N. Dale Mabry Highway, #126\nTampa, FL 33615\nAccount No. 4253XXXX (Call to Verify Last 4 #s)"
+        },
+        austamerica: {
+            send: "Bank of America\n18350 NW 2nd Ave, Miami, FL 33619\nABA No. 063100277",
+            receive: "AustAmerica LLC\nP.O. Box 680\n1703 McMullen Booth Rd, Safety Harbor, FL 34695\nAccount No. 89811946XXXX (Call to verify last 4 digits)"
+        }
+    }
+    const detail = details[$("#bankdetails").val()]
+    console.log(detail)
+
+    $("#sender-detail").text(detail.send);
+    $("#receiver-detail").text(detail.receive);
+    $("#month1").text(ndate.split("-")[0] + "/01/" + ndate.split("-")[2]);
+    $("#month2").text(ndate.replaceAll("-", "/"));
     $("#llc").text(llc);
     $("#llc-address").text(bcol);
     $("#amount").text(parseFloat(tloan).toLocaleString(undefined, { minimumFractionDigits: 2 }));
@@ -573,13 +594,13 @@ function fillPdf() {
     $("#grand").text(grand.toLocaleString(undefined, { minimumFractionDigits: 2 }));
     $("#fdate").text(fdate);
     $("#diem").text(diem.toLocaleString(undefined, { minimumFractionDigits: 4 }));
-    if(penalty <= 0){
+    if (penalty <= 0) {
         $("#penalty-wrapper").hide()
     }
-    if(late <= 0){
+    if (late <= 0) {
         $("#latefee-wrapper").hide()
     }
-    if(extra <= 0){
+    if (extra <= 0) {
         $("#extra-wrapper").hide()
     }
 }
