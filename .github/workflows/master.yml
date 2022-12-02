@@ -1,0 +1,21 @@
+on: 
+  push:
+    branches:
+      - master
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
+        server: dkcportal.riazorsolutions.com
+        username: riazhwtz
+        password: 34P487z#s6UVX*9x
+        local-dir: dkc/
+        server-dir: ./dkcportal.riazorsolutions.com/
