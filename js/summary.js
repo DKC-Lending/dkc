@@ -592,6 +592,11 @@ function fillPdf() {
     const detail = details[$("#bankdetails").val()]
     console.log(detail)
 
+    const mhead = detail.receive.split("\n");
+   
+    $("#mheading").text(mhead[0]);
+    $("#maddress").text(mhead[1]);
+    $("#maddress2").text(mhead[2]);
     $("#sender-detail").text(detail.send);
     $("#receiver-detail").text(detail.receive);
     $("#month1").text(ndate.split("-")[0] + "/01/" + ndate.split("-")[2]);

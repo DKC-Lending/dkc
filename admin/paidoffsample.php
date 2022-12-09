@@ -116,6 +116,7 @@
     .next-page>div label:nth-child(2) {
         white-space: pre-wrap;
     }
+ 
 </style>
 
 
@@ -124,9 +125,9 @@
     <section id="pdfFrame">
         <section>
             <div class="title">
-                <label>DKC LENDING FL LLC</label>
-                <label>2110 Park St</label>
-                <label>Jacksonville, FL 32204</label>
+                <label id="mheading">DKC LENDING FL LLC</label>
+                <label id="maddress">2110 Park St</label>
+                <label id="maddress2">Jacksonville, FL 32204</label>
             </div>
             <div class="left-info">
                 <label id="llc">LLC Name</label>
