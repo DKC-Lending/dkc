@@ -38,8 +38,8 @@ function sortTable(tbl, r) {
   } else if (x.innerHTML.match(/^\d{2}-\d{2}-\d{4}$/) != null) {
     tempx = Date.parse(x.innerHTML);
     tempy = Date.parse(y.innerHTML);
-   
-    if (tempx - tempy<0) {
+
+    if (tempx - tempy < 0) {
       ascdsc = false;
     }
   }
@@ -82,9 +82,9 @@ function sortTable(tbl, r) {
       } else if (x.innerHTML.match(/^\d{2}-\d{2}-\d{4}$/) != null) {
         tempx = Date.parse(x.innerHTML);
         tempy = Date.parse(y.innerHTML);
-console.log(tempx,tempy)
+        console.log(tempx, tempy)
         if (ascdsc) {
-          if (tempx -tempy >0) {
+          if (tempx - tempy > 0) {
             shouldSwitch = true;
             break;
           }
@@ -130,17 +130,40 @@ function goto_find(obj) {
   document.getElementById("investor-goto").href = "#" + id;
 }
 
-
-
-
-function add_month() {
-  res = confirm(`Do you want to add ${shortHeading} to the list`);
+function refresh_month() {
+  res = confirm(`Do you want to refresh the investor data?`);
   if (res) {
     $.ajax({
       url: '../backend/summary/newmonth.php',
       type: 'POST',
       data: {
         date: shortHeading
+      },
+      success: function (response) {
+        // if(response == "complete"){
+        alert("Successfully Refreshed"); window.open("borrower.php", "_self");
+
+        // }
+      }
+    })
+  }
+
+}
+
+
+function add_month() {
+
+  month = ((today.getMonth() + 1) > 11) ? 0 : today.getMonth() + 1;
+  year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
+  const tempshortHeading = monthNames[month] + " " + year.toString().substr(-2);
+  res = confirm(`Do you want to add ${tempshortHeading} to the list`);
+  if (res) {
+
+    $.ajax({
+      url: '../backend/summary/newmonth.php',
+      type: 'POST',
+      data: {
+        date: tempshortHeading
       },
       success: function (response) {
         // if(response == "complete"){

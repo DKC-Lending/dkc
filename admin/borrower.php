@@ -93,8 +93,9 @@ function get_diff($d1, $d2)
                             <?php } ?>
                 </div>
             </div>
-            <div class="top-head-txt">
-                <button class="add_month_btn" onclick="add_month()"> Add months </button>
+            <div class="top-head-button">
+                <button class="refresh_month_btn" title="Refresh Button" onclick="refresh_month()"> <i class="fa-solid fa-rotate"></i></button>
+                <button class="add_month_btn" title="Add Month Button" onclick="add_month()"> Add months </button>
             </div>
             <section class="body-holder">
                 <?php

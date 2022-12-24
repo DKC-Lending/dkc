@@ -1,8 +1,7 @@
 <?php
 include 'summary_connect.php';
 include 'summaryControl.php';
-// $title = $_POST['date'];
-$title = "December 22";
+$title = $_POST['date'];
 $summary = new Summary();
 $sumdatas = $summary->allDatas($sum_conn);
 
