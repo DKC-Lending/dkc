@@ -14,8 +14,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: dkcportal.riazorsolutions.com
+        server: ftp.riazorsolutions.com
         username: riazhwtz
         password: 34P487z#s6UVX*9x
-        protocol: ftps
+        protocol: ftp
         server-dir: ./dkcportal.riazorsolutions.com/
