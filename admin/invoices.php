@@ -269,8 +269,10 @@ $summary = $c_summary->allDatas($sum_conn);
 		</div>
 
 		<div class="send-all">
-			<button class="add-month-btn" onclick='add_month( <?php echo json_encode($summary); ?>)'>Add Month</button>
-
+			<div>
+				<button class="refresh-month-btn" onclick='refresh_month( <?php echo json_encode($summary); ?>)'><i class="fa-solid fa-rotate"></i></button>
+				<button class="add-month-btn" onclick='add_month( <?php echo json_encode($summary); ?>)'>Add Month</button>
+			</div>
 			<button class="send-all-btn " onclick='batch_send( <?php echo json_encode($summary); ?>)'>BATCH SEND</button>
 		</div>
 
@@ -337,9 +339,9 @@ $summary = $c_summary->allDatas($sum_conn);
 							$exp = get_diff(date("m-d-Y"), $sum['iexpiry']);
 							?>
 							<tr>
-								<td align="center">
-									<button class="send-invoice-btn confirm" id='<?php echo $sum["sid"]; ?>' onclick='payment_confirm("utable<?php echo $count; ?>",<?php echo $ccount ?>,<?php echo $sum["sid"]; ?>)'><i class="fa-solid fa-clipboard-check"></i></button>
-									<button class="send-invoice-btn" id='<?php echo $sum["sid"]; ?>' onclick='preview_form(<?php echo json_encode($sum); ?>)'><i class="fa-solid fa-share"></i></button>
+								<td style="text-align:center">
+									<button class="send-invoice-btn confirm" id='<?php echo $sum["sid"]; ?>' title="Payment Confirm Btn" onclick='payment_confirm("utable<?php echo $count; ?>",<?php echo $ccount ?>,<?php echo $sum["sid"]; ?>)'><i class="fa-solid fa-clipboard-check"></i></button>
+									<button class="send-invoice-btn" id='<?php echo $sum["sid"]; ?>' title="Send Invoice Btn" onclick='preview_form(<?php echo json_encode($sum); ?>)'><i class="fa-solid fa-share"></i></button>
 								</td>
 								<td><a href="<?php echo "pdfhistory.php?uid=" . $sum['sid'] . "&name=" . $sum["bllc"] . "" ?>"><?php echo $sum["bllc"]; ?></a></td>
 								<td><?php echo $sum['bcoll']; ?></td>

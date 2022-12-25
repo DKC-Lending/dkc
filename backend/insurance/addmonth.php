@@ -9,8 +9,8 @@ foreach ($summary as $sum) {
     $pid = $sum['sid'];
     $coll = $sum['bcoll'];
     $borr = $sum['bllc'];  
-    // $title = $_POST['title'];
-    $title = "December 22";
+    $title = $_POST['title'];
+    // $title = "December 22";
     $amnt = 0;
     foreach ($monthDatas as $md) {
     

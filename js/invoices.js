@@ -2,7 +2,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
 var today = new Date();
-var date = today.getDate() + "/" + (today.getMonth() + 1) + '/' + today.getFullYear();
+var date = today.getDate() + "-" + (today.getMonth() + 1) + '-' + today.getFullYear();
 
 var shortHeading = monthNames[today.getMonth()] + " " + today.getFullYear().toString().substr(-2);
 
@@ -123,12 +123,35 @@ function sortTable(tbl, r) {
     }
 }
 
-function add_month(invoice_datas) {
-    let x = confirm(`Do you want to add ${monthNames[today.getMonth()] + " " + today.getFullYear().toString().substr(-2)} to the Portal.`)
+function refresh_month(invoice_datas) {
+    let x = confirm(`Do you want to refresh ${monthNames[today.getMonth()] + " " + today.getFullYear().toString().substr(-2)} Data.`)
     if (x) {
         data = {
 
             title: monthNames[today.getMonth()] + " " + today.getFullYear().toString().substr(-2),
+
+
+        }
+        console.log(data)
+        $.ajax({
+            url: "../backend/insurance/addmonth.php",
+            type: 'POST',
+            data: data,
+            success: function (x) { console.log(x); if (x == '1') reload() }
+
+        });
+    }
+}
+
+function add_month(invoice_datas) {
+    month = ((today.getMonth() + 1) > 11) ? 0 : today.getMonth() + 1;
+    year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
+    const tempshortHeading = monthNames[month] + " " + year.toString().substr(-2);
+    let x = confirm(`Do you want to add ${tempshortHeading} to the Portal.`)
+    if (x) {
+        data = {
+
+            title: tempshortHeading,
 
 
         }
@@ -415,9 +438,9 @@ function preview_form(datas) {
         lastdate.done(function (e) {
             try {
                 e = JSON.parse(e);
-                ldate = (Object.keys(e).length > 0) ? e.date : "--/--/----";
+                ldate = (Object.keys(e).length > 0) ? e.date : "##-##-####";
             } catch (e) {
-                ldate = "--/--/----";
+                ldate = "##-##-####";
             }
             $("#last-invoice-date").html("( Last Sent on: " + ldate + " )");
         });

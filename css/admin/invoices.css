@@ -25,6 +25,7 @@
 .send-all {
     width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 .summary-table{
     width: 60%;
@@ -40,7 +41,7 @@
 .send-all-btn {
     height: 50px;
     width: 150px;
-    margin-left: 50px;
+    margin-right: 50px;
     background-color: var(--secondary);
     border: none;
     border-radius: 10px;
@@ -501,10 +502,22 @@ td:hover {
         transform: rotate(360deg);
     }
 }
+.refresh-month-btn{
+    margin-left: 120px;
+    width: 60px;
+    height: 50px;
+    border: none;
+    background-color: rgb(0, 149, 255);
+    color: white;
+    border-radius: 10px;
+    font-size: large;
+    transition: .2s;
+}
 
 .add-month-btn{
-    margin-left: 120px;
+    margin-left: 20px;
     width: 150px;
+    height: 50px;
     border: none;
     background-color: green;
     color: white;
