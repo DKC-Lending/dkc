@@ -171,7 +171,7 @@ function date_dash_div(rdate) {
     if (rdate.search("/") >= 0) return rdate
 
     const raw = rdate.split("-")
-    return `${raw[0]} / ${raw[1]} / ${raw[2]}`.replace(/ /g, '')
+    return `${raw[0]} - ${raw[1]} - ${raw[2]}`.replace(/ /g, '')
 }
 
 async function batchPDFSend() {
@@ -444,8 +444,13 @@ function preview_form(datas) {
             }
             $("#last-invoice-date").html("( Last Sent on: " + ldate + " )");
         });
+        month = ((today.getMonth() + 1) > 11) ? 0 : today.getMonth() + 1;
+        year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
+        const tempshortHeading = monthNames[month] + " " + year.toString().substr(-2);
+        month = ((month + 1) < 10) ? `0${month + 1}` : month;
+        tdate = `01-${month}-${year}`;
         $("#bid").val(datas.sid);
-        $("#current-invoice-date").html("Send Invoice for: " + date.toString() + ' (' + monthNames[today.getMonth()] + ')');
+        $("#current-invoice-date").html("Send Invoice for: " + tdate + ' (' + monthNames[today.getMonth()] + ')');
         $("#preview-form > .form-box").draggable();
         $("#pbname").val(datas.bllc);
         $("#pbaddress").val(datas.bcoll);
@@ -512,8 +517,14 @@ function showPdfPreviewer() {
                 '</tr>');
         });
 
+
+        month = ((today.getMonth() + 1) > 11) ? 0 : today.getMonth() + 1;
+        year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
+        const tempshortHeading = monthNames[month] + " " + year.toString().substr(-2);
+        month = ((month + 1) < 10) ? `0${month + 1}` : month;
+        tdate = `01-${month}-${year}`;
         $("#pdf-table").append('<tr>' +
-            '<td>' + date + '</td>' +
+            '<td>' + tdate + '</td>' +
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
