@@ -513,7 +513,8 @@ function showPdfPreviewer() {
                 '<td>' + d.minterest + "%" + '</td>' +
                 '<td>' + (d.latefees) + '</td>' +
                 '<td>' + "$" + d.adue + '</td>' +
-                '<td>' + "$" + d.apaid + '</td>' +
+                // '<td>' + "$" + d.apaid + '</td>' +
+                '<td>' + "$0.00"  + '</td>' +
                 '</tr>');
         });
 
@@ -529,7 +530,9 @@ function showPdfPreviewer() {
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
             '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toString() + '</td>' +
-            '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toString() + '</td>' +
+            // '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toString() + '</td>' +
+            '<td>' + "$0.00" + '</td>' +
+
             '</tr>');
         try {
             if (e[e.length - 1].desc == monthNames[d.getMonth()]) {

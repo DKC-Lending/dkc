@@ -157,11 +157,12 @@
                                      <td>
                                          <select name="dkc" id="dkc">
                                              <option value="None">None</option>
-
                                              <option value="DKC">DKC Lending LLC</option>
                                              <option value="DKCFL">DKC Lending FL</option>
                                              <option value="DKCCL">DKC Lending CFL</option>
                                              <option value="FCT1">First Capital Trusts</option>
+                                             <option value="DKCIV">DKC Lending IV</option>
+                                             <option value="DKCL">DKC Lending CL</option>
                                          </select>
                                      </td>
                                      <td>

@@ -1,11 +1,14 @@
 <?php
 include 'summary_connect.php';
 include 'summaryControl.php';
-$title = $_POST['date'];
+// $title = $_POST['date'];
+$title = "January 23";
 $summary = new Summary();
 $sumdatas = $summary->allDatas($sum_conn);
-
+$monthsCollection = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 $inv_holder = [];
+$titleSplit = explode(" ", $title);
+$fakeTitle = (array_search($titleSplit[0], $monthsCollection) + 1) . "-01-20" . $titleSplit[1];
 foreach ($sumdatas as $sum) {
     if ($sum['status'] == '2' || $sum['status'] == 2) {
         $t = $summary->getLastMonthData($sum['sid'], $sum_conn);
@@ -84,7 +87,8 @@ foreach ($sumdatas as $sum) {
     }
 
     $temp = [];
-    if ($sum['servicingamt'] != '0') {
+    // if ($sum['servicingamt'] != '0') {
+    if(true){
         array_push($temp, $sum['sid']);
         array_push($temp, $sum['odate']);
         array_push($temp, $sum['servicingregular']);
@@ -134,23 +138,46 @@ foreach ($inv_holder as $key => $inv) {
         }
 
         $dar = explode("-", $i[1]);
-        $mar = explode("-", date('m-d-Y', strtotime($title)));
-        // echo json_encode($mar);
+        $mar = explode("-", $fakeTitle);
 
+        $loanDay = intval($dar[1]);
+        $currentDay = intval($mar[1]);
+        $loanMonth = intval($dar[0]);
+        $currentMonth = intval($mar[0]);
+        $loanYear = intval($dar[2]);
+        $currentYear = intval($mar[2]);
+        $loanTimeString = $loanYear."-".$loanMonth."-".$loanDay;
+        $currentTimeString = $currentYear."-".$currentMonth."-".$currentDay;
+        
+        $lDate = new DateTime($loanTimeString);
+        $cDate = new DateTime($currentTimeString);
+        
+        $dayDiff = abs(intval($lDate->diff($cDate)->format("%r%a"))); 
+        
+        if($sumid == "182"){
+            echo $dayDiff."<br>";
+            echo $loanTimeString. "  ". $currentTimeString;
+        } 
         // if((intval($dar[0]) == intval($mar[0]) && intval($dar[2]) == intval($mar[2])) || (intval($dar[0])+1 == intval($mar[0]) && intval($dar[2]) == intval($mar[2]))){
-        if ($sumid == '136' || $sumid == 316) print_r($i);
-        if ($i[4] == 0 || $i[4] == '0') {
-            if ((intval($dar[0]) == intval($mar[0]) && intval($dar[2]) == intval($mar[2]))) {
 
+        if ($i[4] == 0 || $i[4] == '0') {
+            if ($loanMonth == $currentMonth && $loanYear == $currentYear) {
                 $value = 0;
-            } elseif (intval($dar[0]) + 1 == intval($mar[0]) && intval($dar[2]) == intval($mar[2])) {
-                $value = $i[3];
-            } elseif ((intval($dar[0]) + 2 <= intval($mar[0]) && intval($dar[2]) <= intval($mar[2])) || intval($dar[2]) <= intval($mar[2])) {
-                $value = $i[2];
             } else {
-                $value = 0;
+                $proMonth = $loanMonth + 1;
+                if ($dayDiff < 32 && $loanYear <= $currentYear) {
+                    $value = $i[3];
+                } else {
+                    $regMonth = $loanMonth + 2;
+                    if ($dayDiff > 32 && $loanYear <= $currentYear) {
+                        $value = $i[2];
+                    } else {
+                        $value = 0;
+                    }
+                }
             }
         } else {
+
             $value = 0;
         }
         //    $mr = explode("-",$i[1]);
