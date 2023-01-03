@@ -14,4 +14,4 @@ jobs:
         target-server: dkcportal.riazorsolutions.com
         remote-user: dkclogin@dkcportal.riazorsolutions.com
         private-ssh-key: ${{ secrets.SSH_KEY }}
-        ssh-port: 21
+        ssh-port: 21098
