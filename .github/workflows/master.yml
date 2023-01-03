@@ -18,3 +18,21 @@ jobs:
         username: riazhwtz
         password: 34P487z#s6UVX*9x
         server-dir: ./dkcportal.riazorsolutions.com/
+
+name: CI -> Deploy to My website
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Here is the deployment action
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: dkcportal.riazorsolutions.com
+          user: riazhwtz
+          password: 34P487z#s6UVX*9x
+          remote-dir: ./dkcportal.riazorsolutions.com/
