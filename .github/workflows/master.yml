@@ -11,6 +11,6 @@ jobs:
       - name: Upload from public_html via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
-          server: dkcportal.riazorsolutions.com
+          server: ftp.riazorsolutions.com
           user:  dkclogin@dkcportal.riazorsolutions.com
           password: 9816084512Ab@
