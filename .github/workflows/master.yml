@@ -12,6 +12,5 @@ jobs:
         uses: airvzxf/ftp-deployment-action@latest
         with:
           server: dkcportal.riazorsolutions.com
-          user: riazhwtz
-          password: 34P487z#s6UVX*9x
-          remote-dir: ./dkcportal.riazorsolutions.com/
+          user:  dkclogin@dkcportal.riazorsolutions.com
+          password: 9816084512Ab@
