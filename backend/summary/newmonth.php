@@ -3,6 +3,7 @@ include 'summary_connect.php';
 include 'summaryControl.php';
 // $title = $_POST['date'];
 $title = "January 23";
+
 $summary = new Summary();
 $sumdatas = $summary->allDatas($sum_conn);
 $monthsCollection = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
