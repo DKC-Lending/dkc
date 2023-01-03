@@ -1,6 +1,4 @@
-on:
-  push:
-    master
+on: push
 name: Publish Website Dry Run
 jobs:
   web-deploy:
