@@ -322,7 +322,6 @@ $summary = $c_summary->allDatas($sum_conn);
 						</tr>
 						<?php
 						$heads_datas = get_heading_datas($pdfconn);
-
 						$sum_month = [];
 						$total_loan = 0;
 						$total_regular = 0;
@@ -477,16 +476,16 @@ $summary = $c_summary->allDatas($sum_conn);
 			<?php
 			$tservice = [];
 			$tyield = [];
-			$sql = "show columns from months";
-			$rslt = mysqli_query($sum_conn, $sql);
-			while ($row = $rslt->fetch_assoc()) {
-				if (!in_array($row['Field'], ["mid", "sumid", "investor"])) {
-					$columns[] = $row['Field'];
-				}
-			}
 			$tpayable = [];
 			$tcollect = [];
-
+			// $sql = "show columns from months";
+			// $rslt = mysqli_query($sum_conn, $sql);
+			// while ($row = $rslt->fetch_assoc()) {
+			// 	if (!in_array($row['Field'], ["mid", "sumid", "investor"])) {
+			// 		$columns[] = $row['Field'];
+			// 	}
+			// }
+			$columns = $c_summary->get_heading($sum_conn);
 			$sql = "SELECT * FROM months";
 			$rslt = mysqli_query($sum_conn, $sql);
 			while ($datas = mysqli_fetch_array($rslt)) {

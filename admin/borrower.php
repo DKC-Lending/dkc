@@ -370,14 +370,15 @@ function get_diff($d1, $d2)
                 $tservice = [];
                 $tyield = [];
                 $columns = [];
-                $sql = "show columns from months";
-                $rslt = mysqli_query($sum_conn, $sql);
+                // $sql = "show columns from months";
+                // $rslt = mysqli_query($sum_conn, $sql);
 
-                while ($row = $rslt->fetch_assoc()) {
-                    if (!in_array($row['Field'], ["mid", "sumid", "investor"])) {
-                        $columns[] = $row['Field'];
-                    }
-                }
+                // while ($row = $rslt->fetch_assoc()) {
+                //     if (!in_array($row['Field'], ["mid", "sumid", "investor"])) {
+                //         $columns[] = $row['Field'];
+                //     }
+                // }
+                $columns = $c_summary->get_heading($sum_conn);
                 $sql = "SELECT * FROM months";
                 $rslt = mysqli_query($sum_conn, $sql);
                 while ($datas = mysqli_fetch_array($rslt)) {
@@ -470,7 +471,6 @@ function get_diff($d1, $d2)
                         <td><label style="margin-right:20px;">Check/Balance :</label> </td>
                         <?php
                         foreach ($columns as $title) {
-
                         ?>
                             <td style="background-color: #33CAFF !important"><?php echo "$" . number_format((floatval($tcollect[$title]) - floatval($tpayable[$title])) - (floatval($tservice[$title]) + floatval($tyield[$title])), 2); ?></td>
                         <?php

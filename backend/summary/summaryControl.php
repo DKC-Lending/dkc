@@ -139,6 +139,35 @@ class Summary
 
     function get_heading($sum_conn)
     {
+        $s = new Summary();
+        $enable = $s->get_enable_month();
+        $res = [];
+        $sql = "DESCRIBE `months`";
+        $rslt = mysqli_query($sum_conn, $sql);
+        while ($datas = mysqli_fetch_array($rslt)) {
+            if ($datas['Field'] != "mid" && $datas['Field'] != "sumid" && $datas['Field'] != "investor") {
+                if (in_array($datas['Field'], $enable)) {
+                    array_push($res, $datas['Field']);
+                }
+            }
+        }
+        return $res;
+    }
+
+    function get_enable_month()
+    {
+        $conn =  mysqli_connect("localhost", "riazhwtz_trialdkc", "9816084512Ab@", "riazhwtz_dkc");
+        $sql = "SELECT `month` FROM `mtable`";
+        $res = mysqli_query($conn, $sql);
+        $table = [];
+        while ($data = mysqli_fetch_assoc($res)) {
+            array_push($table, $data['month']);
+        }
+        return $table;
+    }
+
+    function get_heading_setting($sum_conn)
+    {
         $res = [];
         $sql = "DESCRIBE `months`";
         $rslt = mysqli_query($sum_conn, $sql);
