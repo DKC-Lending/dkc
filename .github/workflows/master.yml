@@ -1,17 +1,16 @@
 on: push
-name: Publish Website Dry Run
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: 🚀 Deploy Website Every Commit
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v3
-
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        target-server: dkcportal.riazorsolutions.com
-        remote-user: dkclogin@dkcportal.riazorsolutions.com
-        private-ssh-key: ${{ secrets.SSH_KEY }}
-        ssh-port: 21098
+        server: dckportal.riazorsolutions.com
+        username: riazhwtz
+        password: 34P487z#s6UVX*9x
