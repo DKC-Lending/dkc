@@ -17,4 +17,4 @@ jobs:
         server: dkcportal.riazorsolutions.com
         username: riazhwtz
         password: 34P487z#s6UVX*9x
-        server-dir: ./dkcportal.riazorsolutions.com/
+        server-dir: ./test/
