@@ -869,7 +869,8 @@
                  <br>
                  <strong><?php echo  $diff[0]['loan']; ?></strong>
                  <br>
-                 <br>
+                 <br> 
+                 <!-- Start the main table of the page  -->
                  <table class="data-table-tbl" id="main-sum-tbl<?php echo  $diff[0]['loan']; ?>">
                      <thead>
                          <tr>
@@ -952,7 +953,7 @@
 
                          </tr>
                      </thead>
-
+                    <!-- Start the body of the table -->
                      <tbody>
                          <?php
                             $total_total_loan = 0;
@@ -1061,7 +1062,6 @@
                                      <button class="edit-btn payoff-btn" title="Paidoff Btn" onclick='cutloan(<?php echo json_encode($sum); ?>)'><i class="fa-solid fa-money-bill"></i></button>
                                      <button class="edit-btn" title="Edit Btn" onclick='editSummary(<?php echo json_encode($sum); ?>,<?php echo json_encode($temp_mul); ?>,<?php echo json_encode($temp_expiry); ?>)'><i class="fa-solid fa-pen-to-square"></i></button>
                                      <button class="del-btn" title="Delete Btn" onclick="deleteSummary(<?php echo $sum['sid']; ?>)"><i class="fa-solid fa-trash"></i></button>
-
                                  </td>
 
                                  <td><a href="<?php echo $url; ?>" target="_blank" style="color:skyblue;"><i class="fa-solid fa-file"></a></td>
@@ -1069,26 +1069,12 @@
 
 
 
-                                 <?php
-
-                                    if (count($temp_mul) > 0) {
-                                    ?>
-                                     <td onmouseout='deleteconfirm()' onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <?php echo ($caddress); ?> <div class="col-count"><?php echo count($temp_mul);?></div></td>
-                                     <!-- <table style="background-color: grey;width:100%;overflow-x:auto;text-align:left; max-height:50px">
-                                    <?php
-                                        // foreach (explode(":", $temp_mul['collateral']) as $col) {
-
-                                        //     echo "<td>" . $col . "</td><tr>";
-                                        // }
-                                    ?> 
-                                </table> -->
-                                 <?php
-                                    } else {
-                                    ?>
+                                 <?php if (count($temp_mul) > 0) { ?>
+                                     <td onmouseout='deleteconfirm()' title="<?php foreach($temp_mul as $ctemp){echo $ctemp."\n";} ?>" onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <label title="<?php foreach($temp_mul as $ctemp){echo $ctemp."\n";} ?>"><?php echo ($caddress); ?></label> <div class="col-count"><?php echo count($temp_mul);?></div></td>
+                    
+                                 <?php } else { ?>
                                      <td> <?php echo ($caddress); ?></td>
-                                 <?php
-                                    }
-                                    ?>
+                                 <?php  } ?>
 
 
                                  <td><?php echo  "$" . number_format($tloan, 2); ?></td>
@@ -1162,7 +1148,7 @@
                 ?>
 
          </section>
-
+<!-- start the green table -->
 
          <section class="green-table">
 
