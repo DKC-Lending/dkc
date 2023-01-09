@@ -1073,7 +1073,7 @@
 
                                     if (count($temp_mul) > 0) {
                                     ?>
-                                     <td onmouseout='deleteconfirm()' onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <?php echo ($caddress); ?></td>
+                                     <td onmouseout='deleteconfirm()' onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <?php echo ($caddress); ?> <div class="col-count"><?php echo count($temp_mul);?></div></td>
                                      <!-- <table style="background-color: grey;width:100%;overflow-x:auto;text-align:left; max-height:50px">
                                     <?php
                                         // foreach (explode(":", $temp_mul['collateral']) as $col) {
