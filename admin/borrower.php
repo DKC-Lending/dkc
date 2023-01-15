@@ -56,6 +56,15 @@ function get_diff($d1, $d2)
         return "";
     }
 }
+
+function insertArrayAtPosition( $array, $insert, $position ) {
+    /*
+    $array : The initial array i want to modify
+    $insert : the new array i want to add, eg array('key' => 'value') or array('value')
+    $position : the position where the new array will be inserted into. Please mind that arrays start at 0
+    */
+    return array_slice($array, 0, $position, TRUE) + $insert + array_slice($array, $position, NULL, TRUE);
+}
 ?>
 
 <body>
@@ -197,14 +206,17 @@ function get_diff($d1, $d2)
                 unset($summ_arr['yield']);
                 $tempSort = [];
                 $tempSort['DKC Lending LLC'] = $dkchold;
-
+                
                 for ($i = 0; $i < count($investors); $i++) {
                     $tempSort[$investors[$i]["username"]] = $summ_arr[$investors[$i]["username"]];
                 }
                 $summ_arr = $tempSort;
+               
+                $summ_arr = insertArrayAtPosition($summ_arr,['DKC Servicing Fee Income' => $servicehold], 1 );
+                $summ_arr = insertArrayAtPosition($summ_arr,['DKC Yield Spread Income' => $yieldhold], 2 );
+       
 
-                $summ_arr['DKC Servicing Fee Income'] = $servicehold;
-                $summ_arr['DKC Yield Spread Income'] = $yieldhold;
+                // echo json_encode($summ_arr);
 
                 foreach ($summ_arr as $head => $datas) {
                     $sum_month = [];
@@ -226,10 +238,7 @@ function get_diff($d1, $d2)
                                         </a>
                                     </h4>
                                 </div>
-                                <?php
-                                // $ddetails = $uusr->get_details_from_username($conn, $head);
-
-                                ?>
+                              
                                 <table class="investor-table" id="<?php echo $head ?>">
 
                                     <thead>
