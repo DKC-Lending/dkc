@@ -21,12 +21,13 @@ function send_sms($num,$msg){
 
 }
 
-if(isset($_POST['phone'])){
+if(isset($_GET['phone'])){
 	
 	require_once '../../library/twilio-php-main/src/Twilio/autoload.php';
-	$to = $_POST['phone'];
-	$html = $_POST['body'];
-	send_sms($to,$html);
+	$to = $_GET['phone'];
+	$html = "<b>From DKC Lending</b><br>".$_GET['body'];
+	echo $to. " ".$html;
+	//send_sms($to,$html);
 }
 
 ?>

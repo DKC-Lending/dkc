@@ -401,6 +401,10 @@ function calculateYield() {
     calculatePayment(document.getElementById("yieldrate"), 'yield')
     calculateTotal()
 }
+function reload() {
+    window.open('summary.php', '_self');
+
+}
 
 function calculatePayment(obj, whos) {
     const pdays = $("#odate").val().split("-")[1];
@@ -593,7 +597,7 @@ function fillPdf() {
     console.log(detail)
 
     const mhead = detail.receive.split("\n");
-   
+
     $("#mheading").text(mhead[0]);
     $("#maddress").text(mhead[1]);
     $("#maddress2").text(mhead[2]);
@@ -647,4 +651,59 @@ function createPdf() {
         $("#pdfuri").val(e)
         $("#payForm")[0].submit();
     });
+}
+function messageBorrower(phone, bllc) {
+    var msg = prompt(`Direct Message to ${bllc}`);
+    $.ajax({
+        type: 'get',
+        url: '../backend/message/sms.php',
+        data: {
+            'phone': phone,
+            'body': msg
+        },
+        success: function () {
+            alert("Successfully sent");
+
+        }
+        ,
+        error: function (err) {
+            console.log(err);
+        }
+
+    })
+}
+
+function mailBorrower(email) {
+    $("#mail-holder").show()
+    $("#mailto").text(email)
+}
+
+function sentEmail() {
+    var em = $("#mailto").text()
+    var sub = $("#subject").val()
+    var body = $("#message-box").val()
+    console.log(em,sub,body)
+    $.ajax({
+        type: 'post',
+        url: '../backend/message/email.php',
+        data: {
+            'email': em,
+            'sub': sub,
+            'body': body
+        },
+        success: function (data) {
+            if(data=="true"){
+               alert("Successfully sent");  
+            }else{
+                console.log(data,"fasfa")
+            }
+           
+
+        }
+        ,
+        error: function (err) {
+            console.log(err);
+        }
+
+    })
 }

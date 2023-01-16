@@ -13,7 +13,7 @@ function send_email($to,$html,$subject){
 	$mail->IsHTML(true);
 	$mail->CharSet = 'UTF-8';
 	$mail->Username = "webmaster@dkclending.com";
-	$mail->Password = "hyijkhjyaechjffz";
+	$mail->Password = "woqqrxresxsomckh";
 	$mail->SetFrom("webmaster@dkclending.com");
 	$mail->Subject = $subject;
 	$mail->Body =$html;
