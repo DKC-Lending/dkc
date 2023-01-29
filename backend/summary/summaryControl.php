@@ -126,7 +126,7 @@ class Summary
     {
         $s = new Summary();
         $months = $s->get_heading($sum_conn);
-        $month = $months[count($months) - 2];
+        $month = $months[count($months) - 1];
         $sql = "SELECT `$month` FROM `months` WHERE `sumid`='$sid'";
         $total = 0;
         $rslt = mysqli_query($sum_conn, $sql);

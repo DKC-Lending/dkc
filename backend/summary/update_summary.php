@@ -12,7 +12,7 @@ if ($_GET['dkc'] == 'FCT1') {
     $loan = "First Capital Trusts LLC";
 } elseif ($_GET['dkc'] == 'DKCFL') {
     $loan = "DKC Lending FL";
-} elseif ($_GET['dkc'] == 'DKCCFL') {
+} elseif ($_GET['dkc'] == 'DKCL') {
     $loan = "DKC Lending CL";
 } else {
     $loan = "DKC Lending LLC";

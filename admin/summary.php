@@ -402,6 +402,7 @@
                 array_push($temp_loans, $diff_loans['DKC Lending LLC']);
                 array_push($temp_loans, $diff_loans['DKC Lending FL']);
                 array_push($temp_loans, $diff_loans['First Capital Trusts LLC']);
+                array_push($temp_loans, $diff_loans['DKC Lending CL']);
                 $diff_loans = $temp_loans;
                 $grand_total = 0;
                 $grand_p1 = 0;
