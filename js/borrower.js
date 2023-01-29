@@ -183,7 +183,7 @@ function keydown (evt) {
 
     if (!evt) evt = event; 
 
-    if (evt.shiftKey && evt.altKeys) {
+    if (evt.keyCode === 16 && evt.keyCode === 13 ) {
         add_month()
 
     } else if (evt.altKey && evt.keyCode === 13) { 
