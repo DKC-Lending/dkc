@@ -1,6 +1,7 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
+document.onkeydown = keydown; 
 var today = new Date();
 var date = today.getDate() + "/" + (today.getMonth() + 1) + '/' + today.getFullYear();
 
@@ -176,13 +177,13 @@ function add_month() {
 
 }
 
-document.onkeydown = keydown; 
+
 
 function keydown (evt) { 
 
     if (!evt) evt = event; 
 
-    if (evt.shiftKey && evt.keyCode === 91 && evt.keyCode === 13) {
+    if (evt.shiftKey && evt.altKeys) {
         add_month()
 
     } else if (evt.altKey && evt.keyCode === 13) { 
@@ -190,5 +191,4 @@ function keydown (evt) {
         refresh_month()
 
     } 
-
 }
