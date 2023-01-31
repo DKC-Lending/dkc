@@ -12,7 +12,6 @@ function open_form() {
     } else {
 
         $("#invoice-form").show();
-        $("#invoice-form > .form-box").draggable();
 
     }
 
@@ -214,7 +213,7 @@ async function batchPDFSend() {
                         '<td>' + date_dash_div(d.date) + '</td>' +
                         '<td>' + d.desc + ' Interest' + '</td>' +
                         '<td>' + d.minterest + "%" + '</td>' +
-                        '<td>' + (d.latefees) + '</td>' +
+                        '<td>' + (d.latefees).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                         '<td>' + "$" + d.adue.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                         '<td>' + "$" + d.apaid.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                         '</tr>');
@@ -229,8 +228,8 @@ async function batchPDFSend() {
                 '<td>' + monthNames[today.getMonth()].toString() + '`s Interest' + '</td>' +
                 '<td>' + invoice_datas[ind].irate + "%" + '</td>' +
                 '<td>' + " X " + '</td>' +
-                '<td>' + "$" + invoice_datas[ind].balance + '</td>' +
-                '<td>' + "$" + invoice_datas[ind].balance + '</td>' +
+                '<td>' + "$" + invoice_datas[ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+                '<td>' + "$" + invoice_datas[ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 '</tr>');
         });
         const pdfFrame = document.getElementById("mpdf-preview");
@@ -256,8 +255,8 @@ async function batchPDFSend() {
                             'desc': monthNames[today.getMonth()].toString(),
                             'rate': invoice_datas[ind].irate,
                             'fee': "X",
-                            'pamount': invoice_datas[ind].balance,
-                            'amount': invoice_datas[ind].balance,
+                            'pamount': invoice_datas[ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }),
+                            'amount': invoice_datas[ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }),
                         };
                         console.log(data);
 
@@ -269,7 +268,7 @@ async function batchPDFSend() {
                                 coll: invoice_datas[ind].bcoll,
                                 borr: invoice_datas[ind].bllc,
                                 title: shortHeading,
-                                amt: invoice_datas[ind].balance
+                                amt: invoice_datas[ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 })
 
                             }
                         });
@@ -320,9 +319,9 @@ function batch_send(datas) {
     $("#mpdfaddress").html(invoice_datas[page_ind].bcoll);
     $("#mpdfodate").html(date_dash_div(invoice_datas[page_ind].odate));
     $("#mpdfmdate").html(date_dash_div(invoice_datas[page_ind].mdate));
-    $("#mpdflamount").html(`$${invoice_datas[page_ind].tloan}`);
+    $("#mpdflamount").html(`$${invoice_datas[page_ind].tloan.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
     $("#mpdflpercent").html(`${invoice_datas[page_ind].irate}%`);
-    $("#mpdfpayment").html(`$${invoice_datas[page_ind].balance}`);
+    $("#mpdfpayment").html(`$${invoice_datas[page_ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
     $("#current-page").html(page_ind + 1 + " / " + invoice_datas.length);
     data = { uid: invoice_datas[page_ind].sid }
 
@@ -338,8 +337,8 @@ function batch_send(datas) {
                 '<td>' + d.desc + ' Interest' + '</td>' +
                 '<td>' + d.minterest + "%" + '</td>' +
                 '<td>' + (d.latefees) + '</td>' +
-                '<td>' + "$" + d.adue + '</td>' +
-                '<td>' + "$" + d.apaid + '</td>' +
+                '<td>' + "$" + d.adue.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+                '<td>' + "$" + d.apaid.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 '</tr>');
         });
 
@@ -348,8 +347,8 @@ function batch_send(datas) {
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + invoice_datas[page_ind].irate + "%" + '</td>' +
             '<td>' + " X " + '</td>' +
-            '<td>' + "$" + invoice_datas[page_ind].balance + '</td>' +
-            '<td>' + "$" + invoice_datas[page_ind].balance + '</td>' +
+            '<td>' + "$" + invoice_datas[page_ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+            '<td>' + "$" + invoice_datas[page_ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
             '</tr>');
         // try {
         //     if (e[e.length - 1].desc == monthNames[d.getMonth()]) {
@@ -377,9 +376,9 @@ function change_pdf(direction) {
     $("#mpdfaddress").html(invoice_datas[page_ind].bcoll);
     $("#mpdfodate").html(date_dash_div(invoice_datas[page_ind].odate));
     $("#mpdfmdate").html(date_dash_div(invoice_datas[page_ind].mdate));
-    $("#mpdflamount").html(`$${invoice_datas[page_ind].tloan}`);
+    $("#mpdflamount").html(`$${invoice_datas[page_ind].tloan.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
     $("#mpdflpercent").html(`${invoice_datas[page_ind].irate}%`);
-    $("#mpdfpayment").html(`$${invoice_datas[page_ind].balance}`);
+    $("#mpdfpayment").html(`$${invoice_datas[page_ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
 
 
     $("#current-page").html(page_ind + 1 + " / " + invoice_datas.length);
@@ -397,9 +396,9 @@ function change_pdf(direction) {
                 '<td>' + date_dash_div(d.date) + '</td>' +
                 '<td>' + d.desc + ' Interest' + '</td>' +
                 '<td>' + d.minterest + "%" + '</td>' +
-                '<td>' + (d.latefees) + '</td>' +
-                '<td>' + "$" + d.adue + '</td>' +
-                '<td>' + "$" + d.apaid + '</td>' +
+                '<td>' + (d.latefees.toLocaleString(undefined, { minimumFractionDigits: 2 })) + '</td>' +
+                '<td>' + "$" + d.adue.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+                '<td>' + "$" + d.apaid.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 '</tr>');
         });
 
@@ -408,8 +407,8 @@ function change_pdf(direction) {
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + invoice_datas[page_ind].irate + "%" + '</td>' +
             '<td>' + " X " + '</td>' +
-            '<td>' + "$" + invoice_datas[page_ind].balance + '</td>' +
-            '<td>' + "$" + invoice_datas[page_ind].balance + '</td>' +
+            '<td>' + "$" + invoice_datas[page_ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+            '<td>' + "$" + invoice_datas[page_ind].balance.toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
             '</tr>');
         // try {
         //     if (e[e.length - 1].desc == monthNames[d.getMonth()]) {
@@ -451,7 +450,6 @@ function preview_form(datas) {
         tdate = `01-${month}-${year}`;
         $("#bid").val(datas.sid);
         $("#current-invoice-date").html("Send Invoice for: " + tdate + ' (' + monthNames[today.getMonth()] + ')');
-        $("#preview-form > .form-box").draggable();
         $("#pbname").val(datas.bllc);
         $("#pbaddress").val(datas.bcoll);
         $("#pbtloan").val(datas.tloan);
@@ -490,13 +488,12 @@ function showPdfPreviewer() {
     $("#pdfaddress").html($("#pbaddress").val());
     $("#pdfodate").html(date_dash_div($("#pbodate").val()));
     $("#pdfmdate").html(date_dash_div($("#pbmdate").val()));
-    $("#pdflamount").html("$" + $("#pbtloan").val());
+    $("#pdflamount").html("$" + parseInt($("#pbtloan").val()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
     $("#pdflpercent").html($("#pbrate").val() + "%");
-    $("#pdfpayment").html("$" + $("#pbmpayment").val());
+    $("#pdfpayment").html("$" + parseInt($("#pbmpayment").val()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
 
     $("#preview-form").hide();
     $("#pdf-preview-holder").show();
-    $("#pdf-preview-holder > .form-box").draggable();
     data = { uid: $("#bid").val() }
     console.log(data);
     form = $.post('../backend/insurance/get_history.php', data);
@@ -512,7 +509,7 @@ function showPdfPreviewer() {
                 '<td>' + d.desc + ' Interest' + '</td>' +
                 '<td>' + d.minterest + "%" + '</td>' +
                 '<td>' + (d.latefees) + '</td>' +
-                '<td>' + "$" + d.adue + '</td>' +
+                '<td>' + "$" + parseInt(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 // '<td>' + "$" + d.apaid + '</td>' +
                 '<td>' + "$0.00"  + '</td>' +
                 '</tr>');
@@ -529,7 +526,7 @@ function showPdfPreviewer() {
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
-            '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toString() + '</td>' +
+            '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
             // '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toString() + '</td>' +
             '<td>' + "$0.00" + '</td>' +
 
@@ -646,7 +643,6 @@ function deleteBorrower(id, name) {
 function showEditPanel(datas) {
     console.log(datas.borrower);
     $("#update-form").show();
-    $("#update-form > .form-box").draggable();
     $("#ubid").val(datas.uid);
     $("#ubname").val(datas.borrower);
     $("#ubaddress").val(datas.address);
