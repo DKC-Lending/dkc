@@ -376,7 +376,7 @@
          </form>
          <div id="mail-holder" style="display: none;">
 
-            <div style="display:flex;"><label></label> <button onclick="reload()">X</button> </div>
+             <div style="display:flex;"><label></label> <button onclick="reload()">X</button> </div>
              <center style="display: flex;align-items:center;">
                  <h4>Mail to : </h4> &nbsp;<label id="mailto"></label>
              </center>
@@ -661,7 +661,9 @@
                             }
                             ?>
                          <tr>
-                             <td colspan="3" style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:79px;" class="freeze"></td>
+                            
+                             <td colspan="2" style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:79px;" class="freeze"></td>
+                             <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:395px;" class="freeze"> Total : <?php echo count($diff); ?></td>
                              <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:562px;" class="freeze"><?php echo "$" . number_format($total_total_loan, 2); ?></td>
                              <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_dkc, 2); ?></td>
                              <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p1, 2); ?></td>
