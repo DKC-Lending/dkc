@@ -346,7 +346,7 @@ function insertArrayAtPosition( $array, $insert, $position ) {
 
                                         ?>
                                         <tr class="total_tr">
-                                            <td>Total</td>
+                                            <td>Total <?php echo count($datas);?></td>
                                             <td></td>
                                             <td></td>
                                             <td><?php echo "$" . number_format(floatval($total_amt), 2) ?></td>
