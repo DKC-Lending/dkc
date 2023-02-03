@@ -259,7 +259,9 @@ function insertArrayAtPosition($array, $insert, $position)
                                             <?php
                                             $cnt = 9;
                                             foreach ($monthsHeading as $he) {
-                                                echo "<th onclick=sortTable('$head',$cnt)>" . $he . "</th>";
+                                                ?>
+                                                <th onclick="sortTable('<?php echo $head; ?>','<?php echo $cnt; ?>')"> <?php echo $he; ?></th>
+                                                <?php
                                                 $cnt++;
                                             }
 
@@ -301,14 +303,14 @@ function insertArrayAtPosition($array, $insert, $position)
                                             $class = get_diff(date("m-d-Y"), $data['mdate']);
                                             ?>
                                             <tr class="<?php echo ($data['tloan'] > 0) ? "" : "paidoffred" ?>">
-                                                <td><a href="<?php echo $data['link'] ?>" target="_blank"><button>Link</button></td>
+                                                <td><a href="<?php echo $data['link'] ?>" target="_blank">Link</td>
                                                 <td><?php echo $data['bllc'] ?></td>
                                                 <td><?php echo $data['bcoll'] ?></td>
-                                                <td><?php echo "$" .  number_format(floatval($data['tloan']), 2) ?></td>
-                                                <td><?php echo "$" .  number_format(floatval($data["$part" . "amt"]), 2) ?></td>
+                                                <td value=<?php echo $data['tloan'];?> ><?php echo "$" .  number_format(floatval($data['tloan']), 2) ?></td>
+                                                <td value=<?php echo $data["$part" . "amt"];?>><?php echo "$" .  number_format(floatval($data["$part" . "amt"]), 2) ?></td>
                                                 <td><?php echo $data["$part" . "rate"] . "%" ?></td>
-                                                <td><?php echo "$" .  number_format(floatval($data["$part" . "regular"]), 2); ?></td>
-                                                <td><?php echo $data["odate"] ?></td>
+                                                <td value=<?php echo $data["$part" . "regular"];?>><?php echo "$" .  number_format(floatval($data["$part" . "regular"]), 2); ?></td>
+                                                <td value=<?php echo strtotime($data["odate"]); ?>><?php echo $data["odate"] ?></td>
                                                 <td class="<?php echo $class; ?>"><?php echo $data["mdate"] ?></td>
                                                 <?php
 
@@ -328,11 +330,14 @@ function insertArrayAtPosition($array, $insert, $position)
                                                                 } else {
                                                                     $sum_month[$t_head] += floatval($d[$t_head]);
                                                                 }
+                                                                ?>
+                                                             
+                                                                <?php
 
-                                                                echo "<td>" . "$" . number_format(floatval($d[$t_head]), 2) . "</td>";
+                                                                echo "<td value=".$d[$t_head].">" . "$" . number_format(floatval($d[$t_head]), 2) . "</td>";
                                                             } else {
                                                                 $sum_month[$t_head] += 0;
-                                                                echo '<td> $0.00 </td>';
+                                                                echo '<td value=0> $0.00 </td>';
                                                             }
                                                         }
                                                     }
@@ -347,7 +352,7 @@ function insertArrayAtPosition($array, $insert, $position)
                                         }
 
                                         ?>
-                                        <tr class="total_tr">
+                                        <tr class="total_tr" id="<?php echo $head.'_total_tr' ?>">
                                             <td>Total <?php echo count($datas); ?></td>
                                             <td></td>
                                             <td></td>
@@ -496,55 +501,55 @@ function insertArrayAtPosition($array, $insert, $position)
         <div id="expand" class="expand">
             <table border="1" id="expand-table">
                 <tr>
-                    <th>sn</th>
-                    <th>Borrower LLC</th>
-                    <th>Full Name</th>
-                    <th>Collateral Address</th>
-                    <th>Total Loan</th>
+                    <th onclick="sortTable('expand-table',0)">sn</th>
+                    <th onclick="sortTable('expand-table',1)">Borrower LLC</th>
+                    <th onclick="sortTable('expand-table',2)">Full Name</th>
+                    <th onclick="sortTable('expand-table',3)">Collateral Address</th>
+                    <th onclick="sortTable('expand-table',4)">Total Loan</th>
                     <th>Interest %</th>
-                    <th>Origin. Date</th>
-                    <th>Maturity Date</th>
+                    <th onclick="sortTable('expand-table',6)">Origin. Date</th>
+                    <th onclick="sortTable('expand-table',7)">Maturity Date</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Insurance Exp.</th>
-                    <th>ACH</th>
+                    <th onclick="sortTable('expand-table',10)">Insurance Exp.</th>
+                    <th onclick="sortTable('expand-table',11)">ACH</th>
                     <th>Service</th>
-                    <th>Lender</th>
-                    <th>Lender. equity</th>
+                    <th onclick="sortTable('expand-table',13)">Lender</th>
+                    <th onclick="sortTable('expand-table',14)">Lender. equity</th>
                     <th>Lender Rate</th>
-                    <th>Lender Prorated</th>
-                    <th>Lender Regular</th>
-                    <th>P1</th>
-                    <th>P1. equity</th>
+                    <th onclick="sortTable('expand-table',16)">Lender Prorated</th>
+                    <th onclick="sortTable('expand-table',17)">Lender Regular</th>
+                    <th onclick="sortTable('expand-table',18)">P1</th>
+                    <th onclick="sortTable('expand-table',19)">P1. equity</th>
                     <th>P1 Rate</th>
-                    <th>P1 Prorated</th>
-                    <th>P1 Regular</th>
-                    <th>p2</th>
-                    <th>p2. equity</th>
+                    <th onclick="sortTable('expand-table',21)">P1 Prorated</th>
+                    <th onclick="sortTable('expand-table',22)">P1 Regular</th>
+                    <th onclick="sortTable('expand-table',23)">p2</th>
+                    <th onclick="sortTable('expand-table',24)">p2. equity</th>
                     <th>p2 Rate</th>
-                    <th>p2 Prorated</th>
-                    <th>p2 Regular</th>
-                    <th>P3</th>
-                    <th>P3. equity</th>
+                    <th onclick="sortTable('expand-table',26)">p2 Prorated</th>
+                    <th onclick="sortTable('expand-table',27)">p2 Regular</th>
+                    <th onclick="sortTable('expand-table',28)">P3</th>
+                    <th onclick="sortTable('expand-table',29)">P3. equity</th>
                     <th>P3 Rate</th>
-                    <th>P3 Prorated</th>
-                    <th>P3 Regular</th>
-                    <th>P4</th>
-                    <th>P4. equity</th>
+                    <th onclick="sortTable('expand-table',31)">P3 Prorated</th>
+                    <th onclick="sortTable('expand-table',32)">P3 Regular</th>
+                    <th onclick="sortTable('expand-table',33)">P4</th>
+                    <th onclick="sortTable('expand-table',34)">P4. equity</th>
                     <th>P4 Rate</th>
-                    <th>P4 Prorated</th>
-                    <th>P4 Regular</th>
-                    <th>Service</th>
-                    <th>Service. equity</th>
+                    <th onclick="sortTable('expand-table',36)">P4 Prorated</th>
+                    <th onclick="sortTable('expand-table',37)">P4 Regular</th>
+                    <th onclick="sortTable('expand-table',38)">Service</th>
+                    <th onclick="sortTable('expand-table',39)">Service. equity</th>
                     <th>Service Rate</th>
-                    <th>Service Prorated</th>
-                    <th>Service Regular</th>
-                    <th>Yield</th>
-                    <th>Yield. equity</th>
+                    <th onclick="sortTable('expand-table',41)">Service Prorated</th>
+                    <th onclick="sortTable('expand-table',42)">Service Regular</th>
+                    <th onclick="sortTable('expand-table',43)">Yield</th>
+                    <th onclick="sortTable('expand-table',44)">Yield. equity</th>
                     <th>Yield Rate</th>
-                    <th>Yield Prorated</th>
-                    <th>Yield Regular</th>
-                    <th>Balance</th>
+                    <th onclick="sortTable('expand-table',46)">Yield Prorated</th>
+                    <th onclick="sortTable('expand-table',47)">Yield Regular</th>
+                    <th onclick="sortTable('expand-table',48)">Balance</th>
                 </tr>
 
                 <?php
@@ -557,8 +562,8 @@ function insertArrayAtPosition($array, $insert, $position)
                         <td><?php echo $s['bllc']; ?></td>
                         <td><?php echo $s['fname'] ." ". $s['lname']; ?></td>
                         <td><a href="<?php echo $s['link']; ?>" target="_blank"><?php echo $s['bcoll']; ?></a></td>
-                        <td><?php echo $s['tloan']; ?></td>
-                        <td><?php echo $s['irate']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['tloan']),2); ?></td>
+                        <td><?php echo $s['irate']."%"; ?></td>
                         <td><?php echo $s['odate']; ?></td>
                         <td><?php echo $s['mdate']; ?></td>
                         <td><?php echo $s['bphone']; ?></td>
@@ -568,45 +573,45 @@ function insertArrayAtPosition($array, $insert, $position)
                         <td><?php echo $s['service']; ?></td>
 
                         <td><?php echo $s['dkc']; ?></td>
-                        <td><?php echo $s['dkcamt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['dkcamt']),2); ?></td>
                         <td><?php echo $s['dkcrate']; ?></td>
-                        <td><?php echo $s['dkcprorated']; ?></td>
-                        <td><?php echo $s['dkcregular']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['dkcprorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['dkcregular']),2); ?></td>
 
                         <td><?php echo $s['p1']; ?></td>
-                        <td><?php echo $s['p1amt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p1amt']),2); ?></td>
                         <td><?php echo $s['p1rate']; ?></td>
-                        <td><?php echo $s['p1prorated']; ?></td>
-                        <td><?php echo $s['p1regular']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p1prorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p1regular']),2); ?></td>
 
                         <td><?php echo $s['p2']; ?></td>
-                        <td><?php echo $s['p2amt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p2amt']),2); ?></td>
                         <td><?php echo $s['p2rate']; ?></td>
-                        <td><?php echo $s['p2prorated']; ?></td>
-                        <td><?php echo $s['p2regular']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p2prorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p2regular']),2); ?></td>
 
                         <td><?php echo $s['p3']; ?></td>
-                        <td><?php echo $s['p3amt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p3amt']),2); ?></td>
                         <td><?php echo $s['p3rate']; ?></td>
-                        <td><?php echo $s['p3prorated']; ?></td>
-                        <td><?php echo $s['p3regular']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p3prorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p3regular']),2); ?></td>
 
                         <td><?php echo $s['p4']; ?></td>
-                        <td><?php echo $s['p4amt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p4amt']),2); ?></td>
                         <td><?php echo $s['p4rate']; ?></td>
-                        <td><?php echo $s['p4prorated']; ?></td>
-                        <td><?php echo $s['p4regular']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p4prorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['p4regular']),2); ?></td>
                         <td>Service</td>
-                        <td><?php echo $s['servicingamt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['servicingamt']),2); ?></td>
                         <td><?php echo $s['servicingrate']; ?></td>
-                        <td><?php echo $s['servicingprorated']; ?></td>
-                        <td><?php echo $s['servicingregular']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['servicingprorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['servicingregular']),2); ?></td>
                         <td>Yield</td>
-                        <td><?php echo $s['yieldamt']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['yieldamt']),2); ?></td>
                         <td><?php echo $s['yieldrate']; ?></td>
-                        <td><?php echo $s['yieldprorated']; ?></td>
-                        <td><?php echo $s['yieldregular']; ?></td>
-                        <td><?php echo $s['balance']; ?></td>
+                        <td><?php echo "$".number_format(floatval($s['yieldprorated']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['yieldregular']),2); ?></td>
+                        <td><?php echo "$".number_format(floatval($s['balance']),2); ?></td>
 
                     <?php
                     $sn++;

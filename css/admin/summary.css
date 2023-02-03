@@ -301,22 +301,23 @@ input::placeholder {
     border: var(--tableborder);
 }
 
-.data-table table thead td{
-    background-color: var(--primary);
-    color: white;
-    
-}
+
 
 .data-table table thead td{
     font-weight: bold;
 }
 
-.data-table table tbody tr:nth-child(odd) td{
+.data-table table  tr:nth-child(odd) td{
     background-color: rgb(255, 255, 255); 
 }
 
-.data-table table tbody tr:nth-child(even) td{
+.data-table table  tr:nth-child(even) td{
     background-color: rgb(235, 235, 235);
+}
+.data-table table thead td{
+    background-color: var(--primary) !important;
+    color: white;
+    
 }
 .data-table table td:nth-child(2){
     padding: 0px 10px;

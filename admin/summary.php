@@ -426,26 +426,26 @@
                                  Action
                              </td>
 
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',2)" class="freeze">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',1)" class="freeze">
                                  Borrower LLC
                              </td>
-                             <td class="freeze">
+                             <td class="freeze" onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',2)" >
                                  Collateral Address
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',4)" class="freeze">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',3)" class="freeze">
                                  Total Loan
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',5)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',4)">
                                  Lender
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',6)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',5)">
                                  Part #1
                              </td>
                              <td>
                                  Part #1 Rate
                              </td>
 
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',8)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',7)">
                                  Part #2
                              </td>
 
@@ -453,13 +453,13 @@
                                  Part #2 Rate
                              </td>
 
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',10)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',9)">
                                  Part #3
                              </td>
                              <td>
                                  Part #3 Rate
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',12)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',11)">
                                  Part #4
                              </td>
                              <td>
@@ -469,31 +469,31 @@
                              <td>
                                  Total Rate
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',15)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',14)">
                                  Total Payment
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',16)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',15)">
                                  DKC Payment
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',17)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',16)">
                                  Part #1 Payment
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',18)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',17)">
                                  Part #2 Payment
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',  19)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',  18)">
                                  Part #3 Payment
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',20)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',19)">
                                  Part #4 Payment
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',21)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',20)">
                                  Servicing(1%)
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',22)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',21)">
                                  Yield Spread
                              </td>
-                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',23)">
+                             <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',22)">
                                  Check/ Balance
                              </td>
 

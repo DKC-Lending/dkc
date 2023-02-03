@@ -228,3 +228,8 @@
 .paidoff-tr > td{
 	color: red !important;
 }
+
+.investor-table td a{
+	color: blue;
+	text-decoration: none;
+}
