@@ -154,13 +154,4 @@ tr:nth-child(odd) {
     font-size: 13px;
     color: var(--secondary);
 }
-/* 
-.investor-table tbody tr:last-child {
-    color: black;
-    font-weight: bold;
-    font-size: 12px;
-} */
 
-/* .investor-table tbody tr:last-child td {
-    padding: 4px 0px;
-} */

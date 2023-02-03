@@ -57,7 +57,8 @@ function get_diff($d1, $d2)
     }
 }
 
-function insertArrayAtPosition( $array, $insert, $position ) {
+function insertArrayAtPosition($array, $insert, $position)
+{
     /*
     $array : The initial array i want to modify
     $insert : the new array i want to add, eg array('key' => 'value') or array('value')
@@ -105,6 +106,7 @@ function insertArrayAtPosition( $array, $insert, $position ) {
             <div class="top-head-button">
                 <button class="refresh_month_btn" title="Refresh Button" onclick="refresh_month()"> <i class="fa-solid fa-rotate"></i></button>
                 <button class="add_month_btn" title="Add Month Button" onclick="add_month()"> Add months </button>
+                <button class="refresh_month_btn" title="Expand Button" onclick="$('#expand').show()"><i class="fa-solid fa-expand"></i></button>
             </div>
             <section class="body-holder">
                 <?php
@@ -206,15 +208,15 @@ function insertArrayAtPosition( $array, $insert, $position ) {
                 unset($summ_arr['yield']);
                 $tempSort = [];
                 $tempSort['DKC Lending LLC'] = $dkchold;
-                
+
                 for ($i = 0; $i < count($investors); $i++) {
                     $tempSort[$investors[$i]["username"]] = $summ_arr[$investors[$i]["username"]];
                 }
                 $summ_arr = $tempSort;
-               
-                $summ_arr = insertArrayAtPosition($summ_arr,['DKC Servicing Fee Income' => $servicehold], 1 );
-                $summ_arr = insertArrayAtPosition($summ_arr,['DKC Yield Spread Income' => $yieldhold], 2 );
-       
+
+                $summ_arr = insertArrayAtPosition($summ_arr, ['DKC Servicing Fee Income' => $servicehold], 1);
+                $summ_arr = insertArrayAtPosition($summ_arr, ['DKC Yield Spread Income' => $yieldhold], 2);
+
 
                 // echo json_encode($summ_arr);
 
@@ -238,7 +240,7 @@ function insertArrayAtPosition( $array, $insert, $position ) {
                                         </a>
                                     </h4>
                                 </div>
-                              
+
                                 <table class="investor-table" id="<?php echo $head ?>">
 
                                     <thead>
@@ -346,7 +348,7 @@ function insertArrayAtPosition( $array, $insert, $position ) {
 
                                         ?>
                                         <tr class="total_tr">
-                                            <td>Total <?php echo count($datas);?></td>
+                                            <td>Total <?php echo count($datas); ?></td>
                                             <td></td>
                                             <td></td>
                                             <td><?php echo "$" . number_format(floatval($total_amt), 2) ?></td>
@@ -491,9 +493,131 @@ function insertArrayAtPosition( $array, $insert, $position ) {
             </section>
         </div>
 
+        <div id="expand" class="expand">
+            <table border="1" id="expand-table">
+                <tr>
+                    <th>sn</th>
+                    <th>Borrower LLC</th>
+                    <th>Full Name</th>
+                    <th>Collateral Address</th>
+                    <th>Total Loan</th>
+                    <th>Interest %</th>
+                    <th>Origin. Date</th>
+                    <th>Maturity Date</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Insurance Exp.</th>
+                    <th>ACH</th>
+                    <th>Service</th>
+                    <th>Lender</th>
+                    <th>Lender. equity</th>
+                    <th>Lender Rate</th>
+                    <th>Lender Prorated</th>
+                    <th>Lender Regular</th>
+                    <th>P1</th>
+                    <th>P1. equity</th>
+                    <th>P1 Rate</th>
+                    <th>P1 Prorated</th>
+                    <th>P1 Regular</th>
+                    <th>p2</th>
+                    <th>p2. equity</th>
+                    <th>p2 Rate</th>
+                    <th>p2 Prorated</th>
+                    <th>p2 Regular</th>
+                    <th>P3</th>
+                    <th>P3. equity</th>
+                    <th>P3 Rate</th>
+                    <th>P3 Prorated</th>
+                    <th>P3 Regular</th>
+                    <th>P4</th>
+                    <th>P4. equity</th>
+                    <th>P4 Rate</th>
+                    <th>P4 Prorated</th>
+                    <th>P4 Regular</th>
+                    <th>Service</th>
+                    <th>Service. equity</th>
+                    <th>Service Rate</th>
+                    <th>Service Prorated</th>
+                    <th>Service Regular</th>
+                    <th>Yield</th>
+                    <th>Yield. equity</th>
+                    <th>Yield Rate</th>
+                    <th>Yield Prorated</th>
+                    <th>Yield Regular</th>
+                    <th>Balance</th>
+                </tr>
 
+                <?php
+                $sn = 1;
+                foreach ($summary as $s) {
+                    
+                ?>
+                    <tr <?php echo (intval($s['status'])  != 1)?'class="paidoff-tr"':''?>>
+                        <td><?php echo $sn; ?></td>
+                        <td><?php echo $s['bllc']; ?></td>
+                        <td><?php echo $s['fname'] ." ". $s['lname']; ?></td>
+                        <td><a href="<?php echo $s['link']; ?>" target="_blank"><?php echo $s['bcoll']; ?></a></td>
+                        <td><?php echo $s['tloan']; ?></td>
+                        <td><?php echo $s['irate']; ?></td>
+                        <td><?php echo $s['odate']; ?></td>
+                        <td><?php echo $s['mdate']; ?></td>
+                        <td><?php echo $s['bphone']; ?></td>
+                        <td><?php echo $s['bemail']; ?></td>
+                        <td><a href="<?php echo $s['taxurl']?>" target="_blank"><?php echo $s['iexpiry']; ?></a></td>
+                        <td><?php echo $s['ach']; ?></td>
+                        <td><?php echo $s['service']; ?></td>
+
+                        <td><?php echo $s['dkc']; ?></td>
+                        <td><?php echo $s['dkcamt']; ?></td>
+                        <td><?php echo $s['dkcrate']; ?></td>
+                        <td><?php echo $s['dkcprorated']; ?></td>
+                        <td><?php echo $s['dkcregular']; ?></td>
+
+                        <td><?php echo $s['p1']; ?></td>
+                        <td><?php echo $s['p1amt']; ?></td>
+                        <td><?php echo $s['p1rate']; ?></td>
+                        <td><?php echo $s['p1prorated']; ?></td>
+                        <td><?php echo $s['p1regular']; ?></td>
+
+                        <td><?php echo $s['p2']; ?></td>
+                        <td><?php echo $s['p2amt']; ?></td>
+                        <td><?php echo $s['p2rate']; ?></td>
+                        <td><?php echo $s['p2prorated']; ?></td>
+                        <td><?php echo $s['p2regular']; ?></td>
+
+                        <td><?php echo $s['p3']; ?></td>
+                        <td><?php echo $s['p3amt']; ?></td>
+                        <td><?php echo $s['p3rate']; ?></td>
+                        <td><?php echo $s['p3prorated']; ?></td>
+                        <td><?php echo $s['p3regular']; ?></td>
+
+                        <td><?php echo $s['p4']; ?></td>
+                        <td><?php echo $s['p4amt']; ?></td>
+                        <td><?php echo $s['p4rate']; ?></td>
+                        <td><?php echo $s['p4prorated']; ?></td>
+                        <td><?php echo $s['p4regular']; ?></td>
+                        <td>Service</td>
+                        <td><?php echo $s['servicingamt']; ?></td>
+                        <td><?php echo $s['servicingrate']; ?></td>
+                        <td><?php echo $s['servicingprorated']; ?></td>
+                        <td><?php echo $s['servicingregular']; ?></td>
+                        <td>Yield</td>
+                        <td><?php echo $s['yieldamt']; ?></td>
+                        <td><?php echo $s['yieldrate']; ?></td>
+                        <td><?php echo $s['yieldprorated']; ?></td>
+                        <td><?php echo $s['yieldregular']; ?></td>
+                        <td><?php echo $s['balance']; ?></td>
+
+                    <?php
+                    $sn++;
+                }
+                    ?>
+            </table>
+
+        </div>
         <?php include "../global/footer.php"; ?>
     </div>
+
 </body>
 <script>
     if ('serviceWorker' in navigator) {

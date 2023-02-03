@@ -181,17 +181,21 @@ function add_month() {
 
 
 
-function keyDownCode (evt) {
-  console.log(evt.keyCode) 
+function keyDownCode(evt) {
+  console.log(evt.keyCode)
 
-  if (!evt) evt = event; 
+  if (!evt) evt = event;
 
-  if (evt.altKey && evt.keyCode === 190 ) {
-      add_month()
+  if (evt.altKey && evt.keyCode === 190) {
+    add_month()
 
-  } else if (evt.altKey && evt.keyCode === 188) { 
+  } else if (evt.altKey && evt.keyCode === 188) {
 
-      refresh_month()
+    refresh_month()
 
-  } 
+  }
+  else if (evt.keyCode === 27) {
+    $("#expand").hide();
+  }
 }
+window.onload = () => $("#expand").hide();
