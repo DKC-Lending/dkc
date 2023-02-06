@@ -1,4 +1,8 @@
 <?php
+try{
+
+?>
+<?php
 session_start();
 if ($_SESSION['auser'] != 'david') {
     header('Location: ../');
@@ -178,3 +182,11 @@ $summary = $c_summary->preapprove($sum_conn);
 </body>
 
 </html>
+<?php
+} catch (Error $er) {
+    ob_clean();
+    include('../500.php');
+}finally{
+    ob_flush();
+}
+?>

@@ -1,3 +1,4 @@
+<?php try { ?>
 <?php include_once('../backend/session.php'); ?>
 <?php
 include '../backend/config/conifg.php';
@@ -52,3 +53,11 @@ include "../backend/summary/summaryControl.php";
 </body>
 
 </html>
+<?php
+} catch (Error $er) {
+    ob_clean();
+    include('../500.php');
+}finally{
+    ob_flush();
+}
+?>

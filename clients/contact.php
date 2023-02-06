@@ -1,3 +1,4 @@
+<?php try{ ?>
 <?php include_once('../backend/session.php');?>
 <?php
 
@@ -92,3 +93,11 @@ error_reporting(1);
 </div>
 </body>
 </html>
+<?php
+} catch (Error $er) {
+    ob_clean();
+    include('../500.php');
+}finally{
+    ob_flush();
+}
+?>

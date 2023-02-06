@@ -1,0 +1,2 @@
+ErrorDocument 404 /DKC/404.php
+ErrorDocument 500 "/DKC/500.php"

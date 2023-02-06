@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.error-holder{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+}
+.error-holder p{
+    font-size: 2.5rem;
+    font-family: "Abel";
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.error-holder img{
+    margin-top: 20px;
+    height: 20vh;
+}
+
+.error-holder a{
+    margin-top: 50px;
+    font-size: 4vh;
+    text-decoration: none;
+    color: var(--primary);
+}
