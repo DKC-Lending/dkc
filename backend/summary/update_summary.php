@@ -14,7 +14,9 @@ if ($_GET['dkc'] == 'FCT1') {
     $loan = "DKC Lending FL";
 } elseif ($_GET['dkc'] == 'DKCL') {
     $loan = "DKC Lending CL";
-} else {
+} elseif ($_GET['dkc'] == 'DKCIV') {
+    $loan = "DKC Lending IV";
+}  else {
     $loan = "DKC Lending LLC";
 }
 $trate = $_GET['irate'];

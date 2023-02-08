@@ -291,6 +291,7 @@
 				array_push($temp_loans, $diff_loans['DKC Lending LLC']);
 				array_push($temp_loans, $diff_loans['DKC Lending FL']);
 				array_push($temp_loans, $diff_loans['DKC Lending CL']);
+				array_push($temp_loans, $diff_loans['DKC Lending IV']);
 
 				$diff_loans = $temp_loans;
 				$heads = get_heading($pdfconn);

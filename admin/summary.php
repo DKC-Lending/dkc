@@ -6,7 +6,7 @@ try {
     <?php
     include '../backend/config/conifg.php';
     include '../backend/summary/get_multi_coll.php';
-    // error_reporting(0);
+    error_reporting(0);
     $web = $config->fetch();
     ?>
     <?php
@@ -409,6 +409,8 @@ try {
                 array_push($temp_loans, $diff_loans['DKC Lending FL']);
                 array_push($temp_loans, $diff_loans['First Capital Trusts LLC']);
                 array_push($temp_loans, $diff_loans['DKC Lending CL']);
+                array_push($temp_loans, $diff_loans['DKC Lending IV']);
+
                 $diff_loans = $temp_loans;
                 $grand_total = 0;
                 $grand_p1 = 0;
@@ -417,288 +419,289 @@ try {
                 $grand_p4 = 0;
                 $grand_dkc = 0;
                 foreach ($diff_loans as $diff) {
-
+                    if ($diff != null) {
                 ?>
-                    <br>
-                    <br>
-                    <strong><?php echo  $diff[0]['loan']; ?></strong>
-                    <br>
-                    <br>
-                    <!-- Start the main table of the page  -->
-                    <table class="data-table-tbl" id="main-sum-tbl<?php echo  $diff[0]['loan']; ?>">
-                        <thead>
-                            <tr>
-                                <td class="freeze">
-                                    Action
-                                </td>
-
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',1)" class="freeze">
-                                    Borrower LLC
-                                </td>
-                                <td class="freeze" onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',2)">
-                                    Collateral Address
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',3)" class="freeze">
-                                    Total Loan
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',4)">
-                                    Lender
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',5)">
-                                    Part #1
-                                </td>
-                                <td>
-                                    Part #1 Rate
-                                </td>
-
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',7)">
-                                    Part #2
-                                </td>
-
-                                <td>
-                                    Part #2 Rate
-                                </td>
-
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',9)">
-                                    Part #3
-                                </td>
-                                <td>
-                                    Part #3 Rate
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',11)">
-                                    Part #4
-                                </td>
-                                <td>
-                                    Part #4 Rate
-                                </td>
-
-                                <td>
-                                    Total Rate
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',14)">
-                                    Total Payment
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',15)">
-                                    DKC Payment
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',16)">
-                                    Part #1 Payment
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',17)">
-                                    Part #2 Payment
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',  18)">
-                                    Part #3 Payment
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',19)">
-                                    Part #4 Payment
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',20)">
-                                    Servicing(1%)
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',21)">
-                                    Yield Spread
-                                </td>
-                                <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',22)">
-                                    Check/ Balance
-                                </td>
-
-                            </tr>
-                        </thead>
-                        <!-- Start the body of the table -->
-                        <tbody>
-                            <?php
-                            $total_total_loan = 0;
-                            $total_dkc = 0;
-                            $total_p1 = 0;
-                            $total_p2 = 0;
-                            $total_p3 = 0;
-                            $total_p4 = 0;
-                            $total_payment = 0;
-                            $total_dkc_payment = 0;
-                            $total_p1_payment = 0;
-                            $total_p2_payment = 0;
-                            $total_p3_payment = 0;
-                            $total_p4_payment = 0;
-                            $total_total_payment = 0;
-                            $total_servicing = 0;
-                            $total_yield = 0;
-                            $total_balance = 0;
-                            $sn = 0;
-                            foreach ($diff as $sum) {
-
-                                $url = $sum['link'];
-                                $caddress = $sum['bcoll'];
-                                $tloan = $sum['tloan'];
-                                $total_total_loan += $sum['tloan'];
-                                $grand_total += $tloan;
-
-                                $dkc = ($sum['dkcamt'] == 0) ? 0 :  $sum['dkcamt'];
-
-                                $total_dkc += $sum['dkcamt'];
-                                $grand_dkc += ($sum['dkc'] == 'DKC') ? $sum['dkcamt'] : 0;
-
-                                $p1amt = ($sum['p1amt'] == 0) ? 0 : $sum['p1amt'];
-                                $total_p1 += $sum['p1amt'];
-                                $grand_p1 += ($sum['dkc'] != 'DKC') ? $sum['dkcamt'] : 0;
-                                $grand_p1 += $sum['p1amt'];
-                                $p1rate = ($sum['p1rate'] == 0) ? "N/A" : $sum['p1rate'] . "%";
-
-                                $p2amt = ($sum['p2amt'] == 0) ? 0 : $sum['p2amt'];
-                                $total_p2 += $sum['p2amt'];
-                                $grand_p2 += $sum['p2amt'];
-                                $p2rate = ($sum['p2rate'] == 0) ? "N/A" : $sum['p2rate'] . "%";
-
-                                $p3amt = ($sum['p3amt'] == 0) ? 0 : $sum['p3amt'];
-                                $total_p3 += $sum['p3amt'];
-                                $grand_p3 += $sum['p3amt'];
-                                $p3rate = ceil($sum['p3rate'] == 0) ? "N/A" : $sum['p3rate'] . "%";
-
-                                $p4amt = ($sum['p4amt'] == 0) ? 0 : $sum['p4amt'];
-                                $total_p4 += $sum['p4amt'];
-                                $grand_p4 += $sum['p4amt'];
-                                $p4rate = ceil($sum['p4rate'] == 0) ? "N/A" : $sum['p4rate'] . "%";
-
-                                $trate = $sum['irate'];
-                                $dkcpayment = $sum['dkcregular'];
-
-                                $total_dkc_payment += $sum['dkcregular'];
-                                $p1payment = $sum['p1regular'];
-                                $total_p1_payment = $sum['p1regular'];
-                                $p2payment = $sum['p2regular'];
-                                $total_p2_payment += $sum['p2regular'];
-                                $p3payment = $sum['p3regular'];
-                                $total_p3_payment += $sum['p3regular'];
-                                $p4payment = $sum['p4regular'];
-                                $total_p4_payment += $sum['p4regular'];
-
-                                $tpayment = $sum['balance'];
-                                $total_total_payment  += $sum['balance'];
-                                $servicing = ($sum['servicingregular'] == 0) ? 0 : $sum['servicingregular'];
-                                $total_servicing += $sum['servicingregular'];
-                                $yield = ($sum['yieldregular'] == 0) ? 0 :  $sum['yieldregular'];
-                                $total_yield += $sum['yieldregular'];
-                                $balance =   $sum['balance'];
-                                $total_balance += $sum['balance'];
-                                $sn++;
-                            ?>
-
-                                <?php
-                                $exp = "";
-                                $class = get_diff(date("m-d-Y"), $sum['mdate']);
-                                ?>
-
-                                <tr class="tablerow <?php echo ($sum['tloan'] > 0) ? '' : 'paidoff-red'; ?>">
-
-                                    <?php
-                                    $temp_mul = [];
-                                    $temp_expiry = [];
-                                    if (count($multi_arr) > 0) {
-                                        foreach ($multi_arr as $mul) {
-                                            if ($sum['sid'] == $mul['sid']) {
-                                                $temp_mul = explode(":", $mul["collateral"]);
-                                                $temp_expiry = explode(":", $mul["expiry"]);
-                                                break;
-                                            } else {
-                                                $temp_mul = [];
-                                                $temp_expiry = [];
-                                            }
-                                        }
-                                    }
-                                    ?>
-                                    <td class="action-holder">
-                                        <button class="edit-btn payoff-btn" title="Paidoff Btn" onclick='cutloan(<?php echo json_encode($sum); ?>)'><i class="fa-solid fa-money-bill"></i></button>
-                                        <button class="edit-btn" title="Edit Btn" onclick='editSummary(<?php echo json_encode($sum); ?>,<?php echo json_encode($temp_mul); ?>,<?php echo json_encode($temp_expiry); ?>)'><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="del-btn" title="Delete Btn" onclick="deleteSummary(<?php echo $sum['sid']; ?>)"><i class="fa-solid fa-trash"></i></button>
-                                        <button class="call-btn" title="Message Btn" onclick="messageBorrower(`<?php echo $sum['bphone']; ?>`, `<?php echo $sum['bllc']; ?>`)"><i class="fa-solid fa-phone"></i></button>
-                                        <button class="mail-btn" title="Email Btn" onclick="mailBorrower(`<?php echo $sum['bemail']; ?>`)"><i class="fa-solid fa-envelope"></i></button>
-                                        <a href="<?php echo $url; ?>" title="Link" target="_blank" style="color:skyblue;"><button class="link-btn"><i class="fa-solid fa-file"></i></button></a>
+                        <br>
+                        <br>
+                        <strong><?php echo  $diff[0]['loan']; ?></strong>
+                        <br>
+                        <br>
+                        <!-- Start the main table of the page  -->
+                        <table class="data-table-tbl" id="main-sum-tbl<?php echo  $diff[0]['loan']; ?>">
+                            <thead>
+                                <tr>
+                                    <td class="freeze">
+                                        Action
                                     </td>
 
-                                    <td><?php echo ($sum['bllc']); ?></td>
-
-                                    <?php if (count($temp_mul) > 0) { ?>
-                                        <td onmouseout='deleteconfirm()' title="<?php foreach ($temp_mul as $ctemp) {
-                                                                                    echo $ctemp . "\n";
-                                                                                } ?>" onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <label title="<?php foreach ($temp_mul as $ctemp) {
-                                                                                                                                                                                echo $ctemp . "\n";
-                                                                                                                                                                            } ?>"><?php echo ($caddress); ?></label>
-                                            <div class="col-count"><?php echo count($temp_mul); ?></div>
-                                        </td>
-
-                                    <?php } else { ?>
-                                        <td><?php echo ($caddress); ?></td>
-                                    <?php  } ?>
-
-
-                                    <td><?php echo  "$" . number_format($tloan, 2); ?></td>
-                                    <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($dkc, 2); ?><p><?php echo ($sum['dkc']); ?></p>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',1)" class="freeze">
+                                        Borrower LLC
                                     </td>
-                                    <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p1amt, 2); ?><p><?php echo ($sum['p1']); ?></p>
+                                    <td class="freeze" onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',2)">
+                                        Collateral Address
                                     </td>
-                                    <td><?php echo $p1rate; ?></td>
-
-                                    <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p2amt, 2); ?><p><?php echo ($sum['p2']); ?></p>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',3)" class="freeze">
+                                        Total Loan
                                     </td>
-                                    <td><?php echo $p2rate; ?></td>
-
-                                    <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p3amt, 2); ?><p><?php echo ($sum['p3']); ?></p>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',4)">
+                                        Lender
                                     </td>
-                                    <td><?php echo $p3rate; ?></td>
-                                    <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p4amt, 2); ?><p><?php echo ($sum['p4']); ?></p>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',5)">
+                                        Part #1
                                     </td>
-                                    <td><?php echo $p4rate; ?></td>
+                                    <td>
+                                        Part #1 Rate
+                                    </td>
 
-                                    <td><?php echo floor($trate) . "%"; ?></td>
-                                    <td><?php echo  "$" . number_format($tpayment, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($dkcpayment, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($p1payment, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($p2payment, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($p3payment, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($p4payment, 2); ?></td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',7)">
+                                        Part #2
+                                    </td>
 
-                                    <td><?php echo  "$" . number_format($servicing, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($yield, 2); ?></td>
-                                    <td><?php echo  "$" . number_format($balance, 2); ?></td>
+                                    <td>
+                                        Part #2 Rate
+                                    </td>
+
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',9)">
+                                        Part #3
+                                    </td>
+                                    <td>
+                                        Part #3 Rate
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',11)">
+                                        Part #4
+                                    </td>
+                                    <td>
+                                        Part #4 Rate
+                                    </td>
+
+                                    <td>
+                                        Total Rate
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',14)">
+                                        Total Payment
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',15)">
+                                        DKC Payment
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',16)">
+                                        Part #1 Payment
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',17)">
+                                        Part #2 Payment
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',  18)">
+                                        Part #3 Payment
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',19)">
+                                        Part #4 Payment
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',20)">
+                                        Servicing(1%)
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',21)">
+                                        Yield Spread
+                                    </td>
+                                    <td onclick="sortTable('main-sum-tbl<?php echo  $diff[0]['loan']; ?>',22)">
+                                        Check/ Balance
+                                    </td>
 
                                 </tr>
+                            </thead>
+                            <!-- Start the body of the table -->
+                            <tbody>
+                                <?php
+                                $total_total_loan = 0;
+                                $total_dkc = 0;
+                                $total_p1 = 0;
+                                $total_p2 = 0;
+                                $total_p3 = 0;
+                                $total_p4 = 0;
+                                $total_payment = 0;
+                                $total_dkc_payment = 0;
+                                $total_p1_payment = 0;
+                                $total_p2_payment = 0;
+                                $total_p3_payment = 0;
+                                $total_p4_payment = 0;
+                                $total_total_payment = 0;
+                                $total_servicing = 0;
+                                $total_yield = 0;
+                                $total_balance = 0;
+                                $sn = 0;
+                                foreach ($diff as $sum) {
 
-                            <?php
-                            }
-                            ?>
-                            <tr>
+                                    $url = $sum['link'];
+                                    $caddress = $sum['bcoll'];
+                                    $tloan = $sum['tloan'];
+                                    $total_total_loan += $sum['tloan'];
+                                    $grand_total += $tloan;
 
-                                <td colspan="2" style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:79px;" class="freeze"></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:395px;" class="freeze"> Total : <?php echo count($diff); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:562px;" class="freeze"><?php echo "$" . number_format($total_total_loan, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_dkc, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p1, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p2, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p3, 2); ?></td>
+                                    $dkc = ($sum['dkcamt'] == 0) ? 0 :  $sum['dkcamt'];
 
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p4, 2); ?></td>
+                                    $total_dkc += $sum['dkcamt'];
+                                    $grand_dkc += ($sum['dkc'] == 'DKC') ? $sum['dkcamt'] : 0;
 
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_total_payment, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_dkc_payment, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p1_payment, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p2_payment, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p3_payment, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p4_payment, 2); ?></td>
+                                    $p1amt = ($sum['p1amt'] == 0) ? 0 : $sum['p1amt'];
+                                    $total_p1 += $sum['p1amt'];
+                                    $grand_p1 += ($sum['dkc'] != 'DKC') ? $sum['dkcamt'] : 0;
+                                    $grand_p1 += $sum['p1amt'];
+                                    $p1rate = ($sum['p1rate'] == 0) ? "N/A" : $sum['p1rate'] . "%";
 
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_servicing, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_yield, 2); ?></td>
-                                <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_balance, 2); ?></td>
+                                    $p2amt = ($sum['p2amt'] == 0) ? 0 : $sum['p2amt'];
+                                    $total_p2 += $sum['p2amt'];
+                                    $grand_p2 += $sum['p2amt'];
+                                    $p2rate = ($sum['p2rate'] == 0) ? "N/A" : $sum['p2rate'] . "%";
 
-                            </tr>
-                        </tbody>
-                    </table>
+                                    $p3amt = ($sum['p3amt'] == 0) ? 0 : $sum['p3amt'];
+                                    $total_p3 += $sum['p3amt'];
+                                    $grand_p3 += $sum['p3amt'];
+                                    $p3rate = ceil($sum['p3rate'] == 0) ? "N/A" : $sum['p3rate'] . "%";
+
+                                    $p4amt = ($sum['p4amt'] == 0) ? 0 : $sum['p4amt'];
+                                    $total_p4 += $sum['p4amt'];
+                                    $grand_p4 += $sum['p4amt'];
+                                    $p4rate = ceil($sum['p4rate'] == 0) ? "N/A" : $sum['p4rate'] . "%";
+
+                                    $trate = $sum['irate'];
+                                    $dkcpayment = $sum['dkcregular'];
+
+                                    $total_dkc_payment += $sum['dkcregular'];
+                                    $p1payment = $sum['p1regular'];
+                                    $total_p1_payment = $sum['p1regular'];
+                                    $p2payment = $sum['p2regular'];
+                                    $total_p2_payment += $sum['p2regular'];
+                                    $p3payment = $sum['p3regular'];
+                                    $total_p3_payment += $sum['p3regular'];
+                                    $p4payment = $sum['p4regular'];
+                                    $total_p4_payment += $sum['p4regular'];
+
+                                    $tpayment = $sum['balance'];
+                                    $total_total_payment  += $sum['balance'];
+                                    $servicing = ($sum['servicingregular'] == 0) ? 0 : $sum['servicingregular'];
+                                    $total_servicing += $sum['servicingregular'];
+                                    $yield = ($sum['yieldregular'] == 0) ? 0 :  $sum['yieldregular'];
+                                    $total_yield += $sum['yieldregular'];
+                                    $balance =   $sum['balance'];
+                                    $total_balance += $sum['balance'];
+                                    $sn++;
+                                ?>
+
+                                    <?php
+                                    $exp = "";
+                                    $class = get_diff(date("m-d-Y"), $sum['mdate']);
+                                    ?>
+
+                                    <tr class="tablerow <?php echo ($sum['tloan'] > 0) ? '' : 'paidoff-red'; ?>">
+
+                                        <?php
+                                        $temp_mul = [];
+                                        $temp_expiry = [];
+                                        if (count($multi_arr) > 0) {
+                                            foreach ($multi_arr as $mul) {
+                                                if ($sum['sid'] == $mul['sid']) {
+                                                    $temp_mul = explode(":", $mul["collateral"]);
+                                                    $temp_expiry = explode(":", $mul["expiry"]);
+                                                    break;
+                                                } else {
+                                                    $temp_mul = [];
+                                                    $temp_expiry = [];
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                        <td class="action-holder">
+                                            <button class="edit-btn payoff-btn" title="Paidoff Btn" onclick='cutloan(<?php echo json_encode($sum); ?>)'><i class="fa-solid fa-money-bill"></i></button>
+                                            <button class="edit-btn" title="Edit Btn" onclick='editSummary(<?php echo json_encode($sum); ?>,<?php echo json_encode($temp_mul); ?>,<?php echo json_encode($temp_expiry); ?>)'><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="del-btn" title="Delete Btn" onclick="deleteSummary(<?php echo $sum['sid']; ?>)"><i class="fa-solid fa-trash"></i></button>
+                                            <button class="call-btn" title="Message Btn" onclick="messageBorrower(`<?php echo $sum['bphone']; ?>`, `<?php echo $sum['bllc']; ?>`)"><i class="fa-solid fa-phone"></i></button>
+                                            <button class="mail-btn" title="Email Btn" onclick="mailBorrower(`<?php echo $sum['bemail']; ?>`)"><i class="fa-solid fa-envelope"></i></button>
+                                            <a href="<?php echo $url; ?>" title="Link" target="_blank" style="color:skyblue;"><button class="link-btn"><i class="fa-solid fa-file"></i></button></a>
+                                        </td>
+
+                                        <td><?php echo ($sum['bllc']); ?></td>
+
+                                        <?php if (count($temp_mul) > 0) { ?>
+                                            <td onmouseout='deleteconfirm()' title="<?php foreach ($temp_mul as $ctemp) {
+                                                                                        echo $ctemp . "\n";
+                                                                                    } ?>" onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <label title="<?php foreach ($temp_mul as $ctemp) {
+                                                                                                                                                                            echo $ctemp . "\n";
+                                                                                                                                                                        } ?>"><?php echo ($caddress); ?></label>
+                                                <div class="col-count"><?php echo count($temp_mul); ?></div>
+                                            </td>
+
+                                        <?php } else { ?>
+                                            <td><?php echo ($caddress); ?></td>
+                                        <?php  } ?>
+
+
+                                        <td><?php echo  "$" . number_format($tloan, 2); ?></td>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($dkc, 2); ?><p><?php echo ($sum['dkc']); ?></p>
+                                        </td>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p1amt, 2); ?><p><?php echo ($sum['p1']); ?></p>
+                                        </td>
+                                        <td><?php echo $p1rate; ?></td>
+
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p2amt, 2); ?><p><?php echo ($sum['p2']); ?></p>
+                                        </td>
+                                        <td><?php echo $p2rate; ?></td>
+
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p3amt, 2); ?><p><?php echo ($sum['p3']); ?></p>
+                                        </td>
+                                        <td><?php echo $p3rate; ?></td>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p4amt, 2); ?><p><?php echo ($sum['p4']); ?></p>
+                                        </td>
+                                        <td><?php echo $p4rate; ?></td>
+
+                                        <td><?php echo floor($trate) . "%"; ?></td>
+                                        <td><?php echo  "$" . number_format($tpayment, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($dkcpayment, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($p1payment, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($p2payment, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($p3payment, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($p4payment, 2); ?></td>
+
+                                        <td><?php echo  "$" . number_format($servicing, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($yield, 2); ?></td>
+                                        <td><?php echo  "$" . number_format($balance, 2); ?></td>
+
+                                    </tr>
+
+                                <?php
+                                }
+                                ?>
+                                <tr>
+
+                                    <td colspan="2" style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:79px;" class="freeze"></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:395px;" class="freeze"> Total : <?php echo count($diff); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;position:sticky;left:562px;" class="freeze"><?php echo "$" . number_format($total_total_loan, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_dkc, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p1, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p2, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p3, 2); ?></td>
+
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p4, 2); ?></td>
+
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_total_payment, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_dkc_payment, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p1_payment, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p2_payment, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p3_payment, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_p4_payment, 2); ?></td>
+
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_servicing, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_yield, 2); ?></td>
+                                    <td style="background-color: var(--secondary); color:white; font-weight:bold; text-align:center;"><?php echo "$" . number_format($total_balance, 2); ?></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
                 <?php
-                    $cc++;
+                        $cc++;
+                    }
                 }
                 ?>
 
@@ -1078,9 +1081,6 @@ try {
         </section>
         <script>
             $(".dragok").children($("p")).hide();
-
-          
-            
         </script>
 
 
@@ -1094,9 +1094,10 @@ try {
 
 <?php
 } catch (Error $er) {
-    ob_clean();
-    include('../500.php');
-}finally{
+    // ob_clean();
+    echo $er;
+    // include('../500.php');
+} finally {
     ob_flush();
 }
 ?>
