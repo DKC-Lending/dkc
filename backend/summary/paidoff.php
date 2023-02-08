@@ -1,4 +1,5 @@
 <?php
+try{
 include "summary_connect.php";
 $sid = $_POST["paidsid"];
 $date = $_POST["exdate"];
@@ -45,12 +46,19 @@ if (folder_exist("../../paidoff/$sid")) {
     echo "gds";
     $pdf = fopen("../../paidoff/$sid/" . 'paidoff.pdf', 'w');
     fwrite($pdf, base64_decode($decoded_pdf));
+    fclose($pdf);
 } else {
-    echo"sfs";
     mkdir("../../paidoff/$sid");
-    $pdf = fopen("../../paidoff/$sid/" . 'paidoff.pdf', 'w');
+    $ffnn = "../../paidoff/$sid/" . "paidoff.pdf";
+    $pdf = fopen($ffnn, 'w');
+    echo $pdf;
     fwrite($pdf, base64_decode($decoded_pdf));
+    fclose($pdf);
 }
 
 header('Location: ../../admin/summary.php');
 exit();
+}catch(Error $e){
+    echo $e;
+}
+?>
