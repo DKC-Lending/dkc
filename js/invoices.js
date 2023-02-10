@@ -22,105 +22,39 @@ var page_ind = 0;
 
 
 function sortTable(tbl, r) {
-    var table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById(`${tbl}`);
-    ascdsc = true;
-    switching = true;
-    console.log(table)
-    /*Make a loop that will continue until
-    no switching has been done:*/
-    x = table.rows[1].getElementsByTagName("TD")[r];
-    y = table.rows[table.rows.length - 2].getElementsByTagName("TD")[r];
-    console.log(x.innerHTML.replace("$", ""), y.innerHTML, r)
-    if (x.innerHTML.startsWith("$")) {
+    const table = document.getElementById(tbl);
+    const rows = Array.from(table.rows).slice(2, -1);
+    const totalRow = table.rows[table.rows.length - 1];
+    table.deleteRow(-1)
+    const header = table.rows[1].cells[r];
+    let ascdsc = true;
+    header.ascdsc = header.ascdsc === undefined ? true : !header.ascdsc;
+    ascdsc = header.ascdsc;
+    const isAmount = (str) => /^\$?\d+(,\d{3})*\.?[0-9]?[0-9]?$/.test(str);
+    const isDate = (str) => /^\d{2}-\d{2}-\d{4}$/.test(str);
+  
+    rows.sort((a, b) => {
+      const cellA = a.cells[r].textContent;
+      const cellB = b.cells[r].textContent;
+  
+      if (isAmount(cellA)) {
+        return ascdsc ? parseFloat(cellA.slice(1)) - parseFloat(cellB.slice(1))
+                      : parseFloat(cellB.slice(1)) - parseFloat(cellA.slice(1));
+      } else if (isDate(cellA)) {
+        return ascdsc ? Date.parse(cellA) - Date.parse(cellB)
+                      : Date.parse(cellB) - Date.parse(cellA);
+      } else {
+        console.log("number", cellA, cellB)
+        return ascdsc ? cellA.localeCompare(cellB)
+                      : cellB.localeCompare(cellA);
+      }
+    });
+  
+    rows.forEach(row => table.appendChild(row));
+    table.appendChild(totalRow);
+  }
+  
 
-        tempx = x.innerHTML.replace("$", "").replaceAll(",", "");
-        tempy = y.innerHTML.replace("$", "").replaceAll(",", "");
-        if (parseFloat(tempx) < parseFloat(tempy)) {
-            ascdsc = false;
-        }
-    } else if (x.innerHTML.match(/^\d{2}-\d{2}-\d{4}$/) != null) {
-        tempx = Date.parse(x.innerHTML);
-        tempy = Date.parse(y.innerHTML);
-
-        if (tempx - tempy < 0) {
-            ascdsc = false;
-        }
-    }
-    else {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            ascdsc = false;
-        }
-    }
-
-    while (switching) {
-        //start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /*Loop through all table rows (except the
-        first, which contains table headers):*/
-
-        for (i = 1; i < (rows.length - 2); i++) {
-            //start by saying there should be no switching:
-            shouldSwitch = false;
-            /*Get the two elements you want to compare,
-            one from current row and one from the next:*/
-            x = rows[i].getElementsByTagName("TD")[r];
-            y = rows[i + 1].getElementsByTagName("TD")[r];
-            //check if the two rows should switch place:
-            if (x.innerHTML.startsWith("$")) {
-
-                tempx = x.innerHTML.replace("$", "").replaceAll(",", "");
-                tempy = y.innerHTML.replace("$", "").replaceAll(",", "");
-                if (ascdsc) {
-                    if (parseFloat(tempx) > parseFloat(tempy)) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else {
-                    if (parseFloat(tempx) < parseFloat(tempy)) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            } else if (x.innerHTML.match(/^\d{2}-\d{2}-\d{4}$/) != null) {
-                tempx = Date.parse(x.innerHTML);
-                tempy = Date.parse(y.innerHTML);
-                console.log(tempx, tempy)
-                if (ascdsc) {
-                    if (tempx - tempy > 0) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else {
-                    if (tempx - tempy < 0) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            } else {
-
-                if (ascdsc) {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-        }
-        if (shouldSwitch) {
-            /*If a switch has been marked, make the switch
-            and mark that a switch has been done:*/
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
-    }
-}
 
 function refresh_month(invoice_datas) {
     let x = confirm(`Do you want to refresh ${monthNames[today.getMonth()] + " " + today.getFullYear().toString().substr(-2)} Data.`)
