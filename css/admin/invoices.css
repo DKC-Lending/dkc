@@ -294,7 +294,7 @@
     height: 30px;
     width: 30px;
     border: none;
-    color: var(--priamry);
+    color: var(--priamry) !important;
 }
 
 td {
@@ -686,4 +686,8 @@ tfoot tr td{
 }
 .action-holder{
     display: flex;
+}
+
+.paidoff-red td{
+    color: rgb(163, 43, 43);
 }

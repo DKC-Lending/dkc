@@ -341,7 +341,7 @@
 								$class = get_diff(date("m-d-Y"), $sum['mdate']);
 								$exp = get_diff(date("m-d-Y"), $sum['iexpiry']);
 								?>
-								<tr>
+								<tr class=<?php echo ($sum['tloan'] > 0) ? '' : 'paidoff-red'; ?>>
 									<td style="text-align:center">
 										<button class="send-invoice-btn confirm" id='<?php echo $sum["sid"]; ?>' title="Payment Confirm Btn" onclick='payment_confirm("utable<?php echo $count; ?>",<?php echo $ccount ?>,<?php echo $sum["sid"]; ?>)'><i class="fa-solid fa-clipboard-check"></i></button>
 										<button class="send-invoice-btn" id='<?php echo $sum["sid"]; ?>' title="Send Invoice Btn" onclick='preview_form(<?php echo json_encode($sum); ?>)'><i class="fa-solid fa-share"></i></button>
