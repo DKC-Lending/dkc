@@ -35,7 +35,7 @@ include "../backend/summary/summaryControl.php";
 		<div class="main-container">
 			<div class="top-head-txt">
 				<div>
-					<p>Investor Borrower Panel <br> <label class="sub-heading">You can add, update or delete users from here</label> </p>
+					<p>Investor Borrower Panel <br> <label class="sub-heading">You can view the investment table from here</label> </p>
 				</div>
 			</div>
 		</div>
@@ -44,7 +44,7 @@ include "../backend/summary/summaryControl.php";
 		<section class="overview-card">
 			<h4>Total Investment</h4>
 			<div><label><b>No. of Borrower</b></label> <label><?php echo $count; ?></label></div>
-			<div><label><b>Amount Invested</b></label> <label><?php echo '$' . $amount; ?></label></div>
+			<div><label><b>Amount Invested</b></label> <label><?php echo '$' . number_format($amount,2); ?></label></div>
 		</section>
 
 		<?php include "../global/footer.php"; ?>

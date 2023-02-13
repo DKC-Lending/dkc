@@ -11,7 +11,6 @@ try { ?>
         $uname = $_SESSION["cuser"];
     }
 
-    // echo $uname;
     // include_once('../backend/main/borrowerController.php');
     include '../backend/summary/summaryControl.php';
     include_once('../backend/post/postControl.php');
@@ -31,6 +30,7 @@ try { ?>
     $sumData = new Summary();
     $sumMonths = 0;
     $summData = $sumData->specificData($uname, $sum_conn);
+    print_r($uname);
     $heading =  $sumData->get_heading($sum_conn);
     $monthlly = $sumData->getMonthlyData($sum_conn);
 
@@ -47,8 +47,9 @@ try { ?>
         array_push($date_monthly_holder, $sumMonths);
     }
     foreach ($summData as $sumdata) {
-
-        if ($sumdata['p1'] == $uname) {
+        if ($sumdata['dkc'] == $uname) {
+            $part = "dkc";
+        } elseif ($sumdata['p1'] == $uname) {
             $part = "p1";
         } elseif ($sumdata['p2'] == $uname) {
             $part = "p2";
@@ -63,8 +64,13 @@ try { ?>
         $monthly_interest += ((((float)$sumdata["$part" . "rate"] / 100) * (float)$sumdata["$part" . "amt"])) / 12;
         $avg_rate += $sumdata["$part" . "rate"];
     }
+    if (count($summData) > 0) {
+        $avg_rate = $avg_rate / count($summData);
+    } else {
+        $avg_rate = 0;
+    }
 
-    $avg_rate = $avg_rate / count($summData);
+    $avg_rate = round($avg_rate, 2);
 
     for ($i = 0; $i < count($date_monthly_holder); $i++) {
         $total_equity_holder[$i] = $total_equity;
@@ -242,9 +248,10 @@ try { ?>
     </script>
 <?php
 } catch (Error $er) {
-    ob_clean();
-    include('../500.php');
+    echo $er;
+    // ob_clean();
+    // include('../500.php');
 } finally {
-    ob_flush();
+    // ob_flush();
 }
 ?>

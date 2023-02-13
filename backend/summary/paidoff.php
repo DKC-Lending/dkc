@@ -33,6 +33,7 @@ function folder_exist($folder)
 {
     // Get canonicalized absolute pathname
     $path = realpath($folder);
+    echo $path;
 
     // If it exist, check if it's a directory
     return ($path !== false AND is_dir($path)) ? $path : false;
@@ -40,7 +41,6 @@ function folder_exist($folder)
 
 $pdfdoc = $_POST['pdfuri'];
 $decoded_pdf = substr($pdfdoc, strlen('data:application/pdf;filename=generated.pdf;base64,'));
-
 
 if (folder_exist("../../paidoff/$sid")) {
     echo "gds";

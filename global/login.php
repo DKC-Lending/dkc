@@ -52,6 +52,7 @@
       					<input type="submit" name="submit" value='Login' class="solid-btn" style="font-family: Arial, 'Font Awesome 5 Free'">
       					<a href=""><button class="border-btn">Get your account &#160; <i class="fa-solid fa-pencil"></i></button></a>
       				</div>
+					<p style="text-align: center;color:red;font-size:0.8rem;"><?php if(isset($_GET['code'])){ $c = $_GET['code']; echo ($c == 1)? "Captcha Auth Fail": "Incorrect login details";unset($_GET['code']);} ?></p>
 				</form>
 			</div>
 

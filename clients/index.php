@@ -48,9 +48,9 @@
 	</html>
 <?php
 } catch (Error $er) {
-	ob_clean();
-	include('../500.php');
+	// ob_clean();
+	// include('../500.php');
 } finally {
-	ob_flush();
+	// ob_flush();
 }
 ?>

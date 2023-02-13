@@ -32,15 +32,40 @@ function sortTable(tbl, r) {
   let ascdsc = true;
   header.ascdsc = header.ascdsc === undefined ? true : !header.ascdsc;
   ascdsc = header.ascdsc;
-  const isAmount = (str) => /^\$?\d+(,\d{3})*\.?[0-9]?[0-9]?$/.test(str);
+  const isAmount = (str) => /^\$\d+(,\d{3})*\.?[0-9]?[0-9]?$/.test(str);
   const isDate = (str) => /^\d{2}-\d{2}-\d{4}$/.test(str);
+  const isNumber = (str) => /^[0-9]+$/.test(str);
   count = 0;
   console.log("before", rows.length)
   rows.sort((a, b) => {
 
-    const cellA = a.cells[r].textContent;
-    const cellB = b.cells[r].textContent;
-console.log(cellA, cellB)
+
+    let cellA = a.cells[r].getAttribute("value");
+    console.log("value", cellA)
+    if (cellA == null) {
+      cellA = a.cells[r].getAttribute("class");
+      console.log("class", cellA);
+    }
+    if (cellA == null) {
+      cellA = a.cells[r].textContent;
+      console.log("text", cellA);
+
+    }
+    let cellB = b.cells[r].getAttribute("value");
+    console.log("value", cellB)
+
+    if (cellB == null) {
+
+      cellB = b.cells[r].getAttribute("class");
+      console.log("class", cellB)
+
+    }
+    if (cellB == null) {
+      cellB = b.cells[r].textContent;
+      console.log("text", cellB)
+
+    }
+    console.log("helhsdhsd", cellA, cellB)
     if (isAmount(cellA)) {
       console.log("Amount", cellA.slice(1))
       return header.ascdsc ? parseFloat(cellA.slice(1)) - parseFloat(cellB.slice(1))
@@ -50,8 +75,11 @@ console.log(cellA, cellB)
 
       return header.ascdsc ? Date.parse(cellA) - Date.parse(cellB)
         : Date.parse(cellB) - Date.parse(cellA);
-    } else {
+    } else if (isNumber(cellA)) {
       console.log("number", "number")
+      return header.ascdsc ? cellA - cellB : cellB - cellA;
+    } else {
+      console.log("string", "string")
       return header.ascdsc ? cellA.localeCompare(cellB)
         : cellB.localeCompare(cellA);
     }

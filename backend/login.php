@@ -35,16 +35,16 @@
 				}
 			}
 			//echo $uname.'f'.$password ;
-			header("Location: ../global/login.php");
+			header("Location: ../global/login.php?code=2");
 			die();	
 		}else{
-			header("Location: ../global/login.php");
+			header("Location: ../global/login.php?code=1");
 			die();
 		}	
 
 	}else{
 		
-		header("Location: ../global/login.php");
+		header("Location: ../global/login.php?code=0");
 		die();
 	}
 

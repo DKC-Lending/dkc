@@ -561,7 +561,7 @@ try {
                             <td><?php echo $s['bllc']; ?></td>
                             <td><?php echo $s['fname'] . " " . $s['lname']; ?></td>
                             <td><a href="<?php echo $s['link']; ?>" target="_blank"><?php echo $s['bcoll']; ?></a></td>
-                            <td><?php echo "$" . number_format(floatval($s['tloan']), 2); ?></td>
+                            <td class="<?php echo floatval($s['tloan']) ?>"><?php echo "$" . number_format(floatval($s['tloan']), 2); ?></td>
                             <td><?php echo $s['irate'] . "%"; ?></td>
                             <td><?php echo $s['odate']; ?></td>
                             <td><?php echo $s['mdate']; ?></td>
@@ -572,45 +572,46 @@ try {
                             <td><?php echo $s['service']; ?></td>
 
                             <td><?php echo $s['dkc']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['dkcamt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['dkcamt']); ?>"><?php echo "$" . number_format(floatval($s['dkcamt']), 2); ?></td>
                             <td><?php echo $s['dkcrate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['dkcprorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['dkcregular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['dkcprorated']); ?>"><?php echo "$" . number_format(floatval($s['dkcprorated']), 2); ?></td>
+                            <td class="<?php echo floatval($s['dkcregular']); ?>"><?php echo "$" . number_format(floatval($s['dkcregular']), 2); ?></td>
 
                             <td><?php echo $s['p1']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p1amt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p1amt']); ?>"><?php echo "$" . number_format(floatval($s['p1amt']), 2); ?></td>
                             <td><?php echo $s['p1rate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p1prorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p1regular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p1prorated']); ?>"><?php echo "$" . number_format(floatval($s['p1prorated']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p1regular']); ?>"><?php echo "$" . number_format(floatval($s['p1regular']), 2); ?></td>
 
                             <td><?php echo $s['p2']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p2amt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p2amt']); ?>"><?php echo "$" . number_format(floatval($s['p2amt']), 2); ?></td>
                             <td><?php echo $s['p2rate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p2prorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p2regular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p2prorated']); ?>"><?php echo "$" . number_format(floatval($s['p2prorated']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p2regular']); ?>"><?php echo "$" . number_format(floatval($s['p2regular']), 2); ?></td>
 
                             <td><?php echo $s['p3']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p3amt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p3amt']); ?>"><?php echo "$" . number_format(floatval($s['p3amt']), 2); ?></td>
                             <td><?php echo $s['p3rate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p3prorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p3regular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p3prorated']); ?>"><?php echo "$" . number_format(floatval($s['p3prorated']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p3regular']); ?>"><?php echo "$" . number_format(floatval($s['p3regular']), 2); ?></td>
 
                             <td><?php echo $s['p4']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p4amt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p4amt']); ?>"><?php echo "$" . number_format(floatval($s['p4amt']), 2); ?></td>
                             <td><?php echo $s['p4rate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p4prorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['p4regular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p4prorated']); ?>"><?php echo "$" . number_format(floatval($s['p4prorated']), 2); ?></td>
+                            <td class="<?php echo floatval($s['p4regular']); ?>"><?php echo "$" . number_format(floatval($s['p4regular']), 2); ?></td>
                             <td>Service</td>
-                            <td><?php echo "$" . number_format(floatval($s['servicingamt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['servicingamt']); ?>"><?php echo "$" . number_format(floatval($s['servicingamt']), 2); ?></td>
                             <td><?php echo $s['servicingrate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['servicingprorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['servicingregular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['servicingprorated']); ?>"><?php echo "$" . number_format(floatval($s['servicingprorated']), 2); ?></td>
+                            <td class="<?php echo floatval($s['servicingregular']); ?>"><?php echo "$" . number_format(floatval($s['servicingregular']), 2); ?></td>
                             <td>Yield</td>
-                            <td><?php echo "$" . number_format(floatval($s['yieldamt']), 2); ?></td>
+                            <td class="<?php echo floatval($s['yieldamt']); ?>"><?php echo "$" . number_format(floatval($s['yieldamt']), 2); ?></td>
                             <td><?php echo $s['yieldrate']; ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['yieldprorated']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['yieldregular']), 2); ?></td>
-                            <td><?php echo "$" . number_format(floatval($s['balance']), 2); ?></td>
+                            <td class="<?php echo floatval($s['yieldregular']); ?>"><?php echo "$" . number_format(floatval($s['yieldregular']), 2); ?></td>
+                            <td class="<?php echo floatval($s['yieldprorated']); ?>"><?php echo "$" . number_format(floatval($s['yieldprorated']), 2); ?></td>
+
+                            <td class="<?php echo floatval($s['balance']); ?>"><?php echo "$" . number_format(floatval($s['balance']), 2); ?></td>
 
                         <?php
                         $sn++;

@@ -90,7 +90,9 @@ class Summary
         $qry = mysqli_query($sum_conn, $sql);
         while ($datas = mysqli_fetch_assoc($qry)) {
 
-
+            if ($datas['dkc'] != "None" && $datas['dkc'] == $user) {
+                array_push($res, $datas);
+            }
 
             if ($datas['p1'] != "None" && $datas['p1'] == $user) {
                 array_push($res, $datas);

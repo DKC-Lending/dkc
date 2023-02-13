@@ -66,6 +66,14 @@ tr:nth-child(odd) {
     padding-left: 20px;
 }
 
+.investor-table tr td,.investor-table tr th{
+    padding-left: 20px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .dlink {
     color: rgb(61, 106, 231);
     font-size: 15px;
@@ -155,3 +163,6 @@ tr:nth-child(odd) {
     color: var(--secondary);
 }
 
+.paidoff-red > td{
+    color:rgb(186, 29, 29) !important;
+}

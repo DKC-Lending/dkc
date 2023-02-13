@@ -169,39 +169,78 @@ function minimize_window() {
     win.style.display = "none";
 }
 
+
 function sortTable(tbl, r) {
     const table = document.getElementById(tbl);
+
     const rows = Array.from(table.rows).slice(1, -1);
+    console.log(rows.length)
     const totalRow = table.rows[table.rows.length - 1];
+    console.log(totalRow)
     table.deleteRow(-1)
+    console.log(table)
     const header = table.rows[0].cells[r];
     let ascdsc = true;
     header.ascdsc = header.ascdsc === undefined ? true : !header.ascdsc;
     ascdsc = header.ascdsc;
-    const isAmount = (str) => /^\$?\d+(,\d{3})*\.?[0-9]?[0-9]?$/.test(str);
+    const isAmount = (str) => /^\$\d+(,\d{3})*\.?[0-9]?[0-9]?$/.test(str);
     const isDate = (str) => /^\d{2}-\d{2}-\d{4}$/.test(str);
-  
+    const isNumber = (str) => /^[0-9]+$/.test(str);
+    count = 0;
+    console.log("before", rows.length)
     rows.sort((a, b) => {
-      const cellA = a.cells[r].textContent;
-      const cellB = b.cells[r].textContent;
-  
-      if (isAmount(cellA)) {
-        return ascdsc ? parseFloat(cellA.slice(1)) - parseFloat(cellB.slice(1))
-                      : parseFloat(cellB.slice(1)) - parseFloat(cellA.slice(1));
-      } else if (isDate(cellA)) {
-        return ascdsc ? Date.parse(cellA) - Date.parse(cellB)
-                      : Date.parse(cellB) - Date.parse(cellA);
-      } else {
-        console.log("number", cellA, cellB)
-        return ascdsc ? cellA.localeCompare(cellB)
-                      : cellB.localeCompare(cellA);
-      }
+
+
+        let cellA = a.cells[r].getAttribute("value");
+        console.log("value", cellA)
+        if (cellA == null) {
+            cellA = a.cells[r].getAttribute("class");
+            console.log("class", cellA);
+        }
+        if (cellA == null) {
+            cellA = a.cells[r].textContent;
+            console.log("text", cellA);
+
+        }
+        let cellB = b.cells[r].getAttribute("value");
+        console.log("value", cellB)
+
+        if (cellB == null) {
+
+            cellB = b.cells[r].getAttribute("class");
+            console.log("class", cellB)
+
+        }
+        if (cellB == null) {
+            cellB = b.cells[r].textContent;
+            console.log("text", cellB)
+
+        }
+        console.log("helhsdhsd", cellA, cellB)
+        if (isAmount(cellA)) {
+            console.log("Amount", cellA.slice(1))
+            return header.ascdsc ? parseFloat(cellA.slice(1)) - parseFloat(cellB.slice(1))
+                : parseFloat(cellB.slice(1)) - parseFloat(cellA.slice(1));
+        } else if (isDate(cellA)) {
+            console.log("Date", Date.parse(cellA))
+
+            return header.ascdsc ? Date.parse(cellA) - Date.parse(cellB)
+                : Date.parse(cellB) - Date.parse(cellA);
+        } else if (isNumber(cellA)) {
+            console.log("number", "number")
+            return header.ascdsc ? cellA - cellB : cellB - cellA;
+        } else {
+            console.log("string", "string")
+            return header.ascdsc ? cellA.localeCompare(cellB)
+                : cellB.localeCompare(cellA);
+        }
     });
-  
+    console.log("after", rows.length)
+
     rows.forEach(row => table.appendChild(row));
     table.appendChild(totalRow);
-  }
-  
+}
+
 
 function editSummary(list, mul, exp) {
     document.getElementById("main-form").action = "../backend/summary/update_summary.php";
@@ -636,7 +675,7 @@ function sentEmail() {
     var em = $("#mailto").text()
     var sub = $("#subject").val()
     var body = $("#message-box").val()
-    console.log(em,sub,body)
+    console.log(em, sub, body)
     $.ajax({
         type: 'post',
         url: '../backend/message/email.php',
@@ -646,12 +685,12 @@ function sentEmail() {
             'body': body
         },
         success: function (data) {
-            if(data=="true"){
-               alert("Successfully sent");  
-            }else{
-                console.log(data,"fasfa")
+            if (data == "true") {
+                alert("Successfully sent");
+            } else {
+                console.log(data, "fasfa")
             }
-           
+
 
         }
         ,

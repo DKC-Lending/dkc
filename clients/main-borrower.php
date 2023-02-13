@@ -54,7 +54,7 @@
                         $part = "p3";
                     }
                 ?>
-                    <tr>
+                    <tr class="<?php echo (floatval($data['tloan']) > 0) ? '' : 'paidoff-red' ?>">
                         <td><a href="<?php echo $data["link"]; ?>" target="_blank" class="dlink"><i class="fa-solid fa-file"></i></a></td>
                         <td><?php echo $data['bcoll'] ?></td>
                         <td><?php echo "$" . number_format($data['tloan'], 2)  ?></td>
