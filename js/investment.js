@@ -9,7 +9,6 @@ function switchLoad() {
 	if (smssw.value.toString() == "1") {
 		smssw.click();
 	}
-
 	emailsw.id = "email-switch";
 	smssw.id = "sms-switch";
 }
