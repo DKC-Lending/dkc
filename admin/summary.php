@@ -52,28 +52,22 @@ try {
     <?php include "../global/alert.html"; ?>
     <script type="text/javascript" src="../js/alert.js"></script>
     <script type="text/javascript" src="../js/summary.js"></script>
-
     <script src="../js/html2pdf.bundle.js"></script>
 
     <body>
-
         <?php include "../global/adminnav.php" ?>
         <?php include "../global/adminheader.php" ?>
         <?php include "../backend/usercontrol.php"; ?>
         <?php include "../backend/summary/summaryControl.php"; ?>
         <?php include "../backend/summary/participant/fetch.php"; ?>
-
         <?php include "../admin/paidoffsample.php"; ?>
         <?php
-        $cUser = new Users();
-        $allInvestor = $cUser->category_users($conn, 2);
-
-        $c_summary = new Summary();
-        $summary = $c_summary->allDatas($sum_conn);
-        $pre_summary = $c_summary->preapprove($sum_conn);
-        $sumdatas = $c_summary->getSum($sum_conn, $summary);
-
-
+            $cUser = new Users();
+            $allInvestor = $cUser->category_users($conn, 2);
+            $c_summary = new Summary();
+            $summary = $c_summary->allDatas($sum_conn);
+            $pre_summary = $c_summary->preapprove($sum_conn);
+            $sumdatas = $c_summary->getSum($sum_conn, $summary);
         ?>
         <section id="whole-body-wrapper">
             <section class="top-text">
@@ -101,8 +95,8 @@ try {
                             <input type="text" placeholder="Collateral Address" name="caddress" id="caddress" required />
                             <input type="text" placeholder="Collateral Link (GDrive)" name="clink" id="clink" required />
                             <div>
-                                <input type="number" step=".01" placeholder="Total Loan Amount" name="tloan" id="tloan" required />
-                                <input type="number" step=".01" placeholder="Interest Rate" name="irate" id="irate" required />
+                                <div class="icon_first_text_box"><label>$</label><input type="number" step=".01" placeholder="Total Loan Amount" name="tloan" id="tloan" required /></label></div>
+                                <div class="icon_first_text_box"> <input type="number" step=".01" placeholder="Interest Rate" name="irate" id="irate" required /><label>%</label></div>
                             </div>
                             <div>
                                 <input type="text" placeholder="Origination Date (mm-dd-YYYY)" name="odate" id="odate" required />
@@ -623,8 +617,8 @@ try {
                                             <td onmouseout='deleteconfirm()' title="<?php foreach ($temp_mul as $ctemp) {
                                                                                         echo $ctemp . "\n";
                                                                                     } ?>" onmouseover='hoverconfirm(<?php echo json_encode($temp_mul); ?>)'> <label title="<?php foreach ($temp_mul as $ctemp) {
-                                                                                                                                                                            echo $ctemp . "\n";
-                                                                                                                                                                        } ?>"><?php echo ($caddress); ?></label>
+                                                                                                                                                                                echo $ctemp . "\n";
+                                                                                                                                                                            } ?>"><?php echo ($caddress); ?></label>
                                                 <div class="col-count"><?php echo count($temp_mul); ?></div>
                                             </td>
 

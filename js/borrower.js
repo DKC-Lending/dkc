@@ -21,32 +21,42 @@ function roundToTwo(num) {
 
 function sortTable(tbl, r) {
   const table = document.getElementById(tbl);
+
   const rows = Array.from(table.rows).slice(1, -1);
+  console.log(rows.length)
   const totalRow = table.rows[table.rows.length - 1];
+  console.log(totalRow)
   table.deleteRow(-1)
+  console.log(table)
   const header = table.rows[0].cells[r];
   let ascdsc = true;
   header.ascdsc = header.ascdsc === undefined ? true : !header.ascdsc;
   ascdsc = header.ascdsc;
   const isAmount = (str) => /^\$?\d+(,\d{3})*\.?[0-9]?[0-9]?$/.test(str);
   const isDate = (str) => /^\d{2}-\d{2}-\d{4}$/.test(str);
-
+  count = 0;
+  console.log("before", rows.length)
   rows.sort((a, b) => {
+
     const cellA = a.cells[r].textContent;
     const cellB = b.cells[r].textContent;
-
+console.log(cellA, cellB)
     if (isAmount(cellA)) {
-      return ascdsc ? parseFloat(cellA.slice(1)) - parseFloat(cellB.slice(1))
-                    : parseFloat(cellB.slice(1)) - parseFloat(cellA.slice(1));
+      console.log("Amount", cellA.slice(1))
+      return header.ascdsc ? parseFloat(cellA.slice(1)) - parseFloat(cellB.slice(1))
+        : parseFloat(cellB.slice(1)) - parseFloat(cellA.slice(1));
     } else if (isDate(cellA)) {
-      return ascdsc ? Date.parse(cellA) - Date.parse(cellB)
-                    : Date.parse(cellB) - Date.parse(cellA);
+      console.log("Date", Date.parse(cellA))
+
+      return header.ascdsc ? Date.parse(cellA) - Date.parse(cellB)
+        : Date.parse(cellB) - Date.parse(cellA);
     } else {
-      console.log("number")
-      return ascdsc ? cellA.localeCompare(cellB)
-                    : cellB.localeCompare(cellA);
+      console.log("number", "number")
+      return header.ascdsc ? cellA.localeCompare(cellB)
+        : cellB.localeCompare(cellA);
     }
   });
+  console.log("after", rows.length)
 
   rows.forEach(row => table.appendChild(row));
   table.appendChild(totalRow);
@@ -122,7 +132,7 @@ function keyDownCode(evt) {
     refresh_month()
 
   } else if (evt.keyCode === 18 && evt.keyCode === 69) {
-   alert();
+    alert();
     $("#expand").show();
   }
   else if (evt.keyCode === 27) {
@@ -133,14 +143,14 @@ window.onload = () => $("#expand").hide();
 
 const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
-const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
-    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+  v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+)(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
 // do the work...
 document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-    const table = th.closest('table');
-    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
-        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-        .forEach(tr => table.appendChild(tr) );
+  const table = th.closest('table');
+  Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+    .forEach(tr => table.appendChild(tr));
 })));

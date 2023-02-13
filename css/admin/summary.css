@@ -99,18 +99,46 @@
     border: solid 1px var(--tablecolor);
     background-color: var(--inputcolor);
     padding-left: 5px;
-    width: 98%;
+    width: 98.5%;
     border-radius: 5px;
     margin: 10px 0px;
 }
 
 .coll-info div {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
 .coll-info div input {
     width: 43%;
+}
+
+.icon_first_text_box{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 43%;
+    margin: 10px 0px;
+    padding-left: 5px;
+    background-color:  var(--inputcolor);
+    height: fit-content; 
+    border-radius: 5px;
+    border: solid 1px var(--tablecolor);
+}
+
+.icon_first_text_box label{
+    margin:0px 5px;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.505);
+}
+
+.icon_first_text_box input{
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 95% !important;
 }
 
 input::placeholder {

@@ -80,9 +80,6 @@ try {
         $sid_collections = [];
         ?>
         <?php include '../backend/main/borrowerController.php'; ?>
-
-
-
         <div class="content">
             <div class="main-container">
                 <div class="top-head-txt">
@@ -120,7 +117,6 @@ try {
                     $dkchold = [];
 
                     foreach ($summary as $sum) {
-
                         array_push($sid_collections, $sum["sid"]);
 
                         // if ($sum['dkcamt'] != "0") {
