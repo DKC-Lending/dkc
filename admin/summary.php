@@ -62,12 +62,12 @@ try {
         <?php include "../backend/summary/participant/fetch.php"; ?>
         <?php include "../admin/paidoffsample.php"; ?>
         <?php
-            $cUser = new Users();
-            $allInvestor = $cUser->category_users($conn, 2);
-            $c_summary = new Summary();
-            $summary = $c_summary->allDatas($sum_conn);
-            $pre_summary = $c_summary->preapprove($sum_conn);
-            $sumdatas = $c_summary->getSum($sum_conn, $summary);
+        $cUser = new Users();
+        $allInvestor = $cUser->category_users($conn, 2);
+        $c_summary = new Summary();
+        $summary = $c_summary->allDatas($sum_conn);
+        $pre_summary = $c_summary->preapprove($sum_conn);
+        $sumdatas = $c_summary->getSum($sum_conn, $summary);
         ?>
         <section id="whole-body-wrapper">
             <section class="top-text">
@@ -87,31 +87,61 @@ try {
                         <div class="coll-info">
                             <input type="hidden" name="sum-id" id="sum-id" />
                             <p class="card-title">Add Participant Summary</p>
-                            <input type="text" placeholder="Borrower LLC" name="bllc" id="bllc" required />
-                            <div>
-                                <input type="text" placeholder="First Name" name="fname" id="fname" required />
-                                <input type="text" placeholder="Last Name" name="lname" id="lname" required />
-                            </div>
-                            <input type="text" placeholder="Collateral Address" name="caddress" id="caddress" required />
-                            <input type="text" placeholder="Collateral Link (GDrive)" name="clink" id="clink" required />
-                            <div>
-                                <div class="icon_first_text_box"><label>$</label><input type="number" step=".01" placeholder="Total Loan Amount" name="tloan" id="tloan" required /></label></div>
-                                <div class="icon_first_text_box"> <input type="number" step=".01" placeholder="Interest Rate" name="irate" id="irate" required /><label>%</label></div>
+                            <div class="single_first_text_box">
+                                <label><i class="fa-solid fa-building"></i></label>
+                                <input type="text" placeholder="Borrower LLC" name="bllc" id="bllc" required />
                             </div>
                             <div>
-                                <input type="text" placeholder="Origination Date (mm-dd-YYYY)" name="odate" id="odate" required />
-                                <input type="text" placeholder="Maturity Date (mm-dd-YYYY)" name="mdate" id="mdate" required />
+                                <div class="icon_first_text_box"><label><i class="fa-solid fa-user"></i></label><input type="text" placeholder="First Name" name="fname" id="fname" required /></div>
+                                <div class="icon_first_text_box"><label><i class="fa-solid fa-user"></i></label><input type="text" placeholder="Last Name" name="lname" id="lname" required /></div>
+                            </div>
+                            <div class="single_first_text_box">
+                                <label><i class="fa-solid fa-house"></i></label>
+                                <input type="text" placeholder="Collateral Address" name="caddress" id="caddress" required />
+                            </div>
+                            <div class="single_first_text_box">
+                                <label><i class="fa-solid fa-link"></i></label>
+                                <input type="text" placeholder="Collateral Link (GDrive)" name="clink" id="clink" required />
+                            </div>
+                            <div>
+                                <div class="icon_first_text_box">
+                                    <label><i class="fa-solid fa-dollar-sign"></i></label>
+                                    <input type="number" step=".01" placeholder="Total Loan Amount" name="tloan" id="tloan" required />
+                                </div>
+                                <div class="icon_first_text_box">
+                                    <input type="number" step=".01" placeholder="Interest Rate" name="irate" id="irate" required />
+                                    <label><i class="fa-solid fa-percent"></i></label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="icon_first_text_box"><label><i class="fa-solid fa-calendar"></i></label><input type="text" placeholder="Origination Date (mm-dd-YYYY)" name="odate" id="odate" required /></div>
+                                <div class="icon_first_text_box">
+                                    <label><i class="fa-solid fa-calendar"></i></label>
+                                    <input type="text" placeholder="Maturity Date (mm-dd-YYYY)" name="mdate" id="mdate" required />
+                                </div>
                             </div>
                         </div>
                         <div class="borrower-info">
                             <p class="card-title">Borrower Information</p>
                             <div>
-                                <input type="text" placeholder="Borrower phone number" name="bnum" id="bnum" required />
-                                <input type="email" placeholder="Borrower email address" name="bemail" id="bemail" required />
+                                <div class="icon_first_text_box">
+                                    <label><i class="fa-solid fa-phone"></i></label>
+                                    <input type="text" placeholder="Borrower phone number" name="bnum" id="bnum" required />
+                                </div>
+                                <div class="icon_first_text_box">
+                                    <label><i class="fa-solid fa-envelope"></i></label>
+                                    <input type="email" placeholder="Borrower email address" name="bemail" id="bemail" required />
+                                </div>
                             </div>
                             <div>
-                                <input type="text" placeholder="Insurance Expiry (mm-dd-YYYY)" name="bexpiry" id="bexpiry" required />
-                                <input type="text" placeholder="Tax URL" name="taxurl" id="taxurl" required />
+                                <div class="icon_first_text_box">
+                                    <label><i class="fa-solid fa-calendar"></i></label>
+                                    <input type="text" placeholder="Insurance Expiry (mm-dd-YYYY)" name="bexpiry" id="bexpiry" required />
+                                </div>
+                                <div class="icon_first_text_box">
+                                    <label><i class="fa-solid fa-link"></i></label>
+                                    <input type="text" placeholder="Tax URL" name="taxurl" id="taxurl" required />
+                                </div>
                             </div>
                             <div>
                                 <div>
@@ -627,35 +657,35 @@ try {
                                         <?php  } ?>
 
 
-                                        <td><?php echo  "$" . number_format($tloan, 2); ?></td>
-                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($dkc, 2); ?><p><?php echo ($sum['dkc']); ?></p>
+                                        <td value=<?php echo $tloan; ?>><?php echo  "$" . number_format($tloan, 2); ?></td>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)" value=<?php echo $dkc; ?>><?php echo  "$" . number_format($dkc, 2); ?><p><?php echo ($sum['dkc']); ?></p>
                                         </td>
-                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p1amt, 2); ?><p><?php echo ($sum['p1']); ?></p>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)" value=<?php echo $p1amt; ?>><?php echo  "$" . number_format($p1amt, 2); ?><p><?php echo ($sum['p1']); ?></p>
                                         </td>
                                         <td><?php echo $p1rate; ?></td>
 
-                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p2amt, 2); ?><p><?php echo ($sum['p2']); ?></p>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)" value=<?php echo $p2amt; ?>><?php echo  "$" . number_format($p2amt, 2); ?><p><?php echo ($sum['p2']); ?></p>
                                         </td>
                                         <td><?php echo $p2rate; ?></td>
 
-                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p3amt, 2); ?><p><?php echo ($sum['p3']); ?></p>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)" value=<?php echo $p3amt; ?>><?php echo  "$" . number_format($p3amt, 2); ?><p><?php echo ($sum['p3']); ?></p>
                                         </td>
                                         <td><?php echo $p3rate; ?></td>
-                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)"><?php echo  "$" . number_format($p4amt, 2); ?><p><?php echo ($sum['p4']); ?></p>
+                                        <td class="dragok" onmouseover="cardhover(this)" onmouseout="cardout(this)" value=<?php echo $p4amt; ?>><?php echo  "$" . number_format($p4amt, 2); ?><p><?php echo ($sum['p4']); ?></p>
                                         </td>
                                         <td><?php echo $p4rate; ?></td>
 
                                         <td><?php echo floor($trate) . "%"; ?></td>
-                                        <td><?php echo  "$" . number_format($tpayment, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($dkcpayment, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($p1payment, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($p2payment, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($p3payment, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($p4payment, 2); ?></td>
+                                        <td value=<?php echo $tpayment; ?>><?php echo  "$" . number_format($tpayment, 2); ?></td>
+                                        <td value=<?php echo $dkcpayment; ?>><?php echo  "$" . number_format($dkcpayment, 2); ?></td>
+                                        <td value=<?php echo $p1payment; ?>><?php echo  "$" . number_format($p1payment, 2); ?></td>
+                                        <td value=<?php echo $p2payment; ?>><?php echo  "$" . number_format($p2payment, 2); ?></td>
+                                        <td value=<?php echo $p3payment; ?>><?php echo  "$" . number_format($p3payment, 2); ?></td>
+                                        <td value=<?php echo $p4payment; ?>><?php echo  "$" . number_format($p4payment, 2); ?></td>
 
-                                        <td><?php echo  "$" . number_format($servicing, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($yield, 2); ?></td>
-                                        <td><?php echo  "$" . number_format($balance, 2); ?></td>
+                                        <td value=<?php echo $servicing; ?>><?php echo  "$" . number_format($servicing, 2); ?></td>
+                                        <td value=<?php echo $yield; ?>><?php echo  "$" . number_format($yield, 2); ?></td>
+                                        <td value=<?php echo $balance; ?>><?php echo  "$" . number_format($balance, 2); ?></td>
 
                                     </tr>
 

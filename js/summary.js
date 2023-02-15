@@ -193,10 +193,7 @@ function sortTable(tbl, r) {
 
         let cellA = a.cells[r].getAttribute("value");
         console.log("value", cellA)
-        if (cellA == null) {
-            cellA = a.cells[r].getAttribute("class");
-            console.log("class", cellA);
-        }
+
         if (cellA == null) {
             cellA = a.cells[r].textContent;
             console.log("text", cellA);
@@ -205,12 +202,6 @@ function sortTable(tbl, r) {
         let cellB = b.cells[r].getAttribute("value");
         console.log("value", cellB)
 
-        if (cellB == null) {
-
-            cellB = b.cells[r].getAttribute("class");
-            console.log("class", cellB)
-
-        }
         if (cellB == null) {
             cellB = b.cells[r].textContent;
             console.log("text", cellB)
