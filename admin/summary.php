@@ -794,7 +794,6 @@ try {
                         <h2><b>Add Investor</b></h2>
                         <p></p>
                         <select name="green-investor" id="green-investor">
-                            <option value="DKC">DKC Lending LLC</option>
 
                             <?php
                             foreach ($allInvestor as $investor) {
@@ -833,7 +832,7 @@ try {
                             <th>Total Funds</th>
                         </tr>
                         <?php
-                        $investors = array(["username" => "DKC", "fname" => "DKC Lending", "lname" => "LLC"]);
+                        $investors = [];
                         $rawinvestors = $Users->category_users($conn, 2);
                         foreach ($rawinvestors as $temp) {
                             array_push($investors, $temp);
