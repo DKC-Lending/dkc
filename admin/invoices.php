@@ -273,6 +273,7 @@
 				<div>
 					<button class="refresh-month-btn" onclick='refresh_month( <?php echo json_encode($summary); ?>)'><i class="fa-solid fa-rotate"></i></button>
 					<button class="add-month-btn" onclick='add_month( <?php echo json_encode($summary); ?>)'>Add Month</button>
+					<button class="refresh-month-btn" title="Expand Button" onclick="$('#expand').show()"><i class="fa-solid fa-expand"></i></button>
 				</div>
 				<button class="send-all-btn " onclick='batch_send( <?php echo json_encode($summary); ?>)'>BATCH SEND</button>
 			</div>
@@ -513,6 +514,217 @@
 
 				?>
 			</table>
+			<div id="expand" class="expand">
+                <?php
+                $total_loan = 0;
+                $lender = 0;
+                $lender_pro = 0;
+                $lender_reg = 0;
+                $p1 = 0;
+                $p1_pro = 0;
+                $p1_reg = 0;
+                $p2 = 0;
+                $p2_pro = 0;
+                $p2_reg = 0;
+                $p3 = 0;
+                $p3_pro = 0;
+                $p3_reg = 0;
+                $p4 = 0;
+                $p4_pro = 0;
+                $p4_reg = 0;
+                $servicing = 0;
+                $servicing_pro = 0;
+                $servicing_reg = 0;
+                $yield = 0;
+                $yield_pro = 0;
+                $yield_reg = 0;
+                $balance = 0;
+
+                ?>
+                <table border="1" id="expand-table">
+                    <tr>
+                        <th onclick="sortTable('expand-table',0)">sn</th>
+                        <th onclick="sortTable('expand-table',1)">Borrower LLC</th>
+                        <th onclick="sortTable('expand-table',2)">Full Name</th>
+                        <th onclick="sortTable('expand-table',3)">Collateral Address</th>
+                        <th onclick="sortTable('expand-table',4)">Total Loan</th>
+                        <th>Interest %</th>
+                        <th onclick="sortTable('expand-table',6)">Origin. Date</th>
+                        <th onclick="sortTable('expand-table',7)">Maturity Date</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th onclick="sortTable('expand-table',10)">Insurance Exp.</th>
+                        <th onclick="sortTable('expand-table',11)">ACH</th>
+                        <th>Service</th>
+                        <th onclick="sortTable('expand-table',13)">Lender</th>
+                        <th onclick="sortTable('expand-table',14)">Lender. equity</th>
+                        <th>Lender Rate</th>
+                        <th onclick="sortTable('expand-table',16)">Lender Prorated</th>
+                        <th onclick="sortTable('expand-table',17)">Lender Regular</th>
+                        <th onclick="sortTable('expand-table',18)">P1</th>
+                        <th onclick="sortTable('expand-table',19)">P1. equity</th>
+                        <th>P1 Rate</th>
+                        <th onclick="sortTable('expand-table',21)">P1 Prorated</th>
+                        <th onclick="sortTable('expand-table',22)">P1 Regular</th>
+                        <th onclick="sortTable('expand-table',23)">p2</th>
+                        <th onclick="sortTable('expand-table',24)">p2. equity</th>
+                        <th>p2 Rate</th>
+                        <th onclick="sortTable('expand-table',26)">p2 Prorated</th>
+                        <th onclick="sortTable('expand-table',27)">p2 Regular</th>
+                        <th onclick="sortTable('expand-table',28)">P3</th>
+                        <th onclick="sortTable('expand-table',29)">P3. equity</th>
+                        <th>P3 Rate</th>
+                        <th onclick="sortTable('expand-table',31)">P3 Prorated</th>
+                        <th onclick="sortTable('expand-table',32)">P3 Regular</th>
+                        <th onclick="sortTable('expand-table',33)">P4</th>
+                        <th onclick="sortTable('expand-table',34)">P4. equity</th>
+                        <th>P4 Rate</th>
+                        <th onclick="sortTable('expand-table',36)">P4 Prorated</th>
+                        <th onclick="sortTable('expand-table',37)">P4 Regular</th>
+                        <th onclick="sortTable('expand-table',38)">Service</th>
+                        <th onclick="sortTable('expand-table',39)">Service. equity</th>
+                        <th>Service Rate</th>
+                        <th onclick="sortTable('expand-table',41)">Service Prorated</th>
+                        <th onclick="sortTable('expand-table',42)">Service Regular</th>
+                        <th onclick="sortTable('expand-table',43)">Yield</th>
+                        <th onclick="sortTable('expand-table',44)">Yield. equity</th>
+                        <th>Yield Rate</th>
+                        <th onclick="sortTable('expand-table',46)">Yield Prorated</th>
+                        <th onclick="sortTable('expand-table',47)">Yield Regular</th>
+                        <th onclick="sortTable('expand-table',48)">Balance</th>
+                    </tr>
+
+                    <?php
+                    $sn = 1;
+                    foreach ($summary as $s) {
+                        $total_loan += floatval($s['tloan']);
+                        $lender += floatval($s['dkcamt']);
+                        $lender_pro += floatval($s['dkcprorated']);
+                        $lender_reg += floatval($s['dkcregular']);
+                        $p1 += floatval($s['p1amt']);
+                        $p1_pro += floatval($s['p1prorated']);
+                        $p1_reg += floatval($s['p1regular']);
+                        $p2 += floatval($s['p2amt']);
+                        $p2_pro += floatval($s['p2prorated']);
+                        $p2_reg += floatval($s['p2regular']);
+                        $p3 += floatval($s['p3amt']);
+                        $p3_pro += floatval($s['p3prorated']);
+                        $p3_reg += floatval($s['p3regular']);
+                        $p4 += floatval($s['p4amt']);
+                        $p4_pro += floatval($s['p4prorated']);
+                        $p4_reg += floatval($s['p4regular']);
+                        $servicing += floatval($s['servicingamt']);
+                        $servicing_pro += floatval($s['servicingprorated']);
+                        $servicing_reg += floatval($s['servicingregular']);
+                        $yield += floatval($s['yieldamt']);
+                        $yield_pro += floatval($s['yieldprorated']);
+                        $yield_reg += floatval($s['yieldregular']);
+                        $balance += floatval($s['balance']);
+                    ?>
+                        <tr <?php echo (intval($s['status'])  != 1) ? 'class="paidoff-tr"' : '' ?>>
+                            <td><?php echo $sn; ?></td>
+                            <td><?php echo $s['bllc']; ?></td>
+                            <td><?php echo $s['fname'] . " " . $s['lname']; ?></td>
+                            <td><a href="<?php echo $s['link']; ?>" target="_blank"><?php echo $s['bcoll']; ?></a></td>
+                            <td value="<?php echo floatval($s['tloan']) ?>"><?php echo "$" . number_format(floatval($s['tloan']), 2); ?></td>
+                            <td><?php echo $s['irate'] . "%"; ?></td>
+                            <td><?php echo $s['odate']; ?></td>
+                            <td><?php echo $s['mdate']; ?></td>
+                            <td><?php echo $s['bphone']; ?></td>
+                            <td><?php echo $s['bemail']; ?></td>
+                            <td><a href="<?php echo $s['taxurl'] ?>" target="_blank"><?php echo $s['iexpiry']; ?></a></td>
+                            <td><?php echo $s['ach']; ?></td>
+                            <td><?php echo $s['service']; ?></td>
+
+                            <td><?php echo $s['dkc']; ?></td>
+                            <td value="<?php echo floatval($s['dkcamt']); ?>"><?php echo "$" . number_format(floatval($s['dkcamt']), 2); ?></td>
+                            <td><?php echo $s['dkcrate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['dkcprorated']); ?>"><?php echo "$" . number_format(floatval($s['dkcprorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['dkcregular']); ?>"><?php echo "$" . number_format(floatval($s['dkcregular']), 2); ?></td>
+
+                            <td><?php echo $s['p1']; ?></td>
+                            <td value="<?php echo floatval($s['p1amt']); ?>"><?php echo "$" . number_format(floatval($s['p1amt']), 2); ?></td>
+                            <td><?php echo $s['p1rate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['p1prorated']); ?>"><?php echo "$" . number_format(floatval($s['p1prorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['p1regular']); ?>"><?php echo "$" . number_format(floatval($s['p1regular']), 2); ?></td>
+
+                            <td><?php echo $s['p2']; ?></td>
+                            <td value="<?php echo floatval($s['p2amt']); ?>"><?php echo "$" . number_format(floatval($s['p2amt']), 2); ?></td>
+                            <td><?php echo $s['p2rate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['p2prorated']); ?>"><?php echo "$" . number_format(floatval($s['p2prorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['p2regular']); ?>"><?php echo "$" . number_format(floatval($s['p2regular']), 2); ?></td>
+
+                            <td><?php echo $s['p3']; ?></td>
+                            <td value="<?php echo floatval($s['p3amt']); ?>"><?php echo "$" . number_format(floatval($s['p3amt']), 2); ?></td>
+                            <td><?php echo $s['p3rate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['p3prorated']); ?>"><?php echo "$" . number_format(floatval($s['p3prorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['p3regular']); ?>"><?php echo "$" . number_format(floatval($s['p3regular']), 2); ?></td>
+
+                            <td><?php echo $s['p4']; ?></td>
+                            <td value="<?php echo floatval($s['p4amt']); ?>"><?php echo "$" . number_format(floatval($s['p4amt']), 2); ?></td>
+                            <td><?php echo $s['p4rate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['p4prorated']); ?>"><?php echo "$" . number_format(floatval($s['p4prorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['p4regular']); ?>"><?php echo "$" . number_format(floatval($s['p4regular']), 2); ?></td>
+                            <td>Service</td>
+                            <td value="<?php echo floatval($s['servicingamt']); ?>"><?php echo "$" . number_format(floatval($s['servicingamt']), 2); ?></td>
+                            <td><?php echo $s['servicingrate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['servicingprorated']); ?>"><?php echo "$" . number_format(floatval($s['servicingprorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['servicingregular']); ?>"><?php echo "$" . number_format(floatval($s['servicingregular']), 2); ?></td>
+                            <td>Yield</td>
+                            <td value="<?php echo floatval($s['yieldamt']); ?>"><?php echo "$" . number_format(floatval($s['yieldamt']), 2); ?></td>
+                            <td><?php echo $s['yieldrate']."%"; ?></td>
+                            <td value="<?php echo floatval($s['yieldregular']); ?>"><?php echo "$" . number_format(floatval($s['yieldregular']), 2); ?></td>
+                            <td value="<?php echo floatval($s['yieldprorated']); ?>"><?php echo "$" . number_format(floatval($s['yieldprorated']), 2); ?></td>
+                            <td value="<?php echo floatval($s['balance']); ?>"><?php echo "$" . number_format(floatval($s['balance']), 2); ?></td>
+
+                        <?php
+                        $sn++;
+                    }
+                        ?>
+                        <tr>
+                            <td>Total</td>
+                            <td colspan="3"></td>
+                            <td><?php echo "$".number_format($total_loan,2)?></td>
+                            <td colspan="9"></td>
+                            <td><?php echo "$".number_format($lender,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($lender_pro,2)?></td>
+                            <td><?php echo "$".number_format($lender_reg,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p1,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p1_pro,2)?></td>
+                            <td><?php echo "$".number_format($p1_reg,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p2,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p2_pro,2)?></td>
+                            <td><?php echo "$".number_format($p2_reg,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p3,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p3_pro,2)?></td>
+                            <td><?php echo "$".number_format($p3_reg,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p4,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($p4_pro,2)?></td>
+                            <td><?php echo "$".number_format($p4_reg,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($servicing,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($servicing_pro,2)?></td>
+                            <td><?php echo "$".number_format($servicing_reg,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($yield,2)?></td>
+                            <td></td>
+                            <td><?php echo "$".number_format($yield_reg,2)?></td>
+                            <td><?php echo "$".number_format($yield_pro,2)?></td>
+                            <td><?php echo "$".number_format($balance,2)?></td>
+                        </tr>
+                </table>
+
+            </div>
 
 			<table class="main-total">
 				<tr>

@@ -23,7 +23,7 @@
 }
 
 .send-all {
-    width: 100%;
+    margin-left: 120px;
     display: flex;
     justify-content: space-between;
 }
@@ -36,6 +36,12 @@
 .summary-table tbody tr td{
     text-align: left !important;
     border: solid 1px black;
+}
+
+.send-all div{
+    display: flex;
+    justify-content: space-around;
+    width: fit-content;
 }
 
 .send-all-btn {
@@ -503,7 +509,6 @@ td:hover {
     }
 }
 .refresh-month-btn{
-    margin-left: 120px;
     width: 60px;
     height: 50px;
     border: none;
@@ -515,7 +520,7 @@ td:hover {
 }
 
 .add-month-btn{
-    margin-left: 20px;
+    margin:0px 20px;
     width: 150px;
     height: 50px;
     border: none;
@@ -690,4 +695,71 @@ tfoot tr td{
 
 .paidoff-red td{
     color: rgb(163, 43, 43);
+}
+
+	
+#expand{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 50;
+    background-color: var(--background);
+	overflow: scroll;
+	display: none;
+	animation: openexpand 0.3s ease-in;
+}
+@keyframes openexpand{
+	from{
+		height: 0vh;
+		width: 0vw;
+	}
+	to{
+		height: 100vh;
+		width: 100vw;
+	}
+}
+#expand-table{
+	border-collapse: collapse;
+	width: 100vw;
+}
+#expand-table th{
+	min-width: 50px;
+	max-width: 250px;
+	text-overflow: clip;
+	white-space: nowrap;
+	padding: 5px 10px;
+	align-items: center;
+	background-color: var(--primary);
+	color: white;
+	height: 40px;
+}
+#expand-table td{
+	min-width: 50px;
+	max-width: 250px;
+	white-space: nowrap;
+	text-overflow: clip;
+	padding: 5px 10px;
+	align-items: center;
+	overflow-x: scroll;
+	color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.049);
+}
+#expand-table tr:nth-child(even) td{
+	background-color: rgb(255, 255, 255);
+	color: black;
+}
+
+#expand-table a{
+	text-decoration: none;
+	color: blue;
+	cursor: pointer;
+}
+
+#expand-table tr:last-child td{
+	background-color: var(--secondary);
+	color: white;
+	font-weight: bold;
+	padding: 10px 0px;
 }

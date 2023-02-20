@@ -1,3 +1,4 @@
+document.onkeydown = keyDownCode;
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
@@ -475,7 +476,7 @@ function showPdfPreviewer() {
                 '<td>' + (d.latefees) + '</td>' +
                 '<td>' + "$" + parseInt(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 // '<td>' + "$" + d.apaid + '</td>' +
-                '<td>' + "$0.00"  + '</td>' +
+                '<td>' + "$0.00" + '</td>' +
                 '</tr>');
         });
 
@@ -730,4 +731,14 @@ function getOffset(el) {
         el = el.offsetParent;
     }
     return { top: _y, left: _x };
+}
+
+function keyDownCode(evt) {
+    if (evt.keyCode === 18 && evt.keyCode === 69) {
+        alert();
+        $("#expand").show();
+    }
+    else if (evt.keyCode === 27) {
+        $("#expand").hide();
+    }
 }

@@ -165,65 +165,7 @@
 	.paidoffred{
 		color: red!important;
 	}
-	
-#expand{
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-	z-index: 50;
-    background-color: var(--background);
-	overflow: scroll;
-	display: none;
-	animation: openexpand 0.3s ease-in;
-}
-@keyframes openexpand{
-	from{
-		height: 0vh;
-		width: 0vw;
-	}
-	to{
-		height: 100vh;
-		width: 100vw;
-	}
-}
-#expand-table{
-	border-collapse: collapse;
-	width: 100vw;
-}
-#expand-table th{
-	min-width: 50px;
-	max-width: 250px;
-	text-overflow: clip;
-	white-space: nowrap;
-	padding: 5px 10px;
-	align-items: center;
-	background-color: var(--primary);
-	color: white;
-	height: 40px;
-}
-#expand-table td{
-	min-width: 50px;
-	max-width: 250px;
-	white-space: nowrap;
-	text-overflow: clip;
-	padding: 5px 10px;
-	align-items: center;
-	overflow-x: scroll;
-	color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.049);
-}
-#expand-table tr:nth-child(even) td{
-	background-color: rgb(255, 255, 255);
-	color: black;
-}
 
-#expand-table a{
-	text-decoration: none;
-	color: blue;
-	cursor: pointer;
-}
 .paidoff-tr > td{
 	color: red !important;
 }
