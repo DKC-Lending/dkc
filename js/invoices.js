@@ -412,7 +412,7 @@ function preview_form(datas) {
         year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
         const tempshortHeading = monthNames[month] + " " + year.toString().substr(-2);
         month = ((month + 1) < 10) ? `0${month + 1}` : month;
-        tdate = `01-${month}-${year}`;
+        tdate = `${month}-01-${year}`;
         $("#bid").val(datas.sid);
         $("#current-invoice-date").html("Send Invoice for: " + tdate + ' (' + monthNames[today.getMonth()] + ')');
         $("#pbname").val(datas.bllc);
@@ -485,7 +485,7 @@ function showPdfPreviewer() {
         year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
         const tempshortHeading = monthNames[month] + " " + year.toString().substr(-2);
         month = ((month + 1) < 10) ? `0${month + 1}` : month;
-        tdate = `01-${month}-${year}`;
+        tdate = `${month}-01-${year}`;
         $("#pdf-table").append('<tr>' +
             '<td>' + tdate + '</td>' +
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
