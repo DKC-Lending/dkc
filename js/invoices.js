@@ -640,7 +640,30 @@ function createPDF() {
         console.log(pdfDate);
         pdfForm = $.post('../backend/insurance/createPdf.php', pdfDate)
         pdfForm.done(function (e) {
-            console.log(e);
+            if (response == 'success') {
+                let data = {
+                    'uid': $("#bid").val(),
+                    'date': date,
+                    'desc': monthNames[today.getMonth()].toString(),
+                    'rate': $("#pbrate").val(),
+                    'fee': ($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val(),
+                    'pamount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),
+                    'amount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),
+                };
+
+                $.post("../backend/insurance/addPdfEntry.php", data);
+                data = {
+                    id: $("#bid").val(),
+                    coll: $("#pbaddress").val(),
+                    borr: $("#pbname").val(),
+                    title: shortHeading,
+                    amt: eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString()
+                }
+                $("#save-invoice2").val("Sent");
+                alert("Successfully Send!");
+            } else {
+                alert("Error While Sending!");
+            }
         });
         pdfForm.fail(function (e) {
             console.log(e);
@@ -764,11 +787,7 @@ function payment_confirm(table, tr, sid) {
         $("#confirmsid").val(sid);
         $("#confirmbllc").val(bllc);
         $("#confirmbcoll").val(bcol);
-
         $("#schedule").val(schedule);
-
-
-
     } else {
         canva.style.display = "none";
 

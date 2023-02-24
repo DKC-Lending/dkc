@@ -16,8 +16,9 @@ function folder_exist($folder)
     return ($path !== false and is_dir($path)) ? $path : false;
 }
 
-function send_email($to, $html, $subject, $attachment = null)
+function send_email($to, $html, $subject, $attachment = "")
 {
+    
     $mail = new PHPMailer();
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
@@ -37,8 +38,10 @@ function send_email($to, $html, $subject, $attachment = null)
         'verify_peer_name' => false,
         'allow_self_signed' => false
     ));
-    if ($attachment != null) {
-        $mail->addAttachment($attachment, 'invoice.pdf');
+    if ($attachment != "") {
+        // $mail->addAttachment($attachment, 'invoice.pdf');
+        $enc = file_get_contents($attachment);
+        $mail->addStringAttachment(base64_decode( base64_encode($enc)), "invoices.pdf");
     }
     if ($mail->Send()) {
         return true;
@@ -46,7 +49,6 @@ function send_email($to, $html, $subject, $attachment = null)
         return false;
     }
 }
-
 
 if (isset($_POST['sid'])) {
 
@@ -109,7 +111,7 @@ if (isset($_POST['sid'])) {
     // /**
     //  * Save the PDF file locally
     //  */
-    $dompdf->setBasePath($_SERVER['DOCUMENT_ROOT'] . "/dkc/");
+    $dompdf->setBasePath($_SERVER['DOCUMENT_ROOT']);
     $base_path =  $dompdf->getBasePath();
     $output = $dompdf->output();
     $file_ = "$base_path/pdf/$sid/" . date("d.m.Y..h.i.s") . ".pdf";
@@ -119,7 +121,7 @@ if (isset($_POST['sid'])) {
         mkdir("$base_path/pdf/$sid");
         file_put_contents($file_, $output);
     }
-    if (send_email($email, "Invoice of this month", $subject, $file_)) {
+    if (send_email($email, "Invoice of this month", $subject, $file_ )) {
         echo "success";
     } else {
         echo "error";
