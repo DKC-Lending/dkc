@@ -453,9 +453,9 @@ function showPdfPreviewer() {
     $("#pdfaddress").html($("#pbaddress").val());
     $("#pdfodate").html(date_dash_div($("#pbodate").val()));
     $("#pdfmdate").html(date_dash_div($("#pbmdate").val()));
-    $("#pdflamount").html("$" + parseInt($("#pbtloan").val()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
+    $("#pdflamount").html("$" + parseFloat($("#pbtloan").val()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
     $("#pdflpercent").html($("#pbrate").val() + "%");
-    $("#pdfpayment").html("$" + parseInt($("#pbmpayment").val()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
+    $("#pdfpayment").html("$" + parseFloat($("#pbmpayment").val()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
 
     $("#preview-form").hide();
     $("#pdf-preview-holder").show();
@@ -474,7 +474,7 @@ function showPdfPreviewer() {
                 '<td>' + d.desc + ' Interest' + '</td>' +
                 '<td>' + d.minterest + "%" + '</td>' +
                 '<td>' + (d.latefees) + '</td>' +
-                '<td>' + "$" + parseInt(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+                '<td>' + "$" + parseFloat(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 // '<td>' + "$" + d.apaid + '</td>' +
                 '<td>' + "$0.00" + '</td>' +
                 '</tr>');
@@ -491,7 +491,7 @@ function showPdfPreviewer() {
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
-            '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+            '<td>' + "$" + eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
             // '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toString() + '</td>' +
             '<td>' + "$0.00" + '</td>' +
 
@@ -520,9 +520,9 @@ function createPDF() {
     const collateral = $("#pbaddress").val();
     const odate = date_dash_div($("#pbodate").val());
     const mdate = date_dash_div($("#pbmdate").val());
-    const lamount = "$" + parseInt($("#pbtloan").val()).toLocaleString(undefined, { minimumFractionDigits: 2 });
+    const lamount = "$" + parseFloat($("#pbtloan").val()).toLocaleString(undefined, { minimumFractionDigits: 2 });
     const rate = $("#pbrate").val() + "%";
-    const interest = "$" + parseInt($("#pbmpayment").val()).toLocaleString(undefined, { minimumFractionDigits: 2 });
+    const interest = "$" + parseFloat($("#pbmpayment").val()).toLocaleString(undefined, { minimumFractionDigits: 2 });
     var table_tr = '';
 
     data = { uid: sid }
@@ -537,7 +537,7 @@ function createPDF() {
                 '<td>' + d.desc + ' Interest' + '</td>' +
                 '<td>' + d.minterest + "%" + '</td>' +
                 '<td>' + (d.latefees) + '</td>' +
-                '<td>' + "$" + parseInt(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+                '<td>' + "$" + parseFloat(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 '<td>' + "$0.00" + '</td>' +
                 '</tr>';
         });
@@ -552,7 +552,7 @@ function createPDF() {
             '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
-            '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+            '<td>' + "$" + eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
             '<td>' + "$0.00" + '</td>' +
             '</tr>';
 
