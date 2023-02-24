@@ -74,10 +74,8 @@
 						<div class="close-invoice">
 							<a href="./invoices.php"><i class="fa-solid fa-circle-xmark"></i></a>
 						</div>
-
 					</div>
 					<div>
-
 					</div>
 
 					<section class="invoice-form-holder">
@@ -110,7 +108,6 @@
 
 					<section class="invoice-btn-holder">
 						<button class="save-invoice" id="save-invoice" onclick="showPdfPreviewer()">Preview & Send</button>
-
 					</section>
 
 				</div>
@@ -119,7 +116,6 @@
 
 			<div class="add-form" id="pdf-preview-holder">
 				<div class="form-box">
-
 					<div class="form-title">
 						<div>
 						</div>
@@ -173,7 +169,7 @@
 
 
 					<section class="invoice-btn-holder">
-						<input type="button" class="save-invoice" id="save-invoice2" onclick="createPdf()" value="send">
+						<input type="button" class="save-invoice" id="save-invoice2" onclick="createPDF()" value="send">
 					</section>
 
 				</div>

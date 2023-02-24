@@ -513,75 +513,144 @@ function showPdfPreviewer() {
 
 }
 
-function createPdf() {
-    var total = 0;
-    $("#save-invoice2").val("Sending..");
-    var opt = {
-        margin: 1,
-        filename: 'myfile.pdf',
-        image: { type: 'jpeg', quality: 0.095 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
-    };
-    const pdfFrame = document.getElementById("pdf-preview");
-    var pdff = html2pdf().set(opt).from(pdfFrame).toPdf().output('datauristring');
-    pdff.then(function (e) {
+// function createPdf() {
+//     var total = 0;
+//     $("#save-invoice2").val("Sending..");
+//     var opt = {
+//         margin: 1,
+//         filename: 'myfile.pdf',
+//         image: { type: 'jpeg', quality: 0.095 },
+//         html2canvas: { scale: 2 },
+//         jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+//     };
+//     const pdfFrame = document.getElementById("pdf-preview");
+//     var pdff = html2pdf().set(opt).from(pdfFrame).toPdf().output('datauristring');
+//     pdff.then(function (e) {
 
-        let data = {
-            'uid': $("#bid").val(),
-            'subject': monthNames[today.getMonth()].toString() + ' Invoice | DKC Lending',
-            'email': $("#pbemail").val(),
-            'fileDataURI': e,
-        };
+//         let data = {
+//             'uid': $("#bid").val(),
+//             'subject': monthNames[today.getMonth()].toString() + ' Invoice | DKC Lending',
+//             'email': $("#pbemail").val(),
+//             'fileDataURI': e,
+//         };
 
 
-        $.ajax({
-            url: "../backend/insurance/send_to_borrower.php",
-            type: 'POST',
-            data: data,
-            success: function (response) {
-                if (response == 'true') {
-                    let data = {
-                        'uid': $("#bid").val(),
-                        'date': date,
-                        'desc': monthNames[today.getMonth()].toString(),
-                        'rate': $("#pbrate").val(),
-                        'fee': ($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val(),
-                        'pamount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),
-                        'amount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),
-                    };
+//         $.ajax({
+//             url: "../backend/insurance/send_to_borrower.php",
+//             type: 'POST',
+//             data: data,
+//             success: function (response) {
+//                 if (response == 'true') {
+//                     let data = {
+//                         'uid': $("#bid").val(),
+//                         'date': date,
+//                         'desc': monthNames[today.getMonth()].toString(),
+//                         'rate': $("#pbrate").val(),
+//                         'fee': ($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val(),
+//                         'pamount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),
+//                         'amount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),
+//                     };
 
-                    $.post("../backend/insurance/addPdfEntry.php", data);
-                    data = {
-                        id: $("#bid").val(),
-                        coll: $("#pbaddress").val(),
-                        borr: $("#pbname").val(),
-                        title: shortHeading,
-                        amt: eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString()
-                    }
-                    // $.ajax({
-                    //     url: "../backend/insurance/addmonth.php",
-                    //     type: 'POST',
-                    //     data: data,
-                    //     success: async function (response) { total += 1; if (total == invoice_datas.length) reload() }
+//                     $.post("../backend/insurance/addPdfEntry.php", data);
+//                     data = {
+//                         id: $("#bid").val(),
+//                         coll: $("#pbaddress").val(),
+//                         borr: $("#pbname").val(),
+//                         title: shortHeading,
+//                         amt: eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString()
+//                     }
+//                     // $.ajax({
+//                     //     url: "../backend/insurance/addmonth.php",
+//                     //     type: 'POST',
+//                     //     data: data,
+//                     //     success: async function (response) { total += 1; if (total == invoice_datas.length) reload() }
 
-                    // });
-                    $("#save-invoice2").val("Sent");
-                    alert("Successfully Send!");
-                } else {
-                    alert("Error While Sending!");
-                }
+//                     // });
+//                     $("#save-invoice2").val("Sent");
+//                     alert("Successfully Send!");
+//                 } else {
+//                     alert("Error While Sending!");
+//                 }
 
-            },
-            error: function (request, status, error) {
-                alert(error);
-            }
+//             },
+//             error: function (request, status, error) {
+//                 alert(error);
+//             }
+//         });
+
+//     });
+
+// }
+
+function createPDF() {
+    const sid = $("#bid").val();
+    const borrower = $("#pbname").val();
+    const collateral = $("#pbaddress").val();
+    const odate = date_dash_div($("#pbodate").val());
+    const mdate = date_dash_div($("#pbmdate").val());
+    const lamount = "$" + parseInt($("#pbtloan").val()).toLocaleString(undefined, { minimumFractionDigits: 2 });
+    const rate = $("#pbrate").val() + "%";
+    const interest = "$" + parseInt($("#pbmpayment").val()).toLocaleString(undefined, { minimumFractionDigits: 2 });
+    var table_tr = '';
+
+    data = { uid: sid }
+    form = $.post('../backend/insurance/get_history.php', data);
+    form.done(function (e) {
+        e = JSON.parse(e);
+        console.log(e);
+        var d = new Date();
+        e.forEach(function (d, i) {
+            table_tr += '<tr>' +
+                '<td>' + date_dash_div(d.date) + '</td>' +
+                '<td>' + d.desc + ' Interest' + '</td>' +
+                '<td>' + d.minterest + "%" + '</td>' +
+                '<td>' + (d.latefees) + '</td>' +
+                '<td>' + "$" + parseInt(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+                '<td>' + "$0.00" + '</td>' +
+                '</tr>';
         });
 
+
+        month = ((today.getMonth() + 1) > 11) ? 0 : today.getMonth() + 1;
+        year = ((today.getMonth() + 1) > 11) ? (today.getFullYear() + 1) : today.getFullYear();
+        month = ((month + 1) < 10) ? `0${month + 1}` : month;
+        tdate = `${month}-01-${year}`;
+        table_tr += '<tr>' +
+            '<td>' + tdate + '</td>' +
+            '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
+            '<td>' + $("#pbrate").val() + "%" + '</td>' +
+            '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
+            '<td>' + "$" + eval(parseInt(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseInt($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
+            '<td>' + "$0.00" + '</td>' +
+            '</tr>';
+
+        const pdfDate = {
+            'sid': sid,
+            'borrower': borrower,
+            'collateral': collateral,
+            'odate': odate,
+            'mdate': mdate,
+            'lamount': lamount,
+            'rate': rate,
+            'interest': interest,
+            'table_tr': table_tr,
+            'email': $("#pbemail").val(),
+            'subject': monthNames[today.getMonth()].toString() + ' Invoice | DKC Lending'
+        }
+        console.log(pdfDate);
+        pdfForm = $.post('../backend/insurance/createPdf.php', pdfDate)
+        pdfForm.done(function (e) {
+            console.log(e);
+        });
+        pdfForm.fail(function (e) {
+            console.log(e);
+        });
     });
 
-}
 
+
+
+}
 
 function deleteBorrower(id, name) {
     var conf = confirm("Are you sure want to delete ( " + name + " ) from the table?");

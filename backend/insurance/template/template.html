@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invoices</title>
+   <link rel="stylesheet" href="template.css">
+</head>
+
+<body>
+    <center>
+        <img src="img/newlogo.jpg" alt="logo" class="logo">
+    </center>
+    <center>
+        <p class="title">Borrower Invoice Summary</p>
+    </center>
+
+    <div class="paragraph">
+        <label>
+            Thank you for choosing DKC Lending for your private financing needs! We are happy
+            to be your loan servicing company, please read the following for further interest
+            payment instructions for the duration of the loan.
+        </label>
+    </div>
+    <div class="details-table">
+        <div><strong>Borrower : </strong> {{ borrower }}</div>
+        <div><strong>Address : </strong> {{ collateral }}</div>
+        <div><strong>Origination Date : </strong> {{ odate }}</div>
+        <div><strong>Maturity Date : </strong> {{ mdate }}</div>
+        <div><strong>Loan Amount : </strong> {{ loan }}</div>
+        <div><strong>Rate % : </strong> {{ rate }}</div>
+        <div><strong>Interest Payment : </strong> {{ interest }}</div>
+    </div>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Monthly Interest</th>
+            <th>Late Fees</th>
+            <th>Amount Due</th>
+            <th>Amount Paid</th>
+        </tr>
+        {{ restdata }}
+    </table>
+
+</body>
+
+</html>
