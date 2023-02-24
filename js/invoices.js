@@ -583,6 +583,7 @@ function showPdfPreviewer() {
 // }
 
 function createPDF() {
+    document.querySelector("#save-invoice2").value = "Sending...";
     const sid = $("#bid").val();
     const borrower = $("#pbname").val();
     const collateral = $("#pbaddress").val();
@@ -659,7 +660,7 @@ function createPDF() {
                     title: shortHeading,
                     amt: eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString()
                 }
-                $("#save-invoice2").val("Sent");
+                document.querySelector("#save-invoice2").value = "Sent";
                 alert("Successfully Send!");
             } else {
                 alert("Error While Sending!");
