@@ -640,7 +640,7 @@ function createPDF() {
         console.log(pdfDate);
         pdfForm = $.post('../backend/insurance/createPdf.php', pdfDate)
         pdfForm.done(function (e) {
-            if (response == 'success') {
+            if (e == 'success') {
                 let data = {
                     'uid': $("#bid").val(),
                     'date': date,
