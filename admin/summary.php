@@ -855,8 +855,11 @@ try {
                             $temp3 = $participant_datas[$parti['username']]['alloc'];
                             $total_alloc += $temp3;
                             $temp4 = $participant_datas[$parti['username']]['unalloc'];
+                           
+                            
                             $total_unalloc += $temp4;
                             $temp5 = $temp1;
+                            $temp1 += $temp4;
                             $total_loan += $temp5;
                             $temp6 = $temp5 - $temp2;
                             $total_drawn += $temp6;
@@ -875,7 +878,6 @@ try {
                         ?>
                         <tr>
                             <td colspan="2">Total</td>
-
                             <td><?php echo "$" . number_format($total_loan, 2); ?></td>
                             <td><?php echo "$" . number_format($total_drawn, 2); ?></td>
                             <td><?php echo "$" . number_format($total_unalloc, 2); ?></td>
