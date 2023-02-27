@@ -387,9 +387,9 @@ input::placeholder {
     position: absolute;
     top: 2px;
     right: 2px;
-    opacity: 0.5;
+    opacity: 1;
     color: white;
-    background-color: red;
+    background-color: rgb(51, 151, 208);
     height: 15px;
     text-align: center;
     width: 15px;
