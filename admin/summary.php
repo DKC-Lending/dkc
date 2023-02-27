@@ -849,7 +849,7 @@ try {
                         foreach ($investors as  $parti) {
 
                             $temp1 = $sumdatas[$parti['username']];
-                            $total_funds += $temp1;
+                        
                             $temp2 = $participant_datas[$parti['username']]['draw'];
                             $total_due += $temp2;
                             $temp3 = $participant_datas[$parti['username']]['alloc'];
@@ -863,6 +863,7 @@ try {
                             $total_loan += $temp5;
                             $temp6 = $temp5 - $temp2;
                             $total_drawn += $temp6;
+                            $total_funds += $temp1;
                             echo "<tr>";
                             echo "<td>" . ($k++) . "</td>";
                             echo "<td>" . ($parti['fname'] . " " . $parti['lname']) . "</td>";
