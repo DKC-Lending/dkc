@@ -1,6 +1,9 @@
 <?php
 	error_reporting(1);
 	session_start();
+	include 'LoginHistory.php';
+	include 'connect.php';
+	$loghistoryObj = new LoginHistory();
 	if(isset($_POST['submit']))
 	{	
 		
@@ -15,10 +18,12 @@
 			$rslt= mysqli_query($conn,$qry);
 			while($datas = mysqli_fetch_array($rslt)){
 				//print_r($datas);
-				//echo $datas['username']."+".$datas['password'];
+				// echo $datas['username']."=".$uname."+".$datas['password']."=".$password."<br>";
 				if ($datas['username'] == $uname && $datas['password']== $password){
 					
 					$_SESSION["cuser"] = $uname;
+					
+					$loghistoryObj->addLoginHistory($conn, $uname);
 					header("Location: ../clients/index.php");
 					die();
 				}
@@ -34,7 +39,6 @@
 					die();	
 				}
 			}
-			//echo $uname.'f'.$password ;
 			header("Location: ../global/login.php?code=2");
 			die();	
 		}else{

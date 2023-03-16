@@ -2,6 +2,10 @@
 	<?php include_once('../backend/adminsession.php'); ?>
 	<?php
 	include '../backend/config/conifg.php';
+	include '../backend/connect.php';
+	include '../backend/LoginHistory.php';
+
+	$loginHistory = new LoginHistory();
 	$web = $config->fetch();
 	?>
 
@@ -57,6 +61,38 @@
 
 
 					</div>
+				</div>
+
+				<div class="loginHistoryHolder">
+					<p class="login-history-title">Login History</p>
+					<?php
+					$loginhistroygroup = $loginHistory->getLoginHistoryByGroup($conn);
+					foreach ($loginhistroygroup as $history) {
+
+					?>
+						<p><?php echo $history[0]['username']; ?></p>
+
+						<table class="login-history-table">
+							<tr>
+								<th>IP Address</th>
+								<th>Time</th>
+							</tr>
+							<?php
+							foreach ($history as $h) {
+							?>
+								<tr>
+									<td><?php echo $h['device']; ?></td>
+									<td><?php echo $h['time']; ?></td>
+								</tr>
+							<?php
+							}
+							?>
+						</table>
+					<?php
+
+					}
+					?>
+
 				</div>
 
 				<div class="body-holder">

@@ -30,7 +30,6 @@ try { ?>
     $sumData = new Summary();
     $sumMonths = 0;
     $summData = $sumData->specificData($uname, $sum_conn);
-    print_r($uname);
     $heading =  $sumData->get_heading($sum_conn);
     $monthlly = $sumData->getMonthlyData($sum_conn);
 
