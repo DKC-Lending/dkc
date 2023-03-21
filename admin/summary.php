@@ -622,13 +622,9 @@ try {
                                         if (count($multi_arr) > 0) {
                                             foreach ($multi_arr as $mul) {
                                                 if ($sum['sid'] == $mul['sid']) {
-                                                    $temp_mul = explode(":", $mul["collateral"]);
-                                                    $temp_expiry = explode(":", $mul["expiry"]);
-                                                    break;
-                                                } else {
-                                                    $temp_mul = [];
-                                                    $temp_expiry = [];
-                                                }
+                                                    array_push($temp_mul, $mul['collateral']);
+                                                    array_push($temp_expiry, $mul['expiry']);  
+                                                } 
                                             }
                                         }
                                         ?>

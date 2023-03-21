@@ -1,5 +1,7 @@
 <?php
 
+include('../../library/smtp/PHPMailerAutoload.php');
+
 function send_email($to,$html,$subject){
 	
 	

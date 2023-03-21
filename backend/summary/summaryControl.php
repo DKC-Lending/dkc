@@ -239,4 +239,15 @@ class Summary
         }
         return $inv_holder;
     }
+
+    function get_multiple_collateral($sum_conn)
+    {
+        $res = [];
+        $query = "SELECT summary.sid, summary.bllc, summary.bcoll,summary.bphone, summary.bemail, summary.mdate, summary.iexpiry, multiple.collateral, multiple.expiry FROM summary LEFT JOIN multiple ON summary.sid = multiple.sid ORDER by sid ASC";
+        $qry = mysqli_query($sum_conn, $query);
+        while ($data = mysqli_fetch_assoc($qry)) {
+            $res[$data['sid']][] = $data;
+        }
+        return $res;
+    }
 }
