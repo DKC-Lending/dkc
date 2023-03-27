@@ -26,20 +26,6 @@ if ($_GET['dkc'] == 'FCT1') {
     $loan = "DKC Lending LLC";
 }
 // $loan = $_GET['loans'];
-$mcollarr = "";
-$mexpiryarr = "";
-for ($i = 0; $i < 5; $i++) {
-    if ($_GET['mcoll' . $i] != null || $_GET['mcoll' . $i] != "") {
-        $mcollarr = $mcollarr . $_GET['mcoll' . $i] . ":";
-        $mexpiryarr = $mexpiryarr . $_GET['mexpiry' . $i] . ":";
-    }
-}
-if (strlen($mcollarr) > 2) {
-    $mcollarr = substr($mcollarr, 0, -1);
-    $mexpiryarr = substr($mexpiryarr, 0, -1);
-    echo $mcollarr;
-    echo $mexpiryarr;
-}
 
 
 $bphone = $_GET['bnum'];
@@ -98,14 +84,25 @@ if ($_SESSION['auser'] == 'david') {
 }
 
 $sql = "INSERT INTO `summary`( `bllc`, `fname`, `lname`, `bcoll`, `link`, `tloan`, `irate`, `odate`, `mdate`, `bphone`, `bemail`, `iexpiry`, `taxurl`, `ach`, `service`,`dkc`,  `dkcamt`, `dkcrate`, `dkcprorated`, `dkcregular`, `p1`, `p1amt`, `p1rate`, `p1prorated`, `p1regular`, `p2`, `p2amt`, `p2rate`, `p2prorated`, `p2regular`, `p3`, `p3amt`, `p3rate`, `p3prorated`, `p3regular`,`p4`, `p4amt`, `p4rate`, `p4prorated`, `p4regular`, `balance`,  `servicingamt`, `yieldamt`,`servicingrate`, `yieldrate`, `servicingprorated`, `yieldprorated`, `servicingregular`, `yieldregular`,`loan`, `status`, `iszero`) VALUES ('$bllc','$fname','$lname','$cadd','$link','$tloan','$trate','$odate','$mdate','$bphone','$bemail','$iexpiry','$taxurl','$ach','$business','$dkc','$dkcamt', '$dkcrate','$dkcprorated', '$dkcregular', '$p1', '$p1amt','$p1rate', '$p1prorated', '$p1regular','$p2', '$p2amt','$p2rate', '$p2prorated', '$p2regular','$p3', '$p3amt','$p3rate', '$p3prorated', '$p3regular','$p4', '$p4amt','$p4rate', '$p4prorated', '$p4regular','$balance', '$servicing', '$yield', '$servicingrate', '$yieldrate', '$servicingprorated', '$yieldprorated', '$servicingregular', '$yieldregular','$loan','$status', '$iszero')";
-if (mysqli_query($sum_conn, $sql)) {
-    $table_sql = "CREATE TABLE `riazhwtz_pdf`.`p$sum_conn->insert_id` ( `uid` INT NOT NULL AUTO_INCREMENT , `date` VARCHAR(500) NOT NULL , `desc` VARCHAR(500) NOT NULL , `minterest` VARCHAR(500) NOT NULL , `latefees` VARCHAR(500) NOT NULL , `adue` VARCHAR(500) NOT NULL , `apaid` VARCHAR(500) NOT NULL , PRIMARY KEY (`uid`)) ENGINE = InnoDB";
+echo $sql;
+$result = mysqli_query($sum_conn, $sql);
+$insertId = $sum_conn->insert_id;
+
+if ($result) {
+    $table_sql = "CREATE TABLE `riazhwtz_pdf`.`p$insertId` ( `uid` INT NOT NULL AUTO_INCREMENT , `date` VARCHAR(500) NOT NULL , `desc` VARCHAR(500) NOT NULL , `minterest` VARCHAR(500) NOT NULL , `latefees` VARCHAR(500) NOT NULL , `adue` VARCHAR(500) NOT NULL , `apaid` VARCHAR(500) NOT NULL , PRIMARY KEY (`uid`)) ENGINE = InnoDB";
     mysqli_query($pdfconn, $table_sql);
 }
-if (strlen($mcollarr) > 1) {
-    $sql = "INSERT INTO `multiple`(`sid`, `collateral`, `expiry`) VALUES ('$sum_conn->insert_id','$mcollarr','$mexpiryarr')";
-    mysqli_query($sum_conn, $sql);
+
+for ($i = 0; $i < 5; $i++) {
+    if ($_GET['mcoll' . $i] != null || $_GET['mcoll' . $i] != "") {
+        $mcollarr = $_GET['mcoll' . $i];
+        $mexpiryarr = $_GET['mexpiry' . $i];
+        $sql = "INSERT INTO `multiple`(`sid`, `collateral`, `expiry`) VALUES ('$insertId,'$mcollarr','$mexpiryarr')";
+        echo $sql;
+        mysqli_query($sum_conn, $sql);
+    }
 }
+
 
 header('Location: ../../admin/summary.php');
 exit();

@@ -414,7 +414,7 @@ function preview_form(datas) {
         month = ((month + 1) < 10) ? `0${month + 1}` : month;
         tdate = `${month}-01-${year}`;
         $("#bid").val(datas.sid);
-        $("#current-invoice-date").html("Send Invoice for: " + tdate + ' (' + monthNames[today.getMonth()] + ')');
+        $("#current-invoice-date").html("Send Invoice for: " + tdate + ' (' + monthNames[today.getMonth()+1] + ')');
         $("#pbname").val(datas.bllc);
         $("#pbaddress").val(datas.bcoll);
         $("#pbtloan").val(datas.tloan);
@@ -488,7 +488,7 @@ function showPdfPreviewer() {
         tdate = `${month}-01-${year}`;
         $("#pdf-table").append('<tr>' +
             '<td>' + tdate + '</td>' +
-            '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
+            '<td>' + monthNames[today.getMonth()+1].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
             '<td>' + "$" + eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
@@ -497,13 +497,13 @@ function showPdfPreviewer() {
 
             '</tr>');
         try {
-            if (e[e.length - 1].desc == monthNames[d.getMonth()]) {
+            if (e[e.length - 1].desc == monthNames[d.getMonth()+1]) {
                 $("#save-invoice2").prop('disabled', true);
                 $("#save-invoice2").val("disable");
                 document.getElementById("save-invoice2").style.background = "grey";
-
+alert("Invoice of this month was sent previously");
             }
-            alert("Invoice of this month was sent previously");
+            
         } catch (error) {
             console.log(error);
         }
@@ -549,7 +549,7 @@ function createPDF() {
         tdate = `${month}-01-${year}`;
         table_tr += '<tr>' +
             '<td>' + tdate + '</td>' +
-            '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
+            '<td>' + monthNames[today.getMonth()+1].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
             '<td>' + "$" + eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
@@ -567,7 +567,7 @@ function createPDF() {
             'interest': interest,
             'table_tr': table_tr,
             'email': $("#pbemail").val(),
-            'subject': monthNames[today.getMonth()].toString() + ' Invoice | DKC Lending'
+            'subject': monthNames[today.getMonth() + 1].toString() + ' Invoice | DKC Lending'
         }
         console.log(pdfDate);
         pdfForm = $.post('../backend/insurance/createPdf.php', pdfDate)
@@ -575,8 +575,8 @@ function createPDF() {
             if (e == 'success') {
                 let data = {
                     'uid': $("#bid").val(),
-                    'date': date,
-                    'desc': monthNames[today.getMonth()].toString(),
+                    'date': tdate,
+                    'desc': monthNames[today.getMonth()+1].toString(),
                     'rate': $("#pbrate").val(),
                     'fee': ($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val(),
                     'pamount': eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toString(),

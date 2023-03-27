@@ -7,7 +7,7 @@ $fname = $_GET['fname'];
 $lname = $_GET['lname'];
 $link = $_GET['clink'];
 $cadd = $_GET['caddress'];
- $tloan = $_GET['tloan'];
+$tloan = $_GET['tloan'];
 if ($_GET['dkc'] == 'FCT1') {
     $loan = "First Capital Trusts LLC";
 } elseif ($_GET['dkc'] == 'DKCFL') {
@@ -16,7 +16,7 @@ if ($_GET['dkc'] == 'FCT1') {
     $loan = "DKC Lending CL";
 } elseif ($_GET['dkc'] == 'DKCIV') {
     $loan = "DKC Lending IV";
-}  else {
+} else {
     $loan = "DKC Lending LLC";
 }
 $trate = $_GET['irate'];
@@ -77,45 +77,27 @@ $yieldregular = $_GET['yieldregular'];
 $balance = $_GET['check'];
 // $loan = $_GET['loans'];
 $iszero = $_GET['iszero'];
-$mcollarr = "";
-$mexpiryarr = "";
-for ($i = 0; $i < 5; $i++) {
-    if ($_GET['mcoll' . $i] != null || $_GET['mcoll' . $i] != "") {
-        $mcollarr = $mcollarr . $_GET['mcoll' . $i] . ":";
-        $mexpiryarr = $mexpiryarr . $_GET['mexpiry' . $i] . ":";
-    }
-}
-if (strlen($mcollarr) > 2) {
-    $mcollarr = substr($mcollarr, 0, -1);
-    $mexpiryarr = substr($mexpiryarr, 0, -1);
-}
+
 
 
 $sql = "UPDATE `summary` SET `bllc`='$bllc',`fname`='$fname',`lname`='$lname',`bcoll`='$cadd',`link`='$link',`tloan`='$tloan',`irate`='$trate',`odate`='$odate',`mdate`='$mdate',`bphone`='$bphone',`bemail`='$bemail',`iexpiry`='$iexpiry',`taxurl`='$taxurl',`ach`='$ach',`service`='$business',`dkc`='$dkc', `dkcamt`='$dkcamt',`dkcrate`='$dkcrate',`dkcprorated`='$dkcprorated',`dkcregular`='$dkcregular',`p1`='$p1',`p1amt`='$p1amt',`p1rate`='$p1rate',`p1prorated`='$p1prorated',`p1regular`='$p1regular',`p2`='$p2',`p2amt`='$p2amt',`p2rate`='$p2rate',`p2prorated`='$p2prorated',`p2regular`='$p2regular',`p3`='$p3',`p3amt`='$p3amt',`p3rate`='$p3rate',`p3prorated`='$p3prorated',`p3regular`='$p3regular', `p4`='$p4',`p4amt`='$p4amt',`p4rate`='$p4rate',`p4prorated`='$p4prorated',`p4regular`='$p4regular',`balance`='$balance',`servicingamt`='$servicing',`yieldamt`='$yield',`servicingrate`='$servicingrate',`yieldrate`='$yieldrate',`servicingprorated`='$servicingprorated',`yieldprorated`='$yieldprorated',`servicingregular`='$servicingregular',`yieldregular`='$yieldregular',`loan`='$loan' ,`iszero`='$iszero' WHERE `sid`='$uid'";
-
-echo $sql;
 $res = mysqli_query($sum_conn, $sql);
-echo $res;
-
-$result = mysqli_query($sum_conn, "SELECT * FROM `multiple` WHERE `sid`='$uid'");
 
 
-if (strlen($mcollarr) > 0) {
-    if (mysqli_num_rows($result) > 0) {
+$sql = "DELETE FROM `multiple` WHERE `sid`='$uid'";
+mysqli_query($sum_conn, $sql);
 
-        $sql = "UPDATE `multiple` SET `collateral`='$mcollarr',`expiry`='$mexpiryarr' WHERE `sid`='$uid'";
-        mysqli_query($sum_conn, $sql);
-    } else {
+
+for ($i = 0; $i < 5; $i++) {
+    if ($_GET['mcoll' . $i] != null || $_GET['mcoll' . $i] != "") {
+        $mcollarr = $_GET['mcoll' . $i];
+        $mexpiryarr = $_GET['mexpiry' . $i];
         $sql = "INSERT INTO `multiple`(`sid`, `collateral`, `expiry`) VALUES ('$uid','$mcollarr','$mexpiryarr')";
-        mysqli_query($sum_conn, $sql);
-    }
-} else {
-    if (mysqli_num_rows($result) > 0) {
-        $sql = "DELETE FROM `multiple` WHERE `sid`='$uid'";
         mysqli_query($sum_conn, $sql);
     }
 }
 
+
+
 header('Location: ../../admin/summary.php');
 exit();
-?>
