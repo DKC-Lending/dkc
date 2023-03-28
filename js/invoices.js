@@ -476,7 +476,7 @@ function showPdfPreviewer() {
                 '<td>' + (d.latefees) + '</td>' +
                 '<td>' + "$" + parseFloat(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 // '<td>' + "$" + d.apaid + '</td>' +
-                '<td>' + "$0.00" + '</td>' +
+                '<td>' +"$" + parseFloat(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 '</tr>');
         });
 
@@ -538,7 +538,7 @@ function createPDF() {
                 '<td>' + d.minterest + "%" + '</td>' +
                 '<td>' + (d.latefees) + '</td>' +
                 '<td>' + "$" + parseFloat(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
-                '<td>' + "$0.00" + '</td>' +
+                '<td>' + "$" + parseFloat(d.adue).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
                 '</tr>';
         });
 
