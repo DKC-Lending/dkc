@@ -488,7 +488,7 @@ function showPdfPreviewer() {
         tdate = `${month}-01-${year}`;
         $("#pdf-table").append('<tr>' +
             '<td>' + tdate + '</td>' +
-            '<td>' + monthNames[today.getMonth()+1].toString() + ' Interest' + '</td>' +
+            '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
             '<td>' + "$" + eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
@@ -549,7 +549,7 @@ function createPDF() {
         tdate = `${month}-01-${year}`;
         table_tr += '<tr>' +
             '<td>' + tdate + '</td>' +
-            '<td>' + monthNames[today.getMonth()+1].toString() + ' Interest' + '</td>' +
+            '<td>' + monthNames[today.getMonth()].toString() + ' Interest' + '</td>' +
             '<td>' + $("#pbrate").val() + "%" + '</td>' +
             '<td>' + (($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "X" : "$" + $("#plfee").val()) + '</td>' +
             '<td>' + "$" + eval(parseFloat(($("#plfee").val() == "" || $("#plfee").val() == "x" || $("#plfee").val() == "X") ? "0.00" : $("#plfee").val()) + parseFloat($("#pbmpayment").val())).toLocaleString(undefined, { minimumFractionDigits: 2 }) + '</td>' +
@@ -567,7 +567,7 @@ function createPDF() {
             'interest': interest,
             'table_tr': table_tr,
             'email': $("#pbemail").val(),
-            'subject': monthNames[today.getMonth() + 1].toString() + ' Invoice | DKC Lending'
+            'subject': monthNames[today.getMonth()].toString() + ' Invoice | DKC Lending'
         }
         console.log(pdfDate);
         pdfForm = $.post('../backend/insurance/createPdf.php', pdfDate)
