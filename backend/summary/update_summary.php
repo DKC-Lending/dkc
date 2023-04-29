@@ -8,13 +8,26 @@ $lname = $_GET['lname'];
 $link = $_GET['clink'];
 $cadd = $_GET['caddress'];
 $tloan = $_GET['tloan'];
+
+/*
+
+    <option value="DKC">DKC Lending LLC</option>
+    <option value="DKCFL">DKC Lending FL</option>
+    <option value="DKCCL">DKC Lending CFL</option>
+    <option value="FCT1">First Capital Trusts</option>
+    <option value="DKCIV">DKC Lending IV</option>
+    <option value="DKCL">DKC Lending CL</option>
+
+*/
 if ($_GET['dkc'] == 'FCT1') {
     $loan = "First Capital Trusts LLC";
 } elseif ($_GET['dkc'] == 'DKCFL') {
     $loan = "DKC Lending FL";
 } elseif ($_GET['dkc'] == 'DKCL') {
     $loan = "DKC Lending CL";
-} elseif ($_GET['dkc'] == 'DKCIV') {
+} elseif ($_GET['dkc'] == 'DKCCL') {
+    $loan = "DKC Lending CFL";
+}elseif ($_GET['dkc'] == 'DKCIV') {
     $loan = "DKC Lending IV";
 } else {
     $loan = "DKC Lending LLC";
@@ -22,8 +35,6 @@ if ($_GET['dkc'] == 'FCT1') {
 $trate = $_GET['irate'];
 $odate = $_GET['odate'];
 $mdate = $_GET['mdate'];
-
-
 
 $bphone = $_GET['bnum'];
 $bemail = $_GET['bemail'];
@@ -75,7 +86,6 @@ $yieldprorated = $_GET['yieldprorated'];
 $yieldregular = $_GET['yieldregular'];
 
 $balance = $_GET['check'];
-// $loan = $_GET['loans'];
 $iszero = $_GET['iszero'];
 
 

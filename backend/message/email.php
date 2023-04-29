@@ -3,8 +3,9 @@
 include('../../library/smtp/PHPMailerAutoload.php');
 
 function send_email($to,$html,$subject){
-	
-	
+	$headers = 'From: webmaster@dkclending.com' . "\r\n" .
+    'Reply-To: info@dkclending.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
 	$mail = new PHPMailer(); 
 	
 	$mail->IsSMTP(); 
@@ -16,10 +17,13 @@ function send_email($to,$html,$subject){
 	$mail->CharSet = 'UTF-8';
 	$mail->Username = "webmaster@dkclending.com";
 	$mail->Password = "hyijkhjyaechjffz";
-	$mail->SetFrom("webmaster@dkclending.com");
+	$mail->SetFrom("info@dkclending.com");
 	$mail->Subject = $subject;
+	
 	$mail->Body =$html;
 	$mail->AddAddress($to);
+	$mail->addCustomHeader('In-Reply-To', $headers);
+	$mail->addCustomHeader('References',  $headers);
 	$mail->SMTPOptions=array('ssl'=>array(
 		'verify_peer'=>false,
 		'verify_peer_name'=>false,
