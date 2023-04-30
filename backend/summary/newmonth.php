@@ -135,48 +135,40 @@ foreach ($inv_holder as $key => $inv) {
         $dayDiff = abs(intval($lDate->diff($cDate)->format("%r%a")));
 
 
-
+        if ($loanDay == 31 && $loanMonth == 3) {
+            echo "<br>" . $dayDiff . " " . $i[0] . " : " . $i[1] . "<br>";
+        }
         // if (($loanMonth == $currentMonth && $loanYear == $currentYear) || ($loanMonth + 1 == $currentMonth && $loanYear == $currentYear)) {
 
-            if ($i[4] == 0 || $i[4] == '0') {
+        if ($i[4] == 0 || $i[4] == '0') {
 
-                if ($loanMonth == $currentMonth && $loanYear == $currentYear) {
-                    $value = 0;
-                } else {
-                    if ($loanDay == 30 && $loanMonth == 3) {
-                        echo "<br>" . $i[0] . " : " . $i[1] . "<br>";
-                    }
-                    $proMonth = $loanMonth + 1;
-                    if ($dayDiff < 32 && $loanYear <= $currentYear) {
-                        $value = $i[3];
-                        if ($loanDay == 30 && $loanMonth == 3) {
-                            echo "<br>" . $i[0] . " : " . $i[1] . "<br>";
-                        }
-                    } else {
-                        $regMonth = $loanMonth + 2;
-                        if ($dayDiff >= 32 && $loanYear <= $currentYear) {
-                            $value = $i[2];
-                            if ($loanDay == 30 && $loanMonth == 3) {
-                                echo "<br>" . $i[0] . " : " . $i[1] . "<br>";
-                            }
-                        }
-                        // else {
-                        //     $value = 0;
-                        // }
-                    }
-                }
-            } else {
-
+            if ($loanMonth == $currentMonth && $loanYear == $currentYear) {
                 $value = 0;
+            } else {
+                $proMonth = $loanMonth + 1;
+                if ($proMonth == $currentMonth && $loanYear == $currentYear) {
+                    $value = $i[3];
+                } else {
+                    if ($loanYear <= $currentYear) {
+                        $value = $i[2];
+                    }
+                    // else {
+                    //     $value = 0;
+                    // }
+                }
             }
-            //    $mr = explode("-",$i[1]);
-            //    if($mr[0]>6 && $mr[2]==2022){
-            //                echo "<br>".$i[1]." : ".$value."<br>";
+        } else {
 
-            //    }
+            $value = 0;
+        }
+        //    $mr = explode("-",$i[1]);
+        //    if($mr[0]>6 && $mr[2]==2022){
+        //                echo "<br>".$i[1]." : ".$value."<br>";
 
-            $sql = "UPDATE `months` SET `$title`='$value' WHERE sumid = '$sumid' AND investor='$key'";
-            mysqli_query($sum_conn, $sql);
+        //    }
+
+        $sql = "UPDATE `months` SET `$title`='$value' WHERE sumid = '$sumid' AND investor='$key'";
+        mysqli_query($sum_conn, $sql);
         // }
     }
 }
