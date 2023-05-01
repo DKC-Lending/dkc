@@ -118,7 +118,7 @@
 								}
 								?>
 								<td><?php echo $arr[$i]["fname"] . " " . $arr[$i]["lname"]; ?></td>
-								<td><?php echo $arr[$i]["password"]; ?></td>
+								<td> <?php echo ($_SESSION['auser'] == 'david')? $arr[$i]["password"]: "***********"; ?></td>
 								<td><?php echo $arr[$i]["email"]; ?></td>
 								<td><?php echo $arr[$i]["phone"]; ?></td>
 								<td><?php echo $arr[$i]["saddress"]; ?></td>
