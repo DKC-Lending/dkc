@@ -529,7 +529,6 @@ function createPDF() {
     form = $.post('../backend/insurance/get_history.php', data);
     form.done(function (e) {
         e = JSON.parse(e);
-        console.log(e);
         var d = new Date();
         e.forEach(function (d, i) {
             table_tr += '<tr>' +
@@ -569,9 +568,9 @@ function createPDF() {
             'email': $("#pbemail").val(),
             'subject': monthNames[today.getMonth()].toString() + ' Invoice | DKC Lending'
         }
-        console.log(pdfDate);
         pdfForm = $.post('../backend/insurance/createPdf.php', pdfDate)
         pdfForm.done(function (e) {
+            console.log(e);
             if (e == 'success') {
                 let data = {
                     'uid': $("#bid").val(),
