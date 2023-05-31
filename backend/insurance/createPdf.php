@@ -118,7 +118,7 @@ try {
         $dompdf->setBasePath($_SERVER['DOCUMENT_ROOT']);
         $base_path =  $dompdf->getBasePath();
         $output = $dompdf->output();
-        $file_ = "$basepath/pdf/$sid/" . date("d.m.Y..h.i.s") . ".pdf";
+        $file_ = "$base_path/pdf/$sid/" . date("d.m.Y..h.i.s") . ".pdf";
 
         echo $file_;
         if (folder_exist("$base_path/pdf/$sid")) {
