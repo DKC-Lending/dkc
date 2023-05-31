@@ -14,7 +14,6 @@ try {
     {
         // Get canonicalized absolute pathname
         $path = realpath($folder);
-        echo $path;
 
         // If it exist, check if it's a directory
         return ($path !== false and is_dir($path)) ? $path : false;
@@ -92,7 +91,7 @@ try {
         $html = file_get_contents("template/template.html");
         // echo $html;
         $html = str_replace($keys_arr, $value_arr, $html);
-        echo $html;
+      
         $dompdf->setBasePath('template/');
         $dompdf->loadHtml($html);
 
@@ -120,7 +119,6 @@ try {
         $output = $dompdf->output();
         $file_ = "$base_path/pdf/$sid/" . date("d.m.Y..h.i.s") . ".pdf";
 
-        echo $file_;
         if (folder_exist("$base_path/pdf/$sid")) {
             file_put_contents($file_, $output);
         } else {
