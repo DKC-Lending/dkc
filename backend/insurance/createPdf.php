@@ -31,7 +31,7 @@ try {
         $mail->IsHTML(true);
         $mail->CharSet = 'UTF-8';
         $mail->Username = "mason@dkclending.com";
-        $mail->Password = "dfhtiradumjqehcw";
+        $mail->Password = "eahhkqbwpbcvoisn";
         $mail->SetFrom("mason@dkclending.com");
         $mail->Subject = $subject;
         $mail->Body = $html;
